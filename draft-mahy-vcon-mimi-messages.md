@@ -35,7 +35,9 @@ informative:
 
 --- abstract
 
-TODO Abstract
+This document describes a Virtualized Conversation (VCON) syntax
+for instant messaging systems using the More Instant Messaging
+Interoperability (MIMI) content format.
 
 
 --- middle
