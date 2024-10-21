@@ -9,18 +9,18 @@ number:
 date:
 consensus: true
 v: 3
-area: AREA
-workgroup: VCON Working Group
+area: "Applications and Real-Time"
+workgroup: "Virtualized Conversations"
 keyword:
  - instant messaging
  - message history
 venue:
-  group: WG
-  type: Working Group
-  mail: WG@example.com
-  arch: https://example.com/WG
-  github: USER/REPO
-  latest: https://example.com/LATEST
+  group: "Virtualized Conversations"
+  type: "Working Group"
+  mail: "vcon@ietf.org"
+  arch: "https://mailarchive.ietf.org/arch/browse/vcon/"
+  github: "rohanmahy/vcon-mimi-messages"
+  latest: "https://rohanmahy.github.io/vcon-mimi-messages/draft-mahy-vcon-mimi-messages.html"
 
 author:
  -
