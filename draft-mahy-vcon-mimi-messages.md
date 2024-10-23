@@ -76,7 +76,10 @@ period represented by the VCON.
 
 This document adds a new party_object_type: `imUri`. It is mandatory.
 The `name` field is optional. The `role` indicates the MIMI role and is
-optional.
+optional. The document also adds a `thumbprint` party_object_type, which is
+the JWK thumbprint of the public key of the party. If there are multiple
+parties (clients) with the same `imUri` then the thumbprint is required,
+otherwise it is optional.
 
 ## Extensions to the dialog object
 
@@ -87,6 +90,7 @@ The originator is set to the parties index of the sender of the message.
 
 - `messageId` is the base64url encoding of the MIMI content messageId. It is mandatory.
 - `replaces` is the base64url encoding of the MIMI content messageId of the message this message replaces. It is optional if empty.
+- `topicId` is the base64url encoding of the MIMI topicId. It is optional if empty.
 - `expires` is the expiration date/time of the message expressed as a VCON
 (text) date_type. It is optional if empty.
 - `inReplyTo` is the base64url encoding of the MIMI content messageId of the message to which this message is replying (or reacting). It is optional if empty.
@@ -94,20 +98,32 @@ The originator is set to the parties index of the sender of the message.
 - `mimiExtensions` is a object (map) containing MIMI extensions. It is optional.
 
 VCON typically expresses content using the body, encoding, and mimetype
-fields. In order to preserve this convention we use these fields directly for a MIMI SinglePart structure, but use new MultiPart and ExternalPart
-structure for those MIMI structures.
-
-ExternalPart has several fields for the decryption and integrity of the referenced content. These can be omitted once the content has been downloaded, decrypted, verified, and included in the VCON attachments array.
+fields. In order to preserve this convention we use these fields directly
+for a MIMI SinglePart structure, but use new MultiPart and ExternalPart
+structure for those MIMI structures. For a SinglePart these two fields could
+be present.
 
 - `disposition` - optional if set to the default value ("render")
 - `language` - optional if absent
-- `partIndex` is an integer. It is mandatory
+
+
 
 
 ## MultiPart
 
 - `partSemantics` is one of "chooseOne", "singleUnit", or "processAll". It is mandatory.
 - `parts` is an array of `Part`s. It is mandatory.
+
+## Part
+
+- `disposition` - optional if set to the default value ("render")
+- `language` - optional if absent
+- `partIndex` is an unsigned integer. It is mandatory
+- `cardinality` is one of "nullpart", "single", "external", or "multi". mandatory.
+
+if cardinality is "single" or "external", then body, encoding, and mimetype
+fields are included directly in the Part object.
+
 
 ## ExternalPart
 
@@ -117,6 +133,11 @@ ExternalPart has several fields for the decryption and integrity of the referenc
 - size is an integer number of octets. optional.
 - description is a text string. optional.
 - filename is a text string. optional.
+
+ExternalPart has several fields for the decryption and integrity of the
+referenced content. These can be omitted once the content has been
+downloaded, decrypted, verified, and included in the VCON attachments array.
+
 
 These encryption/validation related fields can be omitted once the content is available locally as an attachment. All of them are base64url encoded strings. Otherwise they are mandatory if present in the MIMI content.
 
@@ -129,22 +150,13 @@ These encryption/validation related fields can be omitted once the content is av
 
 **TODO**: how to represent a downloaded and decrypted object in attachments?
 
-## Part
-
-- `disposition` - optional if set to the default value ("render")
-- `language` - optional if absent
-- `partIndex` is an integer. It is mandatory
-- `cardinality` is one of "nullpart", "single", "external", or "multi". mandatory.
-
-if cardinality is "single", then body, encoding, and mimetype
-fields are included directly in the Part object.
-
 ## Changes to the room
 
 Changes to the room metadata or participation should be accompanied by
 a new dialog type:
 
 - room metadata changes
+- participant identity change
 - participants joining and leaving
 - participants adding new clients
 - moderation events?
@@ -166,7 +178,286 @@ party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
 
 # Examples
 
-Will fill in after the draft deadline.
+The example vcon consists of the example messages from Section 5 of the MIMI content specification plus a single multipart message.
+
+~~~ json
+{
+  "vcon": "0.0.1",
+  "room": {
+    "id": "mimi://example.com/r/engineering_team",
+    "name": "Engineering Team",
+  }
+  "parties": [
+    {
+      "imUri": "mimi://example.com/u/alice-smith",
+      "name": "Alice Smith",
+      "role": "moderator",
+      "thumbprint": "TODOFIXDZXCog_FfQp-xLemZkD5GKB9H7Z-Y41O4jEw"
+    },
+    {
+      "imUri": "mimi://example.com/u/bob-jones",
+      "name": "Bob Jones",
+      "role": "member",
+      "thumbprint": "TODOFIXYUFE7bV9pXAHZHi5bwSWzLJqjncevs9aLKDg"
+    },
+    {
+      "imUri": "mimi://example.com/u/cathy-washington",
+      "name": "Cathy Washington",
+      "role": "member",
+      "thumbprint": "TODOFIXzH3EeOGbI0-oiDGTXlgKmkMzQyQ2W_Y-TB1U"
+    }
+  ],
+  "dialog": [
+    {
+      "type": "text",
+      "start": "2022-02-08T22:13:45.019-00:00",
+      "duration": 0,
+      "parties": [
+        0, 1, 2
+      ],
+      "originator": 0,
+      "messageId": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+      "lastSeen": [],
+      "mimetype": "text/markdown;variant=GFM",
+      "encoding": "none"
+      "body":
+        "Hi everyone, we just shipped release 2.0. __Good work__!",
+    },
+
+    {
+      "type": "text",
+      "start": "2022-02-08T22:13:57.492-00:00",
+      "duration": 0,
+      "parties": [
+        0, 1, 2
+      ],
+      "originator": 1,
+      "messageId": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
+      "inReplyTo": [
+        "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+        1,
+        "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
+      ],
+      "lastSeen": [
+        "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ"
+      ],
+      "mimetype": "text/markdown;variant=GFM",
+      "encoding": "none"
+      "body": "Right on! _Congratulations_ \'all!",
+    },
+
+    {
+      "type": "text",
+      "start": "2022-02-08T22:13:57.728-00:00",
+      "duration": 0,
+      "parties": [
+        0, 1, 2
+      ],
+      "originator": 2,
+      "messageId": "2YF0k6blW9ZbJ8sgXJgMCTJOlofazdKwVRvf6ZUORFA",
+      "inReplyTo": [
+        "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+        1,
+        "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
+      ],
+      "lastSeen": [
+        "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo"
+      ],
+      "disposition": "reaction",
+      "mimetype": "text/plain;charset=utf-8",
+      "encoding": "none"
+      "body": "❤",
+    },
+
+    {
+      "type": "text",
+      "start": "2022-02-08T22:14:03.008-00:00",
+      "duration": 0,
+      "parties": [
+        0, 1, 2
+      ],
+      "originator": 2,
+      "messageId": "rF4iS5BcJ-aFfisoFDCrnTE9pZZBGCxGCoXGJ9VXnck",
+      "lastSeen": [
+        "2YF0k6blW9ZbJ8sgXJgMCTJOlofazdKwVRvf6ZUORFA"
+      ],
+      "mimetype": "text/markdown;variant=GFM",
+      "encoding": "none"
+      "body":
+        "Kudos to [@Alice Smith](mimi://example.com/alice-smith) for
+making the release happen!",
+    },
+
+    {
+      "type": "text",
+      "start": "2022-02-08T22:14:08.621-00:00",
+      "duration": 0,
+      "parties": [
+        0, 1, 2
+      ],
+      "originator": 1,
+      "messageId": "-GqJXuoaJu1Xosu-N8nt6NWzA2RLmIRY0q9jf_kvWkM",
+      "replaces": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
+      "inReplyTo": [
+        "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+        1,
+        "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
+      ],
+      "messageId": "-GqJXuoaJu1Xosu-N8nt6NWzA2RLmIRY0q9jf_kvWkM",
+      "lastSeen": [
+        "2YF0k6blW9ZbJ8sgXJgMCTJOlofazdKwVRvf6ZUORFA",
+        "rF4iS5BcJ-aFfisoFDCrnTE9pZZBGCxGCoXGJ9VXnck"
+      ],
+      "mimetype": "text/markdown;variant=GFM",
+      "encoding": "none"
+      "body": "Right on! _Congratulations_ y'all"
+    },
+
+    {
+      "type": "text",
+      "start": "2022-02-08T22:14:08.621-00:00",
+      "duration": 0,
+      "parties": [
+        0, 1, 2
+      ],
+      "originator": 1,
+      "messageId": "8cqo1B9IA6nnB63oPEnmWxIqr7uk7WvQTBgVVlD_Q2c",
+      "replaces": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
+      "inReplyTo": [
+        "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+        1,
+        "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
+      ],
+      "lastSeen": [
+        "-GqJXuoaJu1Xosu-N8nt6NWzA2RLmIRY0q9jf_kvWkM"
+      ]
+    },
+
+    {
+      "type": "text",
+      "start": "2022-02-08T22:14:10.389-00:00",
+      "duration": 0,
+      "parties": [
+        0, 1, 2
+      ],
+      "originator": 2,
+      "messageId": "bYZ2NHaryq0WS2pq5IE9fMc4zltUyE6WrKJ7bNB5tMc",
+      "replaces": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
+      "inReplyTo": [
+        "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+        1,
+        "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
+      ],
+      "lastSeen": [
+        "8cqo1B9IA6nnB63oPEnmWxIqr7uk7WvQTBgVVlD_Q2c"
+      ],
+      "disposition": "reaction"
+    },
+
+    {
+      "type": "text",
+      "start": "2022-02-08T22:49:06.227-00:00",
+      "duration": 0,
+      "parties": [
+        0, 1, 2
+      ],
+      "originator": 0,
+      "messageId": "GkblzkXJxyar0lTgkfcMQ0wo8qpbcU0MqtTg-gM1FiY",
+      "expiring": "2022-02-08T22:59:06.227-00:00"
+      "lastSeen": [
+        "bYZ2NHaryq0WS2pq5IE9fMc4zltUyE6WrKJ7bNB5tMc"
+      ],
+      "status": "expired"
+    },
+
+    {
+      "type": "text",
+      "start": "2022-02-08T22:53:41.134-00:00",
+      "duration": 0,
+      "parties": [
+        0, 1, 2
+      ],
+      "originator": 1,
+      "messageId": "Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4",
+      "lastSeen": [
+        "GkblzkXJxyar0lTgkfcMQ0wo8qpbcU0MqtTg-gM1FiY"
+      ],
+      "disposition": "attachment",
+      "language": "en",
+      "ExternalPart": {
+        "mimetype": "video/mp4",
+        "url": "https://example.com/storage/8ksB4bSrrRE.mp4",
+        "size": 708234961,
+        "description": "2 hours of key signing video",
+        "filename": "bigfile.mp4",
+
+        "encAlg": 1,
+        "key": "aZISOs306M7n_3csR-J1cw",
+        "nonce": "5VM0QcZI3PNmnquV6CUgxg",
+        "aad": "",
+        "hashAlg": 1,
+        "contentHash": "OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00"
+      }
+    },
+
+    {
+      "type": "text",
+      "start": "2022-02-08T22:54:09.972-00:00",
+      "duration": 0,
+      "parties": [
+        0, 1, 2
+      ],
+      "originator": 2,
+      "messageId": "KgDTc29ZP4YyYmXtaYyxpZNrnigjvCjrCYuLTz19zWc",
+      "lastSeen": [
+        "Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4"
+      ],
+      "disposition": "session",
+      "ExternalPart": {
+        "url": "https://example.com/join/12345",
+        "description": "Join the Foo 118 conference"
+      }
+    },
+
+    {
+      "type": "text",
+      "start": "2022-02-08T22:57:14.084-00:00",
+      "duration": 0,
+      "parties": [
+        0, 1, 2
+      ],
+      "originator": 0,
+      "messageId": "sD19bKRmu4mA9SHznfQOLQQzKnx1Q4mEtSNQhvzqCZw",
+      "lastSeen": [
+        "KgDTc29ZP4YyYmXtaYyxpZNrnigjvCjrCYuLTz19zWc"
+      ],
+      "disposition": "render",
+      "partIndex": 0,
+      "MultiPart": {
+        "partSemantics": "chooseOne",
+        "parts": [
+          "Part": {
+            "disposition": "render",
+            "language": "en",
+            "partIndex": 1,
+            "mimetype": "text/markdown;variant=GFM",
+            "encoding": "none"
+            "body": "Hello!"
+          },
+          "Part": {
+            "disposition": "render",
+            "language": "fr",
+            "partIndex": 2,
+            "mimetype": "text/markdown;variant=GFM",
+            "encoding": "none"
+            "body": "Bonjour!"
+          }
+        ]
+      }
+    }
+  ]
+}
+~~~
 
 
 # Security Considerations
