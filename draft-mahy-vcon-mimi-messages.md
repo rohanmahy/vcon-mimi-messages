@@ -178,6 +178,8 @@ party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
 
 # Examples
 
+## MIMI examples as a VCON
+
 The example vcon consists of the example messages from Section 5 of the MIMI content specification plus a single multipart message.
 
 ~~~ json
@@ -395,8 +397,7 @@ making the release happen!",
         "key": "aZISOs306M7n_3csR-J1cw",
         "nonce": "5VM0QcZI3PNmnquV6CUgxg",
         "aad": "",
-        "hashAlg": 1,
-        "contentHash": "OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00"
+        "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00"
       }
     },
 
@@ -459,6 +460,76 @@ making the release happen!",
 }
 ~~~
 
+## MIMI VCON with an Attachment
+
+~~~ json
+{
+  "vcon": "0.0.1",
+  "room": {
+    "id": "mimi://example.com/r/engineering_team",
+    "name": "Engineering Team",
+  }
+  "parties": [
+    {
+      "imUri": "mimi://example.com/u/alice-smith",
+      "name": "Alice Smith",
+      "role": "moderator",
+      "thumbprint": "TODOFIXDZXCog_FfQp-xLemZkD5GKB9H7Z-Y41O4jEw"
+    },
+    {
+      "imUri": "mimi://example.com/u/bob-jones",
+      "name": "Bob Jones",
+      "role": "member",
+      "thumbprint": "TODOFIXYUFE7bV9pXAHZHi5bwSWzLJqjncevs9aLKDg"
+    },
+    {
+      "imUri": "mimi://example.com/u/cathy-washington",
+      "name": "Cathy Washington",
+      "role": "member",
+      "thumbprint": "TODOFIXzH3EeOGbI0-oiDGTXlgKmkMzQyQ2W_Y-TB1U"
+    }
+  ],
+  "dialog": [
+    {
+      "type": "text",
+      "start": "2022-02-08T22:53:41.134-00:00",
+      "duration": 0,
+      "parties": [
+        0, 1, 2
+      ],
+      "originator": 1,
+      "messageId": "Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4",
+      "lastSeen": [
+        "GkblzkXJxyar0lTgkfcMQ0wo8qpbcU0MqtTg-gM1FiY"
+      ],
+      "disposition": "attachment",
+      "language": "en",
+      "ExternalPart": {
+        "mimetype": "video/mp4",
+        "url": "https://example.com/storage/8ksB4bSrrRE.mp4",
+        "size": 708234961,
+        "description": "2 hours of key signing video",
+        "filename": "bigfile.mp4",
+        "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
+        "cached": true
+      }
+    },
+  ],
+  "attachments": [
+    {
+      "start": "2022-02-08T22:53:41.134-00:00",
+      "party": 1,
+      "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
+      "dialogObjectRef":
+  "mid:Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4:0@anonymous.invalid",
+      "mimetype": "video/mp4",
+      "filename": "bigfile.mp4",
+      "encoding": "base64url",
+      "body": "Ma0hHSr0f_iUk_RSShTgtY...nSQbZEip5danJYQqsvwWQ"
+    }
+  ]
+}
+~~~
 
 # Security Considerations
 
