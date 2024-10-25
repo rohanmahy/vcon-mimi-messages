@@ -4,8 +4,8 @@
 
 Virtualized Conversations                                        R. Mahy
 Internet-Draft                            Rohan Mahy Consulting Services
-Intended status: Informational                           23 October 2024
-Expires: 26 April 2025
+Intended status: Informational                           25 October 2024
+Expires: 28 April 2025
 
 
                          VCON for MIMI Messages
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 April 2025.
+   This Internet-Draft will expire on 28 April 2025.
 
 Copyright Notice
 
@@ -79,6 +79,8 @@ Table of Contents
      3.7.  Changes to the room
      3.8.  party_event_type events
    4.  Examples
+     4.1.  MIMI examples as a VCON
+     4.2.  MIMI VCON with an Attachment
    5.  Security Considerations
    6.  IANA Considerations
    7.  Normative References
@@ -262,6 +264,8 @@ party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
    *  ban: user is banned from the group
 
 4.  Examples
+
+4.1.  MIMI examples as a VCON
 
    The example vcon consists of the example messages from Section 5 of
    the MIMI content specification plus a single multipart message.
@@ -480,8 +484,7 @@ party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
            "key": "aZISOs306M7n_3csR-J1cw",
            "nonce": "5VM0QcZI3PNmnquV6CUgxg",
            "aad": "",
-           "hashAlg": 1,
-           "contentHash": "OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00"
+           "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00"
          }
        },
 
@@ -539,6 +542,75 @@ party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
              }
            ]
          }
+       }
+     ]
+   }
+
+4.2.  MIMI VCON with an Attachment
+
+   {
+     "vcon": "0.0.1",
+     "room": {
+       "id": "mimi://example.com/r/engineering_team",
+       "name": "Engineering Team",
+     }
+     "parties": [
+       {
+         "imUri": "mimi://example.com/u/alice-smith",
+         "name": "Alice Smith",
+         "role": "moderator",
+         "thumbprint": "TODOFIXDZXCog_FfQp-xLemZkD5GKB9H7Z-Y41O4jEw"
+       },
+       {
+         "imUri": "mimi://example.com/u/bob-jones",
+         "name": "Bob Jones",
+         "role": "member",
+         "thumbprint": "TODOFIXYUFE7bV9pXAHZHi5bwSWzLJqjncevs9aLKDg"
+       },
+       {
+         "imUri": "mimi://example.com/u/cathy-washington",
+         "name": "Cathy Washington",
+         "role": "member",
+         "thumbprint": "TODOFIXzH3EeOGbI0-oiDGTXlgKmkMzQyQ2W_Y-TB1U"
+       }
+     ],
+     "dialog": [
+       {
+         "type": "text",
+         "start": "2022-02-08T22:53:41.134-00:00",
+         "duration": 0,
+         "parties": [
+           0, 1, 2
+         ],
+         "originator": 1,
+         "messageId": "Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4",
+         "lastSeen": [
+           "GkblzkXJxyar0lTgkfcMQ0wo8qpbcU0MqtTg-gM1FiY"
+         ],
+         "disposition": "attachment",
+         "language": "en",
+         "ExternalPart": {
+           "mimetype": "video/mp4",
+           "url": "https://example.com/storage/8ksB4bSrrRE.mp4",
+           "size": 708234961,
+           "description": "2 hours of key signing video",
+           "filename": "bigfile.mp4",
+           "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
+           "cached": true
+         }
+       },
+     ],
+     "attachments": [
+       {
+         "start": "2022-02-08T22:53:41.134-00:00",
+         "party": 1,
+         "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
+         "dialogObjectRef":
+     "mid:Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4:0@anonymous.invalid",
+         "mimetype": "video/mp4",
+         "filename": "bigfile.mp4",
+         "encoding": "base64url",
+         "body": "Ma0hHSr0f_iUk_RSShTgtY...nSQbZEip5danJYQqsvwWQ"
        }
      ]
    }
