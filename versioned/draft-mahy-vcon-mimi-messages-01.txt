@@ -1,0 +1,698 @@
+
+
+
+
+Virtualized Conversations                                        R. Mahy
+Internet-Draft                            Rohan Mahy Consulting Services
+Intended status: Informational                           4 November 2024
+Expires: 8 May 2025
+
+
+                         VCON for MIMI Messages
+                    draft-mahy-vcon-mimi-messages-01
+
+Abstract
+
+   This document describes extensions to the Virtualized Conversation
+   (VCON) syntax for instant messaging systems using the More Instant
+   Messaging Interoperability (MIMI) content format.
+
+About This Document
+
+   This note is to be removed before publishing as an RFC.
+
+   The latest revision of this draft can be found at
+   https://rohanmahy.github.io/vcon-mimi-messages/draft-mahy-vcon-mimi-
+   messages.html.  Status information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-mahy-vcon-mimi-messages/.
+
+   Discussion of this document takes place on the Virtualized
+   Conversations Working Group mailing list (mailto:vcon@ietf.org),
+   which is archived at https://mailarchive.ietf.org/arch/browse/vcon/.
+   Subscribe at https://www.ietf.org/mailman/listinfo/vcon/.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/rohanmahy/vcon-mimi-messages.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 8 May 2025.
+
+Copyright Notice
+
+   Copyright (c) 2024 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
+
+Table of Contents
+
+   1.  Introduction
+   2.  Conventions and Definitions
+   3.  Syntax
+     3.1.  Room information
+     3.2.  Parties
+     3.3.  Extensions to the dialog object
+     3.4.  MultiPart
+     3.5.  Part
+     3.6.  ExternalPart
+     3.7.  Changes to the room
+     3.8.  party_event_type events
+   4.  Attachments
+   5.  Examples
+     5.1.  MIMI examples as a VCON
+     5.2.  MIMI VCON with an Attachment
+   6.  Security Considerations
+   7.  IANA Considerations
+   8.  Normative References
+   Appendix A.  CDDL changes
+   Acknowledgments
+   Author's Address
+
+1.  Introduction
+
+   VCON [I-D.ietf-vcon-vcon-container] is a format for recording and
+   transmitting conversations.  MIMI content [I-D.ietf-mimi-content] is
+   a format for conveying Instant Messages in an interoperable way when
+   end-to-end encrypted.  This document describes a way to translate a
+   set of MIMI messages in a conversation or part of a conversation into
+   a VCON.
+
+2.  Conventions and Definitions
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+3.  Syntax
+
+   A MIMI conversation (or portion thereof) is represented in VCON with
+   a mandatory list of parties and dialogs, a new top-level room object,
+   and optionally attachment objects.
+
+3.1.  Room information
+
+   This document adds a top-level room object.  It contains metadata
+   known about the room at the start of the VCON period.
+
+   *  id is the MIMI room ID URL.  It is mandatory.
+
+   *  name is the textual name of the room.  It is optional.
+
+3.2.  Parties
+
+   The parties array MUST contain all the participants who were in the
+   conversation at any point in time during the period represented by
+   the VCON.
+
+   This document adds a new party_object_type: imUri.  It is mandatory.
+   The name field is optional.  The role indicates the MIMI role and is
+   optional.  The document also adds a thumbprint party_object_type,
+   which is the JWK thumbprint of the public key of the party.  If there
+   are multiple parties (clients) with the same imUri then the
+   thumbprint is required, otherwise it is optional.
+
+3.3.  Extensions to the dialog object
+
+   The dialog object consists of an array of instant messages of type
+   "text".  The start time is set to the hub received timestamp when
+   available.  The duration is zero.  The parties array consist of the
+   party indexes of those who were active participants when the message
+   was sent.  The originator is set to the parties index of the sender
+   of the message.
+
+   *  messageId is the base64url encoding of the MIMI content messageId.
+      It is mandatory.
+
+   *  replaces is the base64url encoding of the MIMI content messageId
+      of the message this message replaces.  It is optional if empty.
+
+   *  topicId is the base64url encoding of the MIMI topicId.  It is
+      optional if empty.
+
+   *  expires is the expiration date/time of the message expressed as a
+      VCON (text) date_type.  It is optional if empty.
+
+   *  inReplyTo is an array of three values: the base64url encoding of
+      the MIMI content messageId of the message to which this message is
+      replying (or reacting), the hash algorithm expressed as an integer
+      (SHA-256 is 1), and the base64url hash of the decrypted mimi-
+      content.  It is optional if empty.
+
+   *  lastSeen is an array of base64url-encoded message ids.  It is
+      mandatory.
+
+   *  mimiExtensions is a object (map) containing MIMI extensions.  It
+      is optional.
+
+   VCON typically expresses content using the body, encoding, and
+   mimetype fields.  In order to preserve this convention we use these
+   fields directly for a MIMI SinglePart structure, but use new
+   MultiPart and ExternalPart structure for those MIMI structures.  For
+   a SinglePart these two fields could be present.
+
+   *  disposition - optional if set to the default value ("render")
+
+   *  language - optional if absent
+
+   If there is only a single part its "partIndex" is 0.
+
+3.4.  MultiPart
+
+   *  partSemantics is one of "chooseOne", "singleUnit", or
+      "processAll".  It is mandatory.
+
+   *  parts is an array of Parts.  It is mandatory.
+
+3.5.  Part
+
+   *  disposition - optional if set to the default value ("render")
+
+   *  language - optional if absent
+
+   *  partIndex is an unsigned integer.  It is mandatory in a Part
+      object.
+
+   *  cardinality is one of "nullpart", "single", "external", or
+      "multi". mandatory.
+
+   if cardinality is "single" or "external", then body, encoding, and
+   mimetype fields are included directly in the Part object.
+
+3.6.  ExternalPart
+
+   *  mimetype (contentType in MIMI). optional but recommended.
+
+   *  url is the URL of the content as a text string. mandatory
+
+   *  expires is a date_type (text) date. optional.
+
+   *  size is an integer number of octets. optional.
+
+   *  description is a text string. optional.
+
+   *  filename is a text string. optional.
+
+   *  cached is a boolean.  It is mandatory if it is true, which means
+      that a copy of the external content is available in a vcon
+      attachment object (see {#attachments}).
+
+   *  contentHash is the base64url encoded string of the hash of the
+      external content, prefixed with the name of the hash algorithm and
+      a colon (for example "sha256:"). contentHash is optional unless
+      the external content has been included in a vcon attachment
+      object.
+
+   ExternalPart has several fields for the decryption of the referenced
+   content.  These can be omitted once the content has been downloaded,
+   decrypted, verified, and included in the VCON attachments array.  All
+   of them are base64url encoded strings.  Otherwise they are mandatory
+   if present in the MIMI content.
+
+   *  encAlg
+
+   *  key
+
+   *  nonce
+
+   *  aad
+
+3.7.  Changes to the room
+
+   Changes to the room metadata or participation should be accompanied
+   by a new dialog type:
+
+   *  room metadata changes
+
+   *  participant identity change
+
+   *  participants joining and leaving
+
+   *  participants adding new clients
+
+   *  moderation events?
+
+   *TODO* add additional fields
+
+3.8.  party_event_type events
+
+   When there is a change to the parties represented in a room, the
+   party_event_type.event is added.
+
+party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
+
+   *  add: user added herself directly
+
+   *  welcome: user added by someone else
+
+   *  leave: user leaves of their own accord
+
+   *  remove: user is removed by another user
+
+   *  ban: user is banned from the group
+
+4.  Attachments
+
+   An attachment consists of the following fields:
+
+   *  start: is the time when the attachment was downloaded. it is
+      mandatory.
+
+   *  party: is the party that downloaded the attachment. it is
+      mandatory.
+
+   *  contentHash: is the base64url encoded hash using the hash name
+      prefixed with a colon before the hash (ex: "sha256:").  It is
+      mandatory.
+
+   *  dialogObjectRed is a string consisting of: "mid:" (representing
+      the message ID URI), the messageId of the message in the dialog
+      object, a colon, the partIndex of the Part (or "0" if the
+      ExternalPart is at the top level), and the string
+      "@anonymous.invalid"
+
+   mimetype, filename, encoding, and body are as defined in vcon and are
+   all mandatory.
+
+5.  Examples
+
+5.1.  MIMI examples as a VCON
+
+   The example vcon consists of the example messages from Section 5 of
+   the MIMI content specification plus a single multipart message.
+
+   {
+     "vcon": "0.0.1",
+     "room": {
+       "id": "mimi://example.com/r/engineering_team",
+       "name": "Engineering Team",
+     }
+     "parties": [
+       {
+         "imUri": "mimi://example.com/u/alice-smith",
+         "name": "Alice Smith",
+         "role": "moderator",
+         "thumbprint": "TODOFIXDZXCog_FfQp-xLemZkD5GKB9H7Z-Y41O4jEw"
+       },
+       {
+         "imUri": "mimi://example.com/u/bob-jones",
+         "name": "Bob Jones",
+         "role": "member",
+         "thumbprint": "TODOFIXYUFE7bV9pXAHZHi5bwSWzLJqjncevs9aLKDg"
+       },
+       {
+         "imUri": "mimi://example.com/u/cathy-washington",
+         "name": "Cathy Washington",
+         "role": "member",
+         "thumbprint": "TODOFIXzH3EeOGbI0-oiDGTXlgKmkMzQyQ2W_Y-TB1U"
+       }
+     ],
+     "dialog": [
+       {
+         "type": "text",
+         "start": "2022-02-08T22:13:45.019-00:00",
+         "duration": 0,
+         "parties": [
+           0, 1, 2
+         ],
+         "originator": 0,
+         "messageId": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+         "lastSeen": [],
+         "mimetype": "text/markdown;variant=GFM",
+         "encoding": "none"
+         "body":
+           "Hi everyone, we just shipped release 2.0. __Good work__!",
+       },
+
+       {
+         "type": "text",
+         "start": "2022-02-08T22:13:57.492-00:00",
+         "duration": 0,
+         "parties": [
+           0, 1, 2
+         ],
+         "originator": 1,
+         "messageId": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
+         "inReplyTo": [
+           "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+           1,
+           "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
+         ],
+         "lastSeen": [
+           "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ"
+         ],
+         "mimetype": "text/markdown;variant=GFM",
+         "encoding": "none"
+         "body": "Right on! _Congratulations_ \'all!",
+       },
+
+       {
+         "type": "text",
+         "start": "2022-02-08T22:13:57.728-00:00",
+         "duration": 0,
+         "parties": [
+           0, 1, 2
+         ],
+         "originator": 2,
+         "messageId": "2YF0k6blW9ZbJ8sgXJgMCTJOlofazdKwVRvf6ZUORFA",
+         "inReplyTo": [
+           "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+           1,
+           "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
+         ],
+         "lastSeen": [
+           "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo"
+         ],
+         "disposition": "reaction",
+         "mimetype": "text/plain;charset=utf-8",
+         "encoding": "none"
+         "body": "❤",
+       },
+
+       {
+         "type": "text",
+         "start": "2022-02-08T22:14:03.008-00:00",
+         "duration": 0,
+         "parties": [
+           0, 1, 2
+         ],
+         "originator": 2,
+         "messageId": "rF4iS5BcJ-aFfisoFDCrnTE9pZZBGCxGCoXGJ9VXnck",
+         "lastSeen": [
+           "2YF0k6blW9ZbJ8sgXJgMCTJOlofazdKwVRvf6ZUORFA"
+         ],
+         "mimetype": "text/markdown;variant=GFM",
+         "encoding": "none"
+         "body":
+           "Kudos to [@Alice Smith](mimi://example.com/alice-smith) for
+   making the release happen!",
+       },
+
+       {
+         "type": "text",
+         "start": "2022-02-08T22:14:08.621-00:00",
+         "duration": 0,
+         "parties": [
+           0, 1, 2
+         ],
+         "originator": 1,
+         "messageId": "-GqJXuoaJu1Xosu-N8nt6NWzA2RLmIRY0q9jf_kvWkM",
+         "replaces": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
+         "inReplyTo": [
+           "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+           1,
+           "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
+         ],
+         "lastSeen": [
+           "2YF0k6blW9ZbJ8sgXJgMCTJOlofazdKwVRvf6ZUORFA",
+           "rF4iS5BcJ-aFfisoFDCrnTE9pZZBGCxGCoXGJ9VXnck"
+         ],
+         "mimetype": "text/markdown;variant=GFM",
+         "encoding": "none"
+         "body": "Right on! _Congratulations_ y'all"
+       },
+
+       {
+         "type": "text",
+         "start": "2022-02-08T22:14:08.621-00:00",
+         "duration": 0,
+         "parties": [
+           0, 1, 2
+         ],
+         "originator": 1,
+         "messageId": "8cqo1B9IA6nnB63oPEnmWxIqr7uk7WvQTBgVVlD_Q2c",
+         "replaces": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
+         "inReplyTo": [
+           "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+           1,
+           "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
+         ],
+         "lastSeen": [
+           "-GqJXuoaJu1Xosu-N8nt6NWzA2RLmIRY0q9jf_kvWkM"
+         ]
+       },
+
+       {
+         "type": "text",
+         "start": "2022-02-08T22:14:10.389-00:00",
+         "duration": 0,
+         "parties": [
+           0, 1, 2
+         ],
+         "originator": 2,
+         "messageId": "bYZ2NHaryq0WS2pq5IE9fMc4zltUyE6WrKJ7bNB5tMc",
+         "replaces": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
+         "inReplyTo": [
+           "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+           1,
+           "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
+         ],
+         "lastSeen": [
+           "8cqo1B9IA6nnB63oPEnmWxIqr7uk7WvQTBgVVlD_Q2c"
+         ],
+         "disposition": "reaction"
+       },
+
+       {
+         "type": "text",
+         "start": "2022-02-08T22:49:06.227-00:00",
+         "duration": 0,
+         "parties": [
+           0, 1, 2
+         ],
+         "originator": 0,
+         "messageId": "GkblzkXJxyar0lTgkfcMQ0wo8qpbcU0MqtTg-gM1FiY",
+         "expiring": "2022-02-08T22:59:06.227-00:00"
+         "lastSeen": [
+           "bYZ2NHaryq0WS2pq5IE9fMc4zltUyE6WrKJ7bNB5tMc"
+         ],
+         "status": "expired"
+       },
+
+       {
+         "type": "text",
+         "start": "2022-02-08T22:53:41.134-00:00",
+         "duration": 0,
+         "parties": [
+           0, 1, 2
+         ],
+         "originator": 1,
+         "messageId": "Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4",
+         "lastSeen": [
+           "GkblzkXJxyar0lTgkfcMQ0wo8qpbcU0MqtTg-gM1FiY"
+         ],
+         "disposition": "attachment",
+         "language": "en",
+         "ExternalPart": {
+           "mimetype": "video/mp4",
+           "url": "https://example.com/storage/8ksB4bSrrRE.mp4",
+           "size": 708234961,
+           "description": "2 hours of key signing video",
+           "filename": "bigfile.mp4",
+           "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
+
+           "encAlg": 1,
+           "key": "aZISOs306M7n_3csR-J1cw",
+           "nonce": "5VM0QcZI3PNmnquV6CUgxg",
+           "aad": ""
+         }
+       },
+
+       {
+         "type": "text",
+         "start": "2022-02-08T22:54:09.972-00:00",
+         "duration": 0,
+         "parties": [
+           0, 1, 2
+         ],
+         "originator": 2,
+         "messageId": "KgDTc29ZP4YyYmXtaYyxpZNrnigjvCjrCYuLTz19zWc",
+         "lastSeen": [
+           "Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4"
+         ],
+         "disposition": "session",
+         "ExternalPart": {
+           "url": "https://example.com/join/12345",
+           "description": "Join the Foo 118 conference"
+         }
+       },
+
+       {
+         "type": "text",
+         "start": "2022-02-08T22:57:14.084-00:00",
+         "duration": 0,
+         "parties": [
+           0, 1, 2
+         ],
+         "originator": 0,
+         "messageId": "sD19bKRmu4mA9SHznfQOLQQzKnx1Q4mEtSNQhvzqCZw",
+         "lastSeen": [
+           "KgDTc29ZP4YyYmXtaYyxpZNrnigjvCjrCYuLTz19zWc"
+         ],
+         "disposition": "render",
+         "partIndex": 0,
+         "MultiPart": {
+           "partSemantics": "chooseOne",
+           "parts": [
+             "Part": {
+               "disposition": "render",
+               "language": "en",
+               "partIndex": 1,
+               "mimetype": "text/markdown;variant=GFM",
+               "encoding": "none"
+               "body": "Hello!"
+             },
+             "Part": {
+               "disposition": "render",
+               "language": "fr",
+               "partIndex": 2,
+               "mimetype": "text/markdown;variant=GFM",
+               "encoding": "none"
+               "body": "Bonjour!"
+             }
+           ]
+         }
+       }
+     ]
+   }
+
+5.2.  MIMI VCON with an Attachment
+
+   This example vcon consists of a single message in a dialog which
+   references an attachment.
+
+   {
+     "vcon": "0.0.1",
+     "room": {
+       "id": "mimi://example.com/r/engineering_team",
+       "name": "Engineering Team",
+     }
+     "parties": [
+       {
+         "imUri": "mimi://example.com/u/alice-smith",
+         "name": "Alice Smith",
+         "role": "moderator",
+         "thumbprint": "TODOFIXDZXCog_FfQp-xLemZkD5GKB9H7Z-Y41O4jEw"
+       },
+       {
+         "imUri": "mimi://example.com/u/bob-jones",
+         "name": "Bob Jones",
+         "role": "member",
+         "thumbprint": "TODOFIXYUFE7bV9pXAHZHi5bwSWzLJqjncevs9aLKDg"
+       },
+       {
+         "imUri": "mimi://example.com/u/cathy-washington",
+         "name": "Cathy Washington",
+         "role": "member",
+         "thumbprint": "TODOFIXzH3EeOGbI0-oiDGTXlgKmkMzQyQ2W_Y-TB1U"
+       }
+     ],
+     "dialog": [
+       {
+         "type": "text",
+         "start": "2022-02-08T22:53:41.134-00:00",
+         "duration": 0,
+         "parties": [
+           0, 1, 2
+         ],
+         "originator": 1,
+         "messageId": "Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4",
+         "lastSeen": [
+           "GkblzkXJxyar0lTgkfcMQ0wo8qpbcU0MqtTg-gM1FiY"
+         ],
+         "disposition": "attachment",
+         "language": "en",
+         "ExternalPart": {
+           "mimetype": "video/mp4",
+           "url": "https://example.com/storage/8ksB4bSrrRE.mp4",
+           "size": 708234961,
+           "description": "2 hours of key signing video",
+           "filename": "bigfile.mp4",
+           "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
+           "cached": true
+         }
+       },
+     ],
+     "attachments": [
+       {
+         "start": "2022-02-08T22:53:41.134-00:00",
+         "party": 1,
+         "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
+         "dialogObjectRef":
+     "mid:Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4:0@anonymous.invalid",
+         "mimetype": "video/mp4",
+         "filename": "bigfile.mp4",
+         "encoding": "base64url",
+         "body": "Ma0hHSr0f_iUk_RSShTgtY...nSQbZEip5danJYQqsvwWQ"
+       }
+     ]
+   }
+
+6.  Security Considerations
+
+   TODO Security
+
+7.  IANA Considerations
+
+   This document has no IANA actions.
+
+8.  Normative References
+
+   [I-D.ietf-mimi-content]
+              Mahy, R., "More Instant Messaging Interoperability (MIMI)
+              message content", Work in Progress, Internet-Draft, draft-
+              ietf-mimi-content-04, 10 June 2024,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-mimi-
+              content-04>.
+
+   [I-D.ietf-vcon-vcon-container]
+              Petrie, D. and T. McCarthy-Howe, "The JSON format for vCon
+              - Conversation Data Container", Work in Progress,
+              Internet-Draft, draft-ietf-vcon-vcon-container-01, 20
+              October 2024, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-vcon-vcon-container-01>.
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+Appendix A.  CDDL changes
+
+   *TODO*
+
+Acknowledgments
+
+   TODO acknowledge.
+
+Author's Address
+
+   Rohan Mahy
+   Rohan Mahy Consulting Services
+   Email: rohan.ietf@gmail.com
