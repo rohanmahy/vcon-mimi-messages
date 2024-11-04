@@ -11,18 +11,18 @@
 syntax for instant messaging systems using the More Instant Messaging
 Interoperability (MIMI) content format. 
     " name="description">
-<meta content="xml2rfc 3.23.2" name="generator">
+<meta content="xml2rfc 3.24.0" name="generator">
 <meta content="instant messaging" name="keyword">
 <meta content="message history" name="keyword">
 <meta content="draft-mahy-vcon-mimi-messages-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.23.2
+  xml2rfc 3.24.0
     Python 3.12.7
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.4
-    lxml 4.9.4
+    lxml 5.3.0
     platformdirs 4.3.6
     pycountry 22.3.5
     PyYAML 6.0.1
@@ -164,31 +164,6 @@ Interoperability (MIMI) content format.
 }
 
 @font-face {
-  font-family: 'Cabin Condensed';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-vietnamese.woff2') format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
-}
-@font-face {
-  font-family: 'Cabin Condensed';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'Cabin Condensed';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
   font-family: 'Oxygen Mono';
   font-style: normal;
   font-weight: 400;
@@ -205,6 +180,77 @@ Interoperability (MIMI) content format.
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   color-scheme: light dark;
   --background-color: #fff;
@@ -217,6 +263,7 @@ Interoperability (MIMI) content format.
   --pilcrow-strong: #bbb;
   --small-font-size: 14.5px;
   --font-mono: 'Oxygen Mono', monospace;
+  --font-title: "Sofia Sans Semi Condensed", sans-serif;
   scrollbar-color: #bbb #eee;
 }
 body {
@@ -235,8 +282,8 @@ body {
 
 /* headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Cabin Condensed", sans-serif;
-  font-weight: 600;
+  font-family: var(--font-title);
+  font-weight: 680;
   margin: 0.8em 0 0.3em;
   font-size-adjust: 0.5;
   color: var(--title-color);
@@ -644,6 +691,12 @@ sub, sup {
   padding: 0.75em 0 2em 0;
   margin-bottom: 1em;
 }
+@media screen {
+  #toc nav {
+    font-family: var(--font-title);
+    font-weight: 360;
+  }
+}
 #toc nav ul {
   margin: 0 0.5em 0 0;
   padding: 0;
@@ -1027,11 +1080,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">VCON for MIMI</td>
-<td class="right">October 2024</td>
+<td class="right">November 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mahy</td>
-<td class="center">Expires 28 April 2025</td>
+<td class="center">Expires 8 May 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1044,12 +1097,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-mahy-vcon-mimi-messages-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-10-25" class="published">25 October 2024</time>
+<time datetime="2024-11-04" class="published">4 November 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-04-28">28 April 2025</time></dd>
+<dd class="expires"><time datetime="2025-05-08">8 May 2025</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1101,7 +1154,7 @@ Interoperability (MIMI) content format.<a href="#section-abstract-1" class="pilc
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 28 April 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 8 May 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1166,30 +1219,36 @@ Interoperability (MIMI) content format.<a href="#section-abstract-1" class="pilc
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-examples" class="internal xref">Examples</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-mimi-examples-as-a-vcon" class="internal xref">MIMI examples as a VCON</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-attachments" class="internal xref">Attachments</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-mimi-vcon-with-an-attachmen" class="internal xref">MIMI VCON with an Attachment</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-examples" class="internal xref">Examples</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-mimi-examples-as-a-vcon" class="internal xref">MIMI examples as a VCON</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-mimi-vcon-with-an-attachmen" class="internal xref">MIMI VCON with an Attachment</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
-</li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-cddl-changes" class="internal xref">CDDL changes</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
+            <p id="section-toc.1-1.10.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
+            <p id="section-toc.1-1.11.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
 </li>
         </ul>
 </nav>
@@ -1225,7 +1284,8 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-syntax" class="section-name selfRef">Syntax</a>
       </h2>
 <p id="section-3-1">A MIMI conversation (or portion thereof) is represented in VCON with
-a mandatory list of parties and dialogs, a new top-level room object.<a href="#section-3-1" class="pilcrow">¶</a></p>
+a mandatory list of parties and dialogs, a new top-level room object,
+and optionally attachment objects.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <div id="room-information">
 <section id="section-3.1">
         <h3 id="name-room-information">
@@ -1283,7 +1343,7 @@ The originator is set to the parties index of the sender of the message.<a href=
 (text) date_type. It is optional if empty.<a href="#section-3.3-2.4.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.3-2.5">
-            <p id="section-3.3-2.5.1"><code>inReplyTo</code> is the base64url encoding of the MIMI content messageId of the message to which this message is replying (or reacting). It is optional if empty.<a href="#section-3.3-2.5.1" class="pilcrow">¶</a></p>
+            <p id="section-3.3-2.5.1"><code>inReplyTo</code> is an array of three values: the base64url encoding of the MIMI content messageId of the message to which this message is replying (or reacting), the hash algorithm expressed as an integer (SHA-256 is 1), and the base64url hash of the decrypted mimi-content. It is optional if empty.<a href="#section-3.3-2.5.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.3-2.6">
             <p id="section-3.3-2.6.1"><code>lastSeen</code> is an array of base64url-encoded message ids. It is mandatory.<a href="#section-3.3-2.6.1" class="pilcrow">¶</a></p>
@@ -1305,6 +1365,7 @@ be present.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
             <p id="section-3.3-4.2.1"><code>language</code> - optional if absent<a href="#section-3.3-4.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
+<p id="section-3.3-5">If there is only a single part its "partIndex" is 0.<a href="#section-3.3-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="multipart">
@@ -1335,7 +1396,7 @@ be present.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
             <p id="section-3.5-1.2.1"><code>language</code> - optional if absent<a href="#section-3.5-1.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.5-1.3">
-            <p id="section-3.5-1.3.1"><code>partIndex</code> is an unsigned integer. It is mandatory<a href="#section-3.5-1.3.1" class="pilcrow">¶</a></p>
+            <p id="section-3.5-1.3.1"><code>partIndex</code> is an unsigned integer. It is mandatory in a Part object.<a href="#section-3.5-1.3.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.5-1.4">
             <p id="section-3.5-1.4.1"><code>cardinality</code> is one of "nullpart", "single", "external", or "multi". mandatory.<a href="#section-3.5-1.4.1" class="pilcrow">¶</a></p>
@@ -1369,32 +1430,37 @@ fields are included directly in the Part object.<a href="#section-3.5-2" class="
           <li class="normal" id="section-3.6-1.6">
             <p id="section-3.6-1.6.1">filename is a text string. optional.<a href="#section-3.6-1.6.1" class="pilcrow">¶</a></p>
 </li>
+          <li class="normal" id="section-3.6-1.7">
+            <p id="section-3.6-1.7.1">cached is a boolean. It is mandatory if it is true, which means that a
+copy of the external content is available in a vcon attachment object
+(see {#attachments}).<a href="#section-3.6-1.7.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.6-1.8">
+            <p id="section-3.6-1.8.1">contentHash is the base64url encoded string of the hash of the external
+content, prefixed with the name of the hash algorithm and a colon (for
+example "sha256:"). contentHash is optional unless the external content has
+been included in a vcon attachment object.<a href="#section-3.6-1.8.1" class="pilcrow">¶</a></p>
+</li>
         </ul>
-<p id="section-3.6-2">ExternalPart has several fields for the decryption and integrity of the
+<p id="section-3.6-2">ExternalPart has several fields for the decryption of the
 referenced content. These can be omitted once the content has been
-downloaded, decrypted, verified, and included in the VCON attachments array.<a href="#section-3.6-2" class="pilcrow">¶</a></p>
-<p id="section-3.6-3">These encryption/validation related fields can be omitted once the content is available locally as an attachment. All of them are base64url encoded strings. Otherwise they are mandatory if present in the MIMI content.<a href="#section-3.6-3" class="pilcrow">¶</a></p>
+downloaded, decrypted, verified, and included in the VCON attachments array.
+All of them are base64url encoded strings. Otherwise they are mandatory if
+present in the MIMI content.<a href="#section-3.6-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.6-4.1">
-            <p id="section-3.6-4.1.1">encAlg<a href="#section-3.6-4.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.6-3.1">
+            <p id="section-3.6-3.1.1">encAlg<a href="#section-3.6-3.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-4.2">
-            <p id="section-3.6-4.2.1">key<a href="#section-3.6-4.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.6-3.2">
+            <p id="section-3.6-3.2.1">key<a href="#section-3.6-3.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-4.3">
-            <p id="section-3.6-4.3.1">nonce<a href="#section-3.6-4.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.6-3.3">
+            <p id="section-3.6-3.3.1">nonce<a href="#section-3.6-3.3.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-4.4">
-            <p id="section-3.6-4.4.1">aad<a href="#section-3.6-4.4.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.6-4.5">
-            <p id="section-3.6-4.5.1">hashAlg<a href="#section-3.6-4.5.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.6-4.6">
-            <p id="section-3.6-4.6.1">contentHash<a href="#section-3.6-4.6.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.6-3.4">
+            <p id="section-3.6-3.4.1">aad<a href="#section-3.6-3.4.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-3.6-5"><strong>TODO</strong>: how to represent a downloaded and decrypted object in attachments?<a href="#section-3.6-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="changes-to-the-room">
@@ -1421,7 +1487,7 @@ a new dialog type:<a href="#section-3.7-1" class="pilcrow">¶</a></p>
             <p id="section-3.7-2.5.1">moderation events?<a href="#section-3.7-2.5.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-3.7-3"><strong>TODO</strong><a href="#section-3.7-3" class="pilcrow">¶</a></p>
+<p id="section-3.7-3"><strong>TODO</strong> add additional fields<a href="#section-3.7-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="partyeventtype-events">
@@ -1429,44 +1495,69 @@ a new dialog type:<a href="#section-3.7-1" class="pilcrow">¶</a></p>
         <h3 id="name-party_event_type-events">
 <a href="#section-3.8" class="section-number selfRef">3.8. </a><a href="#name-party_event_type-events" class="section-name selfRef">party_event_type events</a>
         </h3>
-<div class="alignLeft art-text artwork" id="section-3.8-1">
+<p id="section-3.8-1">When there is a change to the parties represented in a room, the
+<code>party_event_type.event</code> is added.<a href="#section-3.8-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-3.8-2">
 <pre>
 party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
-</pre><a href="#section-3.8-1" class="pilcrow">¶</a>
+</pre><a href="#section-3.8-2" class="pilcrow">¶</a>
 </div>
 <ul class="normal">
-<li class="normal" id="section-3.8-2.1">
-            <p id="section-3.8-2.1.1">add: user added herself directly<a href="#section-3.8-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.8-3.1">
+            <p id="section-3.8-3.1.1">add: user added herself directly<a href="#section-3.8-3.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.8-2.2">
-            <p id="section-3.8-2.2.1">welcome: user added by someone else<a href="#section-3.8-2.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.8-3.2">
+            <p id="section-3.8-3.2.1">welcome: user added by someone else<a href="#section-3.8-3.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.8-2.3">
-            <p id="section-3.8-2.3.1">leave: user leaves of their own accord<a href="#section-3.8-2.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.8-3.3">
+            <p id="section-3.8-3.3.1">leave: user leaves of their own accord<a href="#section-3.8-3.3.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.8-2.4">
-            <p id="section-3.8-2.4.1">remove: user is removed by another user<a href="#section-3.8-2.4.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.8-3.4">
+            <p id="section-3.8-3.4.1">remove: user is removed by another user<a href="#section-3.8-3.4.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.8-2.5">
-            <p id="section-3.8-2.5.1">ban: user is banned from the group<a href="#section-3.8-2.5.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.8-3.5">
+            <p id="section-3.8-3.5.1">ban: user is banned from the group<a href="#section-3.8-3.5.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
 </div>
 </section>
 </div>
-<div id="examples">
+<div id="attachments">
 <section id="section-4">
+      <h2 id="name-attachments">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-attachments" class="section-name selfRef">Attachments</a>
+      </h2>
+<p id="section-4-1">An attachment consists of the following fields:<a href="#section-4-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4-2.1">
+          <p id="section-4-2.1.1">start: is the time when the attachment was downloaded. it is mandatory.<a href="#section-4-2.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-4-2.2">
+          <p id="section-4-2.2.1">party: is the party that downloaded the attachment. it is mandatory.<a href="#section-4-2.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-4-2.3">
+          <p id="section-4-2.3.1">contentHash: is the base64url encoded hash using the hash name prefixed with a colon before the hash (ex: "sha256:"). It is mandatory.<a href="#section-4-2.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-4-2.4">
+          <p id="section-4-2.4.1">dialogObjectRed is a string consisting of: "mid:" (representing the message ID URI), the messageId of the message in the dialog object, a colon, the partIndex of the Part (or "0" if the ExternalPart is at the top level), and the string "@anonymous.invalid"<a href="#section-4-2.4.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-4-3">mimetype, filename, encoding, and body are as defined in vcon and are all mandatory.<a href="#section-4-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="examples">
+<section id="section-5">
       <h2 id="name-examples">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-examples" class="section-name selfRef">Examples</a>
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-examples" class="section-name selfRef">Examples</a>
       </h2>
 <div id="mimi-examples-as-a-vcon">
-<section id="section-4.1">
+<section id="section-5.1">
         <h3 id="name-mimi-examples-as-a-vcon">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-mimi-examples-as-a-vcon" class="section-name selfRef">MIMI examples as a VCON</a>
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-mimi-examples-as-a-vcon" class="section-name selfRef">MIMI examples as a VCON</a>
         </h3>
-<p id="section-4.1-1">The example vcon consists of the example messages from Section 5 of the MIMI content specification plus a single multipart message.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
-<div class="breakable lang-json sourcecode" id="section-4.1-2">
+<p id="section-5.1-1">The example vcon consists of the example messages from Section 5 of the MIMI content specification plus a single multipart message.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<div class="breakable lang-json sourcecode" id="section-5.1-2">
 <pre>
 {
   "vcon": "0.0.1",
@@ -1590,7 +1681,6 @@ making the release happen!",
         1,
         "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
       ],
-      "messageId": "-GqJXuoaJu1Xosu-N8nt6NWzA2RLmIRY0q9jf_kvWkM",
       "lastSeen": [
         "2YF0k6blW9ZbJ8sgXJgMCTJOlofazdKwVRvf6ZUORFA",
         "rF4iS5BcJ-aFfisoFDCrnTE9pZZBGCxGCoXGJ9VXnck"
@@ -1677,12 +1767,12 @@ making the release happen!",
         "size": 708234961,
         "description": "2 hours of key signing video",
         "filename": "bigfile.mp4",
+        "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
 
         "encAlg": 1,
         "key": "aZISOs306M7n_3csR-J1cw",
         "nonce": "5VM0QcZI3PNmnquV6CUgxg",
-        "aad": "",
-        "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00"
+        "aad": ""
       }
     },
 
@@ -1743,16 +1833,18 @@ making the release happen!",
     }
   ]
 }
-</pre><a href="#section-4.1-2" class="pilcrow">¶</a>
+</pre><a href="#section-5.1-2" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
 <div id="mimi-vcon-with-an-attachment">
-<section id="section-4.2">
+<section id="section-5.2">
         <h3 id="name-mimi-vcon-with-an-attachmen">
-<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-mimi-vcon-with-an-attachmen" class="section-name selfRef">MIMI VCON with an Attachment</a>
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-mimi-vcon-with-an-attachmen" class="section-name selfRef">MIMI VCON with an Attachment</a>
         </h3>
-<div class="breakable lang-json sourcecode" id="section-4.2-1">
+<p id="section-5.2-1">This example vcon consists of a single message in a dialog which references
+an attachment.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<div class="breakable lang-json sourcecode" id="section-5.2-2">
 <pre>
 {
   "vcon": "0.0.1",
@@ -1820,32 +1912,32 @@ making the release happen!",
     }
   ]
 }
-</pre><a href="#section-4.2-1" class="pilcrow">¶</a>
+</pre><a href="#section-5.2-2" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
 </section>
 </div>
 <div id="security-considerations">
-<section id="section-5">
+<section id="section-6">
       <h2 id="name-security-considerations">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-5-1">TODO Security<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">TODO Security<a href="#section-6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
-<section id="section-6">
+<section id="section-7">
       <h2 id="name-iana-considerations">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-6-1">This document has no IANA actions.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-7-1">This document has no IANA actions.<a href="#section-7-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-normative-references">
-<section id="section-7">
+<section id="section-8">
       <h2 id="name-normative-references">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
       </h2>
 <dl class="references">
 <dt id="I-D.ietf-mimi-content">[I-D.ietf-mimi-content]</dt>
@@ -1867,16 +1959,24 @@ making the release happen!",
 </dl>
 </section>
 </div>
-<div id="acknowledgments">
+<div id="cddl-changes">
 <section id="appendix-A">
+      <h2 id="name-cddl-changes">
+<a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-cddl-changes" class="section-name selfRef">CDDL changes</a>
+      </h2>
+<p id="appendix-A-1"><strong>TODO</strong><a href="#appendix-A-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="acknowledgments">
+<section id="appendix-B">
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-A-1">TODO acknowledge.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-B-1">TODO acknowledge.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
-<section id="appendix-B">
+<section id="appendix-C">
       <h2 id="name-authors-address">
 <a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
       </h2>

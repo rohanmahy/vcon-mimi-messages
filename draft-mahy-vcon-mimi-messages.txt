@@ -4,8 +4,8 @@
 
 Virtualized Conversations                                        R. Mahy
 Internet-Draft                            Rohan Mahy Consulting Services
-Intended status: Informational                           25 October 2024
-Expires: 28 April 2025
+Intended status: Informational                           4 November 2024
+Expires: 8 May 2025
 
 
                          VCON for MIMI Messages
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 April 2025.
+   This Internet-Draft will expire on 8 May 2025.
 
 Copyright Notice
 
@@ -78,12 +78,14 @@ Table of Contents
      3.6.  ExternalPart
      3.7.  Changes to the room
      3.8.  party_event_type events
-   4.  Examples
-     4.1.  MIMI examples as a VCON
-     4.2.  MIMI VCON with an Attachment
-   5.  Security Considerations
-   6.  IANA Considerations
-   7.  Normative References
+   4.  Attachments
+   5.  Examples
+     5.1.  MIMI examples as a VCON
+     5.2.  MIMI VCON with an Attachment
+   6.  Security Considerations
+   7.  IANA Considerations
+   8.  Normative References
+   Appendix A.  CDDL changes
    Acknowledgments
    Author's Address
 
@@ -107,7 +109,8 @@ Table of Contents
 3.  Syntax
 
    A MIMI conversation (or portion thereof) is represented in VCON with
-   a mandatory list of parties and dialogs, a new top-level room object.
+   a mandatory list of parties and dialogs, a new top-level room object,
+   and optionally attachment objects.
 
 3.1.  Room information
 
@@ -152,9 +155,11 @@ Table of Contents
    *  expires is the expiration date/time of the message expressed as a
       VCON (text) date_type.  It is optional if empty.
 
-   *  inReplyTo is the base64url encoding of the MIMI content messageId
-      of the message to which this message is replying (or reacting).
-      It is optional if empty.
+   *  inReplyTo is an array of three values: the base64url encoding of
+      the MIMI content messageId of the message to which this message is
+      replying (or reacting), the hash algorithm expressed as an integer
+      (SHA-256 is 1), and the base64url hash of the decrypted mimi-
+      content.  It is optional if empty.
 
    *  lastSeen is an array of base64url-encoded message ids.  It is
       mandatory.
@@ -172,6 +177,8 @@ Table of Contents
 
    *  language - optional if absent
 
+   If there is only a single part its "partIndex" is 0.
+
 3.4.  MultiPart
 
    *  partSemantics is one of "chooseOne", "singleUnit", or
@@ -185,7 +192,8 @@ Table of Contents
 
    *  language - optional if absent
 
-   *  partIndex is an unsigned integer.  It is mandatory
+   *  partIndex is an unsigned integer.  It is mandatory in a Part
+      object.
 
    *  cardinality is one of "nullpart", "single", "external", or
       "multi". mandatory.
@@ -207,15 +215,21 @@ Table of Contents
 
    *  filename is a text string. optional.
 
-   ExternalPart has several fields for the decryption and integrity of
-   the referenced content.  These can be omitted once the content has
-   been downloaded, decrypted, verified, and included in the VCON
-   attachments array.
+   *  cached is a boolean.  It is mandatory if it is true, which means
+      that a copy of the external content is available in a vcon
+      attachment object (see {#attachments}).
 
-   These encryption/validation related fields can be omitted once the
-   content is available locally as an attachment.  All of them are
-   base64url encoded strings.  Otherwise they are mandatory if present
-   in the MIMI content.
+   *  contentHash is the base64url encoded string of the hash of the
+      external content, prefixed with the name of the hash algorithm and
+      a colon (for example "sha256:"). contentHash is optional unless
+      the external content has been included in a vcon attachment
+      object.
+
+   ExternalPart has several fields for the decryption of the referenced
+   content.  These can be omitted once the content has been downloaded,
+   decrypted, verified, and included in the VCON attachments array.  All
+   of them are base64url encoded strings.  Otherwise they are mandatory
+   if present in the MIMI content.
 
    *  encAlg
 
@@ -224,13 +238,6 @@ Table of Contents
    *  nonce
 
    *  aad
-
-   *  hashAlg
-
-   *  contentHash
-
-   *TODO*: how to represent a downloaded and decrypted object in
-   attachments?
 
 3.7.  Changes to the room
 
@@ -247,9 +254,12 @@ Table of Contents
 
    *  moderation events?
 
-   *TODO*
+   *TODO* add additional fields
 
 3.8.  party_event_type events
+
+   When there is a change to the parties represented in a room, the
+   party_event_type.event is added.
 
 party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
 
@@ -263,9 +273,32 @@ party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
 
    *  ban: user is banned from the group
 
-4.  Examples
+4.  Attachments
 
-4.1.  MIMI examples as a VCON
+   An attachment consists of the following fields:
+
+   *  start: is the time when the attachment was downloaded. it is
+      mandatory.
+
+   *  party: is the party that downloaded the attachment. it is
+      mandatory.
+
+   *  contentHash: is the base64url encoded hash using the hash name
+      prefixed with a colon before the hash (ex: "sha256:").  It is
+      mandatory.
+
+   *  dialogObjectRed is a string consisting of: "mid:" (representing
+      the message ID URI), the messageId of the message in the dialog
+      object, a colon, the partIndex of the Part (or "0" if the
+      ExternalPart is at the top level), and the string
+      "@anonymous.invalid"
+
+   mimetype, filename, encoding, and body are as defined in vcon and are
+   all mandatory.
+
+5.  Examples
+
+5.1.  MIMI examples as a VCON
 
    The example vcon consists of the example messages from Section 5 of
    the MIMI content specification plus a single multipart message.
@@ -392,7 +425,6 @@ party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
            1,
            "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
          ],
-         "messageId": "-GqJXuoaJu1Xosu-N8nt6NWzA2RLmIRY0q9jf_kvWkM",
          "lastSeen": [
            "2YF0k6blW9ZbJ8sgXJgMCTJOlofazdKwVRvf6ZUORFA",
            "rF4iS5BcJ-aFfisoFDCrnTE9pZZBGCxGCoXGJ9VXnck"
@@ -479,12 +511,12 @@ party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
            "size": 708234961,
            "description": "2 hours of key signing video",
            "filename": "bigfile.mp4",
+           "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
 
            "encAlg": 1,
            "key": "aZISOs306M7n_3csR-J1cw",
            "nonce": "5VM0QcZI3PNmnquV6CUgxg",
-           "aad": "",
-           "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00"
+           "aad": ""
          }
        },
 
@@ -546,7 +578,10 @@ party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
      ]
    }
 
-4.2.  MIMI VCON with an Attachment
+5.2.  MIMI VCON with an Attachment
+
+   This example vcon consists of a single message in a dialog which
+   references an attachment.
 
    {
      "vcon": "0.0.1",
@@ -615,15 +650,15 @@ party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
      ]
    }
 
-5.  Security Considerations
+6.  Security Considerations
 
    TODO Security
 
-6.  IANA Considerations
+7.  IANA Considerations
 
    This document has no IANA actions.
 
-7.  Normative References
+8.  Normative References
 
    [I-D.ietf-mimi-content]
               Mahy, R., "More Instant Messaging Interoperability (MIMI)
@@ -647,6 +682,10 @@ party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+Appendix A.  CDDL changes
+
+   *TODO*
 
 Acknowledgments
 
