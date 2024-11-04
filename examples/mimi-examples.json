@@ -120,7 +120,6 @@ making the release happen!",
         1,
         "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
       ],
-      "messageId": "-GqJXuoaJu1Xosu-N8nt6NWzA2RLmIRY0q9jf_kvWkM",
       "lastSeen": [
         "2YF0k6blW9ZbJ8sgXJgMCTJOlofazdKwVRvf6ZUORFA",
         "rF4iS5BcJ-aFfisoFDCrnTE9pZZBGCxGCoXGJ9VXnck"
@@ -207,12 +206,12 @@ making the release happen!",
         "size": 708234961,
         "description": "2 hours of key signing video",
         "filename": "bigfile.mp4",
+        "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
 
         "encAlg": 1,
         "key": "aZISOs306M7n_3csR-J1cw",
         "nonce": "5VM0QcZI3PNmnquV6CUgxg",
-        "aad": "",
-        "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00"
+        "aad": ""
       }
     },
 
