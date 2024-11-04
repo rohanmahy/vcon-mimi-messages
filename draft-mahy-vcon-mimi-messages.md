@@ -58,7 +58,8 @@ a VCON.
 # Syntax
 
 A MIMI conversation (or portion thereof) is represented in VCON with
-a mandatory list of parties and dialogs, a new top-level room object.
+a mandatory list of parties and dialogs, a new top-level room object,
+and optionally attachment objects.
 
 ## Room information
 
@@ -93,7 +94,7 @@ The originator is set to the parties index of the sender of the message.
 - `topicId` is the base64url encoding of the MIMI topicId. It is optional if empty.
 - `expires` is the expiration date/time of the message expressed as a VCON
 (text) date_type. It is optional if empty.
-- `inReplyTo` is the base64url encoding of the MIMI content messageId of the message to which this message is replying (or reacting). It is optional if empty.
+- `inReplyTo` is an array of three values: the base64url encoding of the MIMI content messageId of the message to which this message is replying (or reacting), the hash algorithm expressed as an integer (SHA-256 is 1), and the base64url hash of the decrypted mimi-content. It is optional if empty.
 - `lastSeen` is an array of base64url-encoded message ids. It is mandatory.
 - `mimiExtensions` is a object (map) containing MIMI extensions. It is optional.
 
@@ -106,7 +107,7 @@ be present.
 - `disposition` - optional if set to the default value ("render")
 - `language` - optional if absent
 
-
+If there is only a single part its "partIndex" is 0.
 
 
 ## MultiPart
@@ -118,7 +119,7 @@ be present.
 
 - `disposition` - optional if set to the default value ("render")
 - `language` - optional if absent
-- `partIndex` is an unsigned integer. It is mandatory
+- `partIndex` is an unsigned integer. It is mandatory in a Part object.
 - `cardinality` is one of "nullpart", "single", "external", or "multi". mandatory.
 
 if cardinality is "single" or "external", then body, encoding, and mimetype
@@ -133,22 +134,24 @@ fields are included directly in the Part object.
 - size is an integer number of octets. optional.
 - description is a text string. optional.
 - filename is a text string. optional.
+- cached is a boolean. It is mandatory if it is true, which means that a
+copy of the external content is available in a vcon attachment object
+(see {#attachments}).
+- contentHash is the base64url encoded string of the hash of the external
+content, prefixed with the name of the hash algorithm and a colon (for
+example "sha256:"). contentHash is optional unless the external content has
+been included in a vcon attachment object.
 
-ExternalPart has several fields for the decryption and integrity of the
+ExternalPart has several fields for the decryption of the
 referenced content. These can be omitted once the content has been
 downloaded, decrypted, verified, and included in the VCON attachments array.
-
-
-These encryption/validation related fields can be omitted once the content is available locally as an attachment. All of them are base64url encoded strings. Otherwise they are mandatory if present in the MIMI content.
+All of them are base64url encoded strings. Otherwise they are mandatory if
+present in the MIMI content.
 
 - encAlg
 - key
 - nonce
 - aad
-- hashAlg
-- contentHash
-
-**TODO**: how to represent a downloaded and decrypted object in attachments?
 
 ## Changes to the room
 
@@ -161,9 +164,12 @@ a new dialog type:
 - participants adding new clients
 - moderation events?
 
-**TODO**
+**TODO** add additional fields
 
 ## party_event_type events
+
+When there is a change to the parties represented in a room, the
+`party_event_type.event` is added.
 
 ~~~
 party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
@@ -174,6 +180,17 @@ party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
 - leave: user leaves of their own accord
 - remove: user is removed by another user
 - ban: user is banned from the group
+
+# Attachments
+
+An attachment consists of the following fields:
+
+- start: is the time when the attachment was downloaded. it is mandatory.
+- party: is the party that downloaded the attachment. it is mandatory.
+- contentHash: is the base64url encoded hash using the hash name prefixed with a colon before the hash (ex: "sha256:"). It is mandatory.
+- dialogObjectRed is a string consisting of: "mid:" (representing the message ID URI), the messageId of the message in the dialog object, a colon, the partIndex of the Part (or "0" if the ExternalPart is at the top level), and the string "@anonymous.invalid"
+
+mimetype, filename, encoding, and body are as defined in vcon and are all mandatory.
 
 
 # Examples
@@ -187,6 +204,9 @@ The example vcon consists of the example messages from Section 5 of the MIMI con
 ~~~
 
 ## MIMI VCON with an Attachment
+
+This example vcon consists of a single message in a dialog which references
+an attachment.
 
 ~~~ json
 {::include examples/attachment.json}
@@ -203,6 +223,10 @@ This document has no IANA actions.
 
 
 --- back
+
+# CDDL changes
+
+**TODO**
 
 # Acknowledgments
 {:numbered="false"}
