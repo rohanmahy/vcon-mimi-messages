@@ -45,7 +45,8 @@
         "size": 708234961,
         "description": "2 hours of key signing video",
         "filename": "bigfile.mp4",
-        "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
+        "contentHash":
+            "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
         "cached": true
       }
     },
@@ -54,9 +55,10 @@
     {
       "start": "2022-02-08T22:53:41.134-00:00",
       "party": 1,
-      "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
+      "contentHash":
+          "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
       "dialogObjectRef":
-  "mid:Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4:0@anonymous.invalid",
+  "mid:Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4:0@anon.invalid",
       "mimetype": "video/mp4",
       "filename": "bigfile.mp4",
       "encoding": "base64url",

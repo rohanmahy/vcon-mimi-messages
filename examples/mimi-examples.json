@@ -206,8 +206,8 @@ making the release happen!",
         "size": 708234961,
         "description": "2 hours of key signing video",
         "filename": "bigfile.mp4",
-        "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
-
+        "contentHash":
+            "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
         "encAlg": 1,
         "key": "aZISOs306M7n_3csR-J1cw",
         "nonce": "5VM0QcZI3PNmnquV6CUgxg",

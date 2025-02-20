@@ -183,7 +183,7 @@ All of these fields are base64url encoded strings.
 - `nonce`
 - `aad`
 
-## Changes to the room
+## Changes to the room {#party-history}
 
 Changes to the room metadata or participation should be accompanied by
 a new dialog type:
@@ -202,7 +202,8 @@ When there is a change to the parties represented in a room, the
 `party_event_type.event` is added.
 
 ~~~ cddl
-party_event_type.event /= "add" / "self_add" / "leave" / "remove" / "ban"
+party_event_type.event /= "add" / "self_add" /
+                          "leave" / "remove" / "ban"
 ~~~
 
 - `add`: user added by someone else
@@ -218,7 +219,7 @@ An attachment consists of the following fields:
 - `start`: is the time when the attachment was downloaded. It is mandatory.
 - `party`: is the party that downloaded the attachment. It is mandatory.
 - `content_hash`: is the base64url encoded hash using the hash name prefixed with a colon before the hash (ex: "sha256:"). It is mandatory.
-- `dialog_object_ref` is a string consisting of: "mid:" (representing the message ID URI), the message_id of the message in the dialog object, a colon, the part_index of the Part (or "0" if the ExternalPart is at the top level), and the string "@anonymous.invalid"
+- `dialog_object_ref` is a string consisting of: "mid:" (representing the message ID URI), the message_id of the message in the dialog object, a colon, the part_index of the Part (or "0" if the ExternalPart is at the top level), and the string "@anon.invalid"
 
 The `mimetype`, `filename`, `encoding`, and `body` fields are as they are defined in vcon and are all mandatory.
 
@@ -237,7 +238,7 @@ When a message has been deleted/retracted, or it expires, it can be valuable to 
 
 The example vcon consists of the example messages from Section 5 of the MIMI content specification plus a single multipart message.
 
-~~~ json
+~~~
 {::include examples/mimi-examples.json}
 ~~~
 
@@ -246,7 +247,7 @@ The example vcon consists of the example messages from Section 5 of the MIMI con
 This example vcon consists of a single message in a dialog which references
 an attachment.
 
-~~~ json
+~~~
 {::include examples/attachment.json}
 ~~~
 
