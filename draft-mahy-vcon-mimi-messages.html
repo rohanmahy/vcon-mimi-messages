@@ -11,13 +11,13 @@
 syntax for instant messaging systems using the More Instant Messaging
 Interoperability (MIMI) content format. 
     " name="description">
-<meta content="xml2rfc 3.25.0" name="generator">
+<meta content="xml2rfc 3.27.0" name="generator">
 <meta content="instant messaging" name="keyword">
 <meta content="message history" name="keyword">
 <meta content="draft-mahy-vcon-mimi-messages-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.25.0
-    Python 3.12.8
+  xml2rfc 3.27.0
+    Python 3.12.9
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
@@ -438,7 +438,7 @@ dl {
     margin-bottom: 0;
   }
 }
-dl > dt {
+dl:not(.dlNewline) > dt {
   float: left;
   margin-right: 2ch;
   min-width: 8ch;
@@ -1047,11 +1047,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">VCON for MIMI</td>
-<td class="right">January 2025</td>
+<td class="right">February 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mahy</td>
-<td class="center">Expires 19 July 2025</td>
+<td class="center">Expires 25 August 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1064,12 +1064,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-mahy-vcon-mimi-messages-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-01-15" class="published">15 January 2025</time>
+<time datetime="2025-02-21" class="published">21 February 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-07-19">19 July 2025</time></dd>
+<dd class="expires"><time datetime="2025-08-25">25 August 2025</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1121,7 +1121,7 @@ Interoperability (MIMI) content format.<a href="#section-abstract-1" class="pilc
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 19 July 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 25 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1166,56 +1166,67 @@ Interoperability (MIMI) content format.<a href="#section-abstract-1" class="pilc
                 <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-parties" class="internal xref">Parties</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
-                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-extensions-to-the-dialog-ob" class="internal xref">Extensions to the dialog object</a></p>
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-the-dialog-object-text-type" class="internal xref">The dialog object (text type)</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.1">
+                    <p id="section-toc.1-1.3.2.3.2.1.1"><a href="#section-3.3.1" class="auto internal xref">3.3.1</a>.  <a href="#name-semantics-of-the-existing-f" class="internal xref">Semantics of the existing fields for text</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.2">
+                    <p id="section-toc.1-1.3.2.3.2.2.1"><a href="#section-3.3.2" class="auto internal xref">3.3.2</a>.  <a href="#name-extensions-to-the-dialog-ob" class="internal xref">Extensions to the dialog object for text</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.3">
+                    <p id="section-toc.1-1.3.2.3.2.3.1"><a href="#section-3.3.3" class="auto internal xref">3.3.3</a>.  <a href="#name-multipart-objects" class="internal xref">MultiPart objects</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.4">
+                    <p id="section-toc.1-1.3.2.3.2.4.1"><a href="#section-3.3.4" class="auto internal xref">3.3.4</a>.  <a href="#name-part-objects" class="internal xref">Part objects</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.5">
+                    <p id="section-toc.1-1.3.2.3.2.5.1"><a href="#section-3.3.5" class="auto internal xref">3.3.5</a>.  <a href="#name-externalpart-objects" class="internal xref">ExternalPart objects</a></p>
+</li>
+                </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
-                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-multipart" class="internal xref">MultiPart</a></p>
+                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-changes-to-the-parties" class="internal xref">Changes to the parties</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5">
-                <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="auto internal xref">3.5</a>.  <a href="#name-part" class="internal xref">Part</a></p>
+                <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="auto internal xref">3.5</a>.  <a href="#name-changes-to-the-room" class="internal xref">Changes to the room</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.6">
-                <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="auto internal xref">3.6</a>.  <a href="#name-externalpart" class="internal xref">ExternalPart</a></p>
+                <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="auto internal xref">3.6</a>.  <a href="#name-attachments" class="internal xref">Attachments</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.7">
-                <p id="section-toc.1-1.3.2.7.1"><a href="#section-3.7" class="auto internal xref">3.7</a>.  <a href="#name-changes-to-the-room" class="internal xref">Changes to the room</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.8">
-                <p id="section-toc.1-1.3.2.8.1"><a href="#section-3.8" class="auto internal xref">3.8</a>.  <a href="#name-party_event_type-events" class="internal xref">party_event_type events</a></p>
+                <p id="section-toc.1-1.3.2.7.1"><a href="#section-3.7" class="auto internal xref">3.7</a>.  <a href="#name-message-tombstones" class="internal xref">Message tombstones</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-attachments" class="internal xref">Attachments</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-examples" class="internal xref">Examples</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-examples" class="internal xref">Examples</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
-                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-mimi-examples-as-a-vcon" class="internal xref">MIMI examples as a VCON</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-mimi-examples-as-a-vcon" class="internal xref">MIMI examples as a VCON</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
-                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-mimi-vcon-with-an-attachmen" class="internal xref">MIMI VCON with an Attachment</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-mimi-vcon-with-an-attachmen" class="internal xref">MIMI VCON with an Attachment</a></p>
 </li>
             </ul>
 </li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+</li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-cddl-changes" class="internal xref">CDDL changes</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-cddl-changes" class="internal xref">CDDL changes</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
 </li>
         </ul>
 </nav>
@@ -1243,6 +1254,16 @@ a VCON.<a href="#section-1-1" class="pilcrow">¶</a></p>
 "<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
 described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
 appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-2">The examples in this document may contain base64url encoded values that have extra whitespace added for readability, and to conform with Internet-Draft formatting conventions. That whitespace should be ignored.<a href="#section-2-2" class="pilcrow">¶</a></p>
+<p id="section-2-3">Some metadata about a MIMI content message is conveyed in the encryption protocol Messaging Layer Security (MLS) <span>[<a href="#RFC9420" class="cite xref">RFC9420</a>]</span> or in the MIMI protocol <span>[<a href="#I-D.ietf-mimi-protocol" class="cite xref">I-D.ietf-mimi-protocol</a>]</span>.<a href="#section-2-3" class="pilcrow">¶</a></p>
+<p id="section-2-4">For example, the sender, recipient, date, and message ID are not mandatory fields in a MIMI content message.
+The recipient is the MIMI room ID associated with the corresponding MLS group.
+The participants in the group are calculated from the MLS group state and MIMI participant list during the MLS "epoch" in which the message was sent.
+The sender is conveyed in MLS.
+The MIMI "Hub" received timestamp is conveyed in the MIMI protocol.
+The MIMI content message ID is constructed by hashing fields from the MIMI content, and the sender and room URIs (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-mimi-content-05#section-3.3" class="relref">Section 3.3</a> of [<a href="#I-D.ietf-mimi-content" class="cite xref">I-D.ietf-mimi-content</a>]</span>).<a href="#section-2-4" class="pilcrow">¶</a></p>
+<p id="section-2-5">When message franking is enabled, as defined in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-mimi-protocol-02#section-5.4.1" class="relref">Section 5.4.1</a> of [<a href="#I-D.ietf-mimi-protocol" class="cite xref">I-D.ietf-mimi-protocol</a>]</span>, the <code>franking_tag</code> is conveyed in the MLS message's Additional Authenticated Data (AAD) field, while the MIMI protocol conveys the <code>Frank</code> structure generated by the MIMI Hub.<a href="#section-2-5" class="pilcrow">¶</a></p>
+<p id="section-2-6">The room metadata described in this document comes from <span><a href="https://datatracker.ietf.org/doc/html/draft-mahy-mimi-app-components-01#section-3" class="relref">Section 3</a> of [<a href="#I-D.mahy-mimi-app-components" class="cite xref">I-D.mahy-mimi-app-components</a>]</span>, while the names of the parties comes from the participant list defined in Section 4 of the same document.<a href="#section-2-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="syntax">
@@ -1258,7 +1279,7 @@ and optionally attachment objects.<a href="#section-3-1" class="pilcrow">¶</a><
         <h3 id="name-room-information">
 <a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-room-information" class="section-name selfRef">Room information</a>
         </h3>
-<p id="section-3.1-1">This document adds a top-level <code>room</code> object. It contains metadata
+<p id="section-3.1-1">This document adds a mandatory, top-level <code>room</code> object. It contains metadata
 known about the room at the start of the VCON period.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.1-2.1">
@@ -1266,6 +1287,29 @@ known about the room at the start of the VCON period.<a href="#section-3.1-1" cl
 </li>
           <li class="normal" id="section-3.1-2.2">
             <p id="section-3.1-2.2.1"><code>name</code> is the textual name of the room. It is optional.<a href="#section-3.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.1-2.3">
+            <p id="section-3.1-2.3.1"><code>avatar</code> is a URL referencing the room image. It is optional.<a href="#section-3.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.1-2.4">
+            <p id="section-3.1-2.4.1"><code>subject</code> is the room subject. It is optional.<a href="#section-3.1-2.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.1-2.5">
+            <p id="section-3.1-2.5.1"><code>mood</code> is the room mood. It is optional<a href="#section-3.1-2.5.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.1-2.6">
+            <p id="section-3.1-2.6.1"><code>description</code> is an array of room_description objects. It is optional. Each object can contain:<a href="#section-3.1-2.6.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.1-2.6.2.1">
+                <p id="section-3.1-2.6.2.1.1">a <code>type</code>- a media type or an empty string. It is optional. It's default value is <code>text/plain;charset=UTF-8</code>.<a href="#section-3.1-2.6.2.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-3.1-2.6.2.2">
+                <p id="section-3.1-2.6.2.2.1">a <code>lang</code> - a <code>Language-tag</code> as defined by <span>[<a href="#RFC5646" class="cite xref">RFC5646</a>]</span>. It is optional.<a href="#section-3.1-2.6.2.2.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-3.1-2.6.2.3">
+                <p id="section-3.1-2.6.2.3.1">a <code>content</code> - if the <code>type</code> begins with "text" or is empty, the content the is UTF-8 text description of the room. Otherwise it is the base64url encoding of whatever type is described. The <code>content</code> field is mandatory in a room_description object.<a href="#section-3.1-2.6.2.3.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
 </li>
         </ul>
 </section>
@@ -1277,279 +1321,333 @@ known about the room at the start of the VCON period.<a href="#section-3.1-1" cl
         </h3>
 <p id="section-3.2-1">The <code>parties</code> array <span class="bcp14">MUST</span> contain all the
 participants who were in the conversation at any point in time during the
-period represented by the VCON.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
-<p id="section-3.2-2">This document adds a new party_object_type: <code>imUri</code>. It is mandatory.
+period represented by the VCON. The first party in the array is the MIMI room URI.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-2">This document adds a new party_object_type: <code>im_uri</code>. It is mandatory.
 The <code>name</code> field is optional. The <code>role</code> indicates the MIMI role and is
 optional. The document also adds a <code>thumbprint</code> party_object_type, which is
 the JWK thumbprint of the public key of the party. If there are multiple
-parties (clients) with the same <code>imUri</code> then the thumbprint is required,
+parties (clients) with the same <code>im_uri</code> then the thumbprint is required,
 otherwise it is optional.<a href="#section-3.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="extensions-to-the-dialog-object">
+<div id="the-dialog-object-text-type">
 <section id="section-3.3">
-        <h3 id="name-extensions-to-the-dialog-ob">
-<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-extensions-to-the-dialog-ob" class="section-name selfRef">Extensions to the dialog object</a>
+        <h3 id="name-the-dialog-object-text-type">
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-the-dialog-object-text-type" class="section-name selfRef">The dialog object (text type)</a>
         </h3>
-<p id="section-3.3-1">The dialog object consists of an array of instant messages of type "text".
+<p id="section-3.3-1">The following section refers to changes and additions to the dialog object when the <code>type</code> field is "text".<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<div id="semantics-of-the-existing-fields-for-text">
+<section id="section-3.3.1">
+          <h4 id="name-semantics-of-the-existing-f">
+<a href="#section-3.3.1" class="section-number selfRef">3.3.1. </a><a href="#name-semantics-of-the-existing-f" class="section-name selfRef">Semantics of the existing fields for text</a>
+          </h4>
+<p id="section-3.3.1-1">The dialog object consists of an array of instant messages of type "text".
 The start time is set to the hub received timestamp when available.
-The duration is zero. The parties array consist of the party indexes of those who were active participants when the message was sent.
-The originator is set to the parties index of the sender of the message.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-3.3-2.1">
-            <p id="section-3.3-2.1.1"><code>messageId</code> is the base64url encoding of the MIMI content messageId. It is mandatory.<a href="#section-3.3-2.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.3-2.2">
-            <p id="section-3.3-2.2.1"><code>replaces</code> is the base64url encoding of the MIMI content messageId of the message this message replaces. It is optional if empty.<a href="#section-3.3-2.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.3-2.3">
-            <p id="section-3.3-2.3.1"><code>topicId</code> is the base64url encoding of the MIMI topicId. It is optional if empty.<a href="#section-3.3-2.3.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.3-2.4">
-            <p id="section-3.3-2.4.1"><code>expires</code> is the expiration date/time of the message expressed as a VCON
-(text) date_type. It is optional if empty.<a href="#section-3.3-2.4.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.3-2.5">
-            <p id="section-3.3-2.5.1"><code>inReplyTo</code> is an array of three values: the base64url encoding of the MIMI content messageId of the message to which this message is replying (or reacting), the hash algorithm expressed as an integer (SHA-256 is 1), and the base64url hash of the decrypted mimi-content. It is optional if empty.<a href="#section-3.3-2.5.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.3-2.6">
-            <p id="section-3.3-2.6.1"><code>lastSeen</code> is an array of base64url-encoded message ids. It is mandatory.<a href="#section-3.3-2.6.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.3-2.7">
-            <p id="section-3.3-2.7.1"><code>mimiExtensions</code> is a object (map) containing MIMI extensions. It is optional.<a href="#section-3.3-2.7.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-3.3-3">VCON typically expresses content using the body, encoding, and mimetype
-fields. In order to preserve this convention we use these fields directly
-for a MIMI SinglePart structure, but use new MultiPart and ExternalPart
-structure for those MIMI structures. For a SinglePart these two fields could
-be present.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-3.3-4.1">
-            <p id="section-3.3-4.1.1"><code>disposition</code> - optional if set to the default value ("render")<a href="#section-3.3-4.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.3-4.2">
-            <p id="section-3.3-4.2.1"><code>language</code> - optional if absent<a href="#section-3.3-4.2.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-3.3-5">If there is only a single part its "partIndex" is 0.<a href="#section-3.3-5" class="pilcrow">¶</a></p>
+The duration is zero.
+The originator is set to the parties index of the sender of the message.<a href="#section-3.3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.1-2">The first MIMI message represented in a MIMI VCON should contain the complete list of parties who were participants in the room at that time.
+For subsequent messages, a parties array consisting of index zero, indicates the recipients of the message are the active participants of the room.
+Changes to the roster can be tracked if <code>party_history</code> is present for those changes (see <a href="#party-history" class="auto internal xref">Section 3.4</a>).<a href="#section-3.3.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="multipart">
-<section id="section-3.4">
-        <h3 id="name-multipart">
-<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-multipart" class="section-name selfRef">MultiPart</a>
-        </h3>
+<div id="extensions-to-the-dialog-object-for-text">
+<section id="section-3.3.2">
+          <h4 id="name-extensions-to-the-dialog-ob">
+<a href="#section-3.3.2" class="section-number selfRef">3.3.2. </a><a href="#name-extensions-to-the-dialog-ob" class="section-name selfRef">Extensions to the dialog object for text</a>
+          </h4>
+<p id="section-3.3.2-1">The parties array consist of the party indexes of those who were active participants when the message was sent.<a href="#section-3.3.2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.4-1.1">
-            <p id="section-3.4-1.1.1"><code>partSemantics</code> is one of "chooseOne", "singleUnit", or "processAll". It is mandatory.<a href="#section-3.4-1.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.3.2-2.1">
+              <p id="section-3.3.2-2.1.1"><code>message_id</code> is the base64url encoding of the MIMI content message ID. It is mandatory.<a href="#section-3.3.2-2.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.4-1.2">
-            <p id="section-3.4-1.2.1"><code>parts</code> is an array of <code>Part</code>s. It is mandatory.<a href="#section-3.4-1.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.3.2-2.2">
+              <p id="section-3.3.2-2.2.1"><code>salt</code> is the base64url encoding of the MIMI content salt. It is mandatory.<a href="#section-3.3.2-2.2.1" class="pilcrow">¶</a></p>
 </li>
-        </ul>
+            <li class="normal" id="section-3.3.2-2.3">
+              <p id="section-3.3.2-2.3.1"><code>replaces</code> is the base64url encoding of the MIMI content message_id of the message this message replaces. It is optional if empty.<a href="#section-3.3.2-2.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.2-2.4">
+              <p id="section-3.3.2-2.4.1"><code>topic_id</code> is the base64url encoding of the MIMI topic_id. It is optional if empty.<a href="#section-3.3.2-2.4.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.2-2.5">
+              <p id="section-3.3.2-2.5.1"><code>expires</code> is optional if empty in MIMI. It contains null or a map with the following items:<a href="#section-3.3.2-2.5.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.3.2-2.5.2.1">
+                  <p id="section-3.3.2-2.5.2.1.1"><code>relative</code> is a boolean that is true if the time is expressed relative to the recipient read time, and false if it is expressed as an absolute date/time. It is mandatory when <code>expires</code> is present.<a href="#section-3.3.2-2.5.2.1.1" class="pilcrow">¶</a></p>
+</li>
+                <li class="normal" id="section-3.3.2-2.5.2.2">
+                  <p id="section-3.3.2-2.5.2.2.1"><code>relative_time</code> is an integer number of seconds. If <code>relative</code> is true, once the message has been read, the client is expected to delete the message after <code>relative_time</code> seconds. It is mandatory if <code>relative</code> is true.<a href="#section-3.3.2-2.5.2.2.1" class="pilcrow">¶</a></p>
+</li>
+                <li class="normal" id="section-3.3.2-2.5.2.3">
+                  <p id="section-3.3.2-2.5.2.3.1"><code>absolute_time</code> is the expiration date/time of the message expressed as a VCON (text) date_type. It is mandatory if <code>relative</code> is false and optional otherwise.<a href="#section-3.3.2-2.5.2.3.1" class="pilcrow">¶</a></p>
+</li>
+              </ul>
+</li>
+            <li class="normal" id="section-3.3.2-2.6">
+              <p id="section-3.3.2-2.6.1"><code>in_reply_to</code> is the base64url encoding of the MIMI content message_id of the message to which this message is replying (or reacting). It is optional if empty.<a href="#section-3.3.2-2.6.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.2-2.7">
+              <p id="section-3.3.2-2.7.1"><code>mimi_extensions</code> is a base64 encoding of the CBOR MIMI content extensions map or null. It is optional if not present in the MIMI content.<a href="#section-3.3.2-2.7.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.2-2.8">
+              <p id="section-3.3.2-2.8.1"><code>franking_tag</code> is a base64url encoding of the MIMI <code>franking_tag</code>, or null.  It is optional if not present.<a href="#section-3.3.2-2.8.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.2-2.9">
+              <p id="section-3.3.2-2.9.1"><code>frank</code> is a base64url encoding of the MIMI protocol <code>Frank</code> TLS struct, or null. It is optional if not present.<a href="#section-3.3.2-2.9.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-3.3.2-3">VCON typically expresses message content using the <code>body</code>, <code>encoding</code>, and <code>mediatype</code> fields.
+In order to preserve this convention we use these fields directly for a MIMI SinglePart structure, but use new MultiPart and ExternalPart objects for those corresponding MIMI structures.
+For a SinglePart these two fields with the same semantics as their MIMI content counterparts could be present.<a href="#section-3.3.2-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.3.2-4.1">
+              <p id="section-3.3.2-4.1.1"><code>disposition</code> - optional if set to the default value ("render")<a href="#section-3.3.2-4.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.2-4.2">
+              <p id="section-3.3.2-4.2.1"><code>language</code> - optional if absent<a href="#section-3.3.2-4.2.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-3.3.2-5">If there is only a single part its <code>part_index</code> is 0, and in this case it is optional.<a href="#section-3.3.2-5" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="part">
-<section id="section-3.5">
-        <h3 id="name-part">
-<a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-part" class="section-name selfRef">Part</a>
-        </h3>
+<div id="multipart-objects">
+<section id="section-3.3.3">
+          <h4 id="name-multipart-objects">
+<a href="#section-3.3.3" class="section-number selfRef">3.3.3. </a><a href="#name-multipart-objects" class="section-name selfRef">MultiPart objects</a>
+          </h4>
+<p id="section-3.3.3-1">A <code>MultiPart</code> object is designed to carry multiple items, as with the MultiPart structure in MIMI content or the top level multipart media types. It contains the following fields.<a href="#section-3.3.3-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.5-1.1">
-            <p id="section-3.5-1.1.1"><code>disposition</code> - optional if set to the default value ("render")<a href="#section-3.5-1.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.3.3-2.1">
+              <p id="section-3.3.3-2.1.1"><code>part_semantics</code> is one of "chooseOne", "singleUnit", or "processAll". It is mandatory.<a href="#section-3.3.3-2.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.5-1.2">
-            <p id="section-3.5-1.2.1"><code>language</code> - optional if absent<a href="#section-3.5-1.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.3.3-2.2">
+              <p id="section-3.3.3-2.2.1"><code>parts</code> is an array of <code>Part</code>s. It is mandatory in a <code>MultiPart</code> object.<a href="#section-3.3.3-2.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.5-1.3">
-            <p id="section-3.5-1.3.1"><code>partIndex</code> is an unsigned integer. It is mandatory in a Part object.<a href="#section-3.5-1.3.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.5-1.4">
-            <p id="section-3.5-1.4.1"><code>cardinality</code> is one of "nullpart", "single", "external", or "multi". mandatory.<a href="#section-3.5-1.4.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-3.5-2">if cardinality is "single" or "external", then body, encoding, and mimetype
-fields are included directly in the Part object.<a href="#section-3.5-2" class="pilcrow">¶</a></p>
+          </ul>
 </section>
 </div>
-<div id="externalpart">
-<section id="section-3.6">
-        <h3 id="name-externalpart">
-<a href="#section-3.6" class="section-number selfRef">3.6. </a><a href="#name-externalpart" class="section-name selfRef">ExternalPart</a>
-        </h3>
+<div id="part-objects">
+<section id="section-3.3.4">
+          <h4 id="name-part-objects">
+<a href="#section-3.3.4" class="section-number selfRef">3.3.4. </a><a href="#name-part-objects" class="section-name selfRef">Part objects</a>
+          </h4>
+<p id="section-3.3.4-1">The following fields can be in a Part object. They have the same meaning as their MIMI content counterparts.<a href="#section-3.3.4-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.6-1.1">
-            <p id="section-3.6-1.1.1">mimetype (contentType in MIMI). optional but recommended.<a href="#section-3.6-1.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.3.4-2.1">
+              <p id="section-3.3.4-2.1.1"><code>disposition</code> optional if set to the default value ("render")<a href="#section-3.3.4-2.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-1.2">
-            <p id="section-3.6-1.2.1">url is the URL of the content as a text string. mandatory<a href="#section-3.6-1.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.3.4-2.2">
+              <p id="section-3.3.4-2.2.1"><code>language</code> - optional if absent<a href="#section-3.3.4-2.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-1.3">
-            <p id="section-3.6-1.3.1">expires is a date_type (text) date. optional.<a href="#section-3.6-1.3.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.3.4-2.3">
+              <p id="section-3.3.4-2.3.1"><code>part_index</code> is an unsigned integer. It is mandatory in a <code>Part</code> object.<a href="#section-3.3.4-2.3.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-1.4">
-            <p id="section-3.6-1.4.1">size is an integer number of octets. optional.<a href="#section-3.6-1.4.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.3.4-2.4">
+              <p id="section-3.3.4-2.4.1"><code>cardinality</code> is one of "nullpart", "single", "external", or "multi". mandatory.<a href="#section-3.3.4-2.4.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-1.5">
-            <p id="section-3.6-1.5.1">description is a text string. optional.<a href="#section-3.6-1.5.1" class="pilcrow">¶</a></p>
+          </ul>
+<p id="section-3.3.4-3">If cardinality is "single" or "external", then <code>body</code>, <code>encoding</code>, and <code>mediatype</code> fields are included directly in the Part object.<a href="#section-3.3.4-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="externalpart-objects">
+<section id="section-3.3.5">
+          <h4 id="name-externalpart-objects">
+<a href="#section-3.3.5" class="section-number selfRef">3.3.5. </a><a href="#name-externalpart-objects" class="section-name selfRef">ExternalPart objects</a>
+          </h4>
+<p id="section-3.3.5-1">The <code>ExternalPart</code> object can contain the following fields with similar meanings to those in MIMI content, with exceptions noted below.<a href="#section-3.3.5-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.3.5-2.1">
+              <p id="section-3.3.5-2.1.1"><code>mediatype</code> is the value of the <code>contentType</code> in MIMI. It is mandatory if present in the MIMI message and recommended otherwise.<a href="#section-3.3.5-2.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-1.6">
-            <p id="section-3.6-1.6.1">filename is a text string. optional.<a href="#section-3.6-1.6.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.3.5-2.2">
+              <p id="section-3.3.5-2.2.1"><code>url</code> is the URL of the content as a text string. It is mandatory<a href="#section-3.3.5-2.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-1.7">
-            <p id="section-3.6-1.7.1">cached is a boolean. It is mandatory if it is true, which means that a
+            <li class="normal" id="section-3.3.5-2.3">
+              <p id="section-3.3.5-2.3.1"><code>expires</code> is a date_type (text) date. It is optional if not present.<a href="#section-3.3.5-2.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.5-2.4">
+              <p id="section-3.3.5-2.4.1"><code>size</code> is an integer number of octets. It is optional if not present.<a href="#section-3.3.5-2.4.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.5-2.5">
+              <p id="section-3.3.5-2.5.1"><code>description</code> is a text string. It is optional if not present.<a href="#section-3.3.5-2.5.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.5-2.6">
+              <p id="section-3.3.5-2.6.1"><code>filename</code> is a text string. It is optional if not present.<a href="#section-3.3.5-2.6.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.5-2.7">
+              <p id="section-3.3.5-2.7.1"><code>content_hash</code> is the base64url encoded string of the MIMI <code>contentHash</code> of the ExternalPart, prefixed with the name of the hash algorithm corresponding to <code>hashAlg</code> and a colon (for example "sha256:"). <code>content_hash</code> is  mandatory if it was included in the MIMI content ExternalPart, and omitted otherwise.<a href="#section-3.3.5-2.7.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-3.3.5-3">In addition, the following fields are unique to MIMI VCON.<a href="#section-3.3.5-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.3.5-4.1">
+              <p id="section-3.3.5-4.1.1"><code>cached</code> is a boolean. It is mandatory if it is true, which means that a
 copy of the external content is available in a vcon attachment object
-(see {#attachments}).<a href="#section-3.6-1.7.1" class="pilcrow">¶</a></p>
+(see {#attachments}). If <code>cache</code> is true and no <code>content_hash</code> is present, a new content hash is calculated for the attachment and placed the <code>cache_ref</code> field (which can only be present in this case).<a href="#section-3.3.5-4.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-1.8">
-            <p id="section-3.6-1.8.1">contentHash is the base64url encoded string of the hash of the external
-content, prefixed with the name of the hash algorithm and a colon (for
-example "sha256:"). contentHash is optional unless the external content has
-been included in a vcon attachment object.<a href="#section-3.6-1.8.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-3.6-2">ExternalPart has several fields for the decryption of the
-referenced content. These can be omitted once the content has been
-downloaded, decrypted, verified, and included in the VCON attachments array.
-All of them are base64url encoded strings. Otherwise they are mandatory if
-present in the MIMI content.<a href="#section-3.6-2" class="pilcrow">¶</a></p>
+          </ul>
+<p id="section-3.3.5-5">ExternalPart has several fields for the decryption of the
+referenced content.
+If it is not necessary to reconstruct the original MIMI content (for example to allow later verification of the message ID), these fields can be omitted once the content has been downloaded, decrypted, verified, and included in the VCON attachments array. Otherwise they are mandatory if present in the MIMI content.
+All of these fields are base64url encoded strings.<a href="#section-3.3.5-5" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.6-3.1">
-            <p id="section-3.6-3.1.1">encAlg<a href="#section-3.6-3.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.3.5-6.1">
+              <p id="section-3.3.5-6.1.1"><code>encAlg</code><a href="#section-3.3.5-6.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-3.2">
-            <p id="section-3.6-3.2.1">key<a href="#section-3.6-3.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.3.5-6.2">
+              <p id="section-3.3.5-6.2.1"><code>key</code><a href="#section-3.3.5-6.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-3.3">
-            <p id="section-3.6-3.3.1">nonce<a href="#section-3.6-3.3.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.3.5-6.3">
+              <p id="section-3.3.5-6.3.1"><code>nonce</code><a href="#section-3.3.5-6.3.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-3.4">
-            <p id="section-3.6-3.4.1">aad<a href="#section-3.6-3.4.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.3.5-6.4">
+              <p id="section-3.3.5-6.4.1"><code>aad</code><a href="#section-3.3.5-6.4.1" class="pilcrow">¶</a></p>
 </li>
-        </ul>
+          </ul>
+</section>
+</div>
+</section>
+</div>
+<div id="party-history">
+<section id="section-3.4">
+        <h3 id="name-changes-to-the-parties">
+<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-changes-to-the-parties" class="section-name selfRef">Changes to the parties</a>
+        </h3>
+<p id="section-3.4-1">The <code>party_history</code> object can be interleaved with text objects in the dialog objects array. It indicates when changes have been made to the participants represented by party index zero, as well as properties of individual parties (such as their role or name).<a href="#section-3.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.4-2">The <code>party_history</code> object contains the following fields.
+- <code>party</code> is the party index of the modified party. It is mandatory.
+- <code>originator</code> is the party that originated the change. It is optional.
+- <code>time</code> is the time that the change was effected
+- <code>event</code> is the type of change. It is mandatory and for MIMI VCONs can be one of the following new event types:
+    * <code>add</code>: user added by someone else
+    * <code>self_add</code>: user added herself directly
+    * <code>leave</code>: user leaves of their own accord
+    * <code>remove</code>: user is removed by another user
+    * <code>ban</code>: user is banned from the group
+    * <code>update</code>:
+- <code>name</code> is the new name of the user. It is only permitted for an update event.
+- <code>role</code> is the new role assigned to the user. It is only permitted for an update event.<a href="#section-3.4-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="changes-to-the-room">
-<section id="section-3.7">
+<section id="section-3.5">
         <h3 id="name-changes-to-the-room">
-<a href="#section-3.7" class="section-number selfRef">3.7. </a><a href="#name-changes-to-the-room" class="section-name selfRef">Changes to the room</a>
+<a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-changes-to-the-room" class="section-name selfRef">Changes to the room</a>
         </h3>
-<p id="section-3.7-1">Changes to the room metadata or participation should be accompanied by
-a new dialog type:<a href="#section-3.7-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-3.7-2.1">
-            <p id="section-3.7-2.1.1">room metadata changes<a href="#section-3.7-2.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.7-2.2">
-            <p id="section-3.7-2.2.1">participant identity change<a href="#section-3.7-2.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.7-2.3">
-            <p id="section-3.7-2.3.1">participants joining and leaving<a href="#section-3.7-2.3.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.7-2.4">
-            <p id="section-3.7-2.4.1">participants adding new clients<a href="#section-3.7-2.4.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.7-2.5">
-            <p id="section-3.7-2.5.1">moderation events?<a href="#section-3.7-2.5.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-3.7-3"><strong>TODO</strong> add additional fields<a href="#section-3.7-3" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="partyeventtype-events">
-<section id="section-3.8">
-        <h3 id="name-party_event_type-events">
-<a href="#section-3.8" class="section-number selfRef">3.8. </a><a href="#name-party_event_type-events" class="section-name selfRef">party_event_type events</a>
-        </h3>
-<p id="section-3.8-1">When there is a change to the parties represented in a room, the
-<code>party_event_type.event</code> is added.<a href="#section-3.8-1" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-3.8-2">
-<pre>
-party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
-</pre><a href="#section-3.8-2" class="pilcrow">¶</a>
-</div>
-<ul class="normal">
-<li class="normal" id="section-3.8-3.1">
-            <p id="section-3.8-3.1.1">add: user added herself directly<a href="#section-3.8-3.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.8-3.2">
-            <p id="section-3.8-3.2.1">welcome: user added by someone else<a href="#section-3.8-3.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.8-3.3">
-            <p id="section-3.8-3.3.1">leave: user leaves of their own accord<a href="#section-3.8-3.3.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.8-3.4">
-            <p id="section-3.8-3.4.1">remove: user is removed by another user<a href="#section-3.8-3.4.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-3.8-3.5">
-            <p id="section-3.8-3.5.1">ban: user is banned from the group<a href="#section-3.8-3.5.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-</section>
-</div>
+<p id="section-3.5-1">Changes to the room metadata should be accompanied by a new <code>room</code> dialog type.
+The <code>room</code> dialog type can contain anything in the top-level <code>room</code> object except for the <code>id</code> (which cannot change).
+It must contain a <code>time</code> field to convey the time of the change, and may contain an <code>originator</code> field to convey who made that change.<a href="#section-3.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="attachments">
-<section id="section-4">
-      <h2 id="name-attachments">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-attachments" class="section-name selfRef">Attachments</a>
-      </h2>
-<p id="section-4-1">An attachment consists of the following fields:<a href="#section-4-1" class="pilcrow">¶</a></p>
+<section id="section-3.6">
+        <h3 id="name-attachments">
+<a href="#section-3.6" class="section-number selfRef">3.6. </a><a href="#name-attachments" class="section-name selfRef">Attachments</a>
+        </h3>
+<p id="section-3.6-1">An attachment consists of the following fields:<a href="#section-3.6-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4-2.1">
-          <p id="section-4-2.1.1">start: is the time when the attachment was downloaded. it is mandatory.<a href="#section-4-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.6-2.1">
+            <p id="section-3.6-2.1.1"><code>start</code>: is the time when the attachment was downloaded. It is mandatory.<a href="#section-3.6-2.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-4-2.2">
-          <p id="section-4-2.2.1">party: is the party that downloaded the attachment. it is mandatory.<a href="#section-4-2.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.6-2.2">
+            <p id="section-3.6-2.2.1"><code>party</code>: is the party that downloaded the attachment. It is mandatory.<a href="#section-3.6-2.2.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-4-2.3">
-          <p id="section-4-2.3.1">contentHash: is the base64url encoded hash using the hash name prefixed with a colon before the hash (ex: "sha256:"). It is mandatory.<a href="#section-4-2.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.6-2.3">
+            <p id="section-3.6-2.3.1"><code>content_hash</code>: is the base64url encoded hash using the hash name prefixed with a colon before the hash (ex: "sha256:"). It is mandatory.<a href="#section-3.6-2.3.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-4-2.4">
-          <p id="section-4-2.4.1">dialogObjectRed is a string consisting of: "mid:" (representing the message ID URI), the messageId of the message in the dialog object, a colon, the partIndex of the Part (or "0" if the ExternalPart is at the top level), and the string "@anonymous.invalid"<a href="#section-4-2.4.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.6-2.4">
+            <p id="section-3.6-2.4.1"><code>dialog_object_ref</code> is a string consisting of: "mid:" (representing the message ID URI), the message_id of the message in the dialog object, a colon, the part_index of the Part (or "0" if the ExternalPart is at the top level), and the string "@anon.invalid"<a href="#section-3.6-2.4.1" class="pilcrow">¶</a></p>
 </li>
-      </ul>
-<p id="section-4-3">mimetype, filename, encoding, and body are as defined in vcon and are all mandatory.<a href="#section-4-3" class="pilcrow">¶</a></p>
+        </ul>
+<p id="section-3.6-3">The <code>mediatype</code>, <code>filename</code>, <code>encoding</code>, and <code>body</code> fields are as they are defined in VCON and are all mandatory.<a href="#section-3.6-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="message-tombstones">
+<section id="section-3.7">
+        <h3 id="name-message-tombstones">
+<a href="#section-3.7" class="section-number selfRef">3.7. </a><a href="#name-message-tombstones" class="section-name selfRef">Message tombstones</a>
+        </h3>
+<p id="section-3.7-1">When a message has been deleted/retracted, or it expires, it can be valuable to present a record that such a message was previously present, by generating a dialog object with the following fields (which are all mandatory):<a href="#section-3.7-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.7-2.1">
+            <p id="section-3.7-2.1.1"><code>type</code> is "tombstone"<a href="#section-3.7-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.7-2.2">
+            <p id="section-3.7-2.2.1"><code>start</code> is the time the tombstone was generated<a href="#section-3.7-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.7-2.3">
+            <p id="section-3.7-2.3.1"><code>message_id</code> is the message ID of the message.<a href="#section-3.7-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.7-2.4">
+            <p id="section-3.7-2.4.1"><code>status</code> is the status of the former message, either "retracted" or "expired".<a href="#section-3.7-2.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+</section>
+</div>
 </section>
 </div>
 <div id="examples">
-<section id="section-5">
+<section id="section-4">
       <h2 id="name-examples">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-examples" class="section-name selfRef">Examples</a>
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-examples" class="section-name selfRef">Examples</a>
       </h2>
 <div id="mimi-examples-as-a-vcon">
-<section id="section-5.1">
+<section id="section-4.1">
         <h3 id="name-mimi-examples-as-a-vcon">
-<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-mimi-examples-as-a-vcon" class="section-name selfRef">MIMI examples as a VCON</a>
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-mimi-examples-as-a-vcon" class="section-name selfRef">MIMI examples as a VCON</a>
         </h3>
-<p id="section-5.1-1">The example vcon consists of the example messages from Section 5 of the MIMI content specification plus a single multipart message.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
-<div class="breakable lang-json sourcecode" id="section-5.1-2">
+<p id="section-4.1-1">The example vcon consists of the example messages from Section 5 of the MIMI content specification plus a <code>party_history</code> object adding tow new participants, and a single multipart message at the end.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-4.1-2">
 <pre>
 {
   "vcon": "0.0.1",
   "room": {
     "id": "mimi://example.com/r/engineering_team",
     "name": "Engineering Team",
+    "avatar": "https://example.com/images/tHMqLMAkmCzNmweL",
+    "subject": None,
+    "mood": None,
+    "description": [
+        {"type":"", "lang":"en", "content":"Engineering Team Internal Chat"},
+        {  "type":"",
+          "lang":"fr",
+          "content":"Chat de l'équipe interne des ingénieurs"
+        }
+    ]
   }
   "parties": [
     {
-      "imUri": "mimi://example.com/u/alice-smith",
+      "imUri": "mimi://example.com/r/engineering_team",
+    },
+    {
+      "im_uri": "mimi://example.com/u/alice-smith",
       "name": "Alice Smith",
       "role": "moderator",
       "thumbprint": "TODOFIXDZXCog_FfQp-xLemZkD5GKB9H7Z-Y41O4jEw"
     },
     {
-      "imUri": "mimi://example.com/u/bob-jones",
+      "im_uri": "mimi://example.com/u/bob-jones",
       "name": "Bob Jones",
       "role": "member",
       "thumbprint": "TODOFIXYUFE7bV9pXAHZHi5bwSWzLJqjncevs9aLKDg"
     },
     {
-      "imUri": "mimi://example.com/u/cathy-washington",
+      "im_uri": "mimi://example.com/u/cathy-washington",
       "name": "Cathy Washington",
       "role": "member",
       "thumbprint": "TODOFIXzH3EeOGbI0-oiDGTXlgKmkMzQyQ2W_Y-TB1U"
+    },
+    {
+      "im_uri": "mimi://example.com/u/doug-king",
+      "name": "Doug King",
+      "role": "member",
+      "thumbprint": "TODOFIX3fdpORnHwncbdOS5XieH-z1m5r61u14WyNkj"
+    },
+    {
+      "im_uri": "mimi://example.com/u/liz-roberts",
+      "name": "Elizabeth Roberts",
+      "role": "member",
+      "thumbprint": "TODOFIX7qR7oFriyKfKgIJ43ZdANoObICqH0kN9g82J"
     }
   ],
   "dialog": [
@@ -1558,11 +1656,16 @@ party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
       "start": "2022-02-08T22:13:45.019-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        1, 2, 3
       ],
-      "originator": 0,
-      "messageId": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
-      "lastSeen": [],
+      "franking_tag": null,
+      "frank": null,
+      "originator": 1,
+      "salt": "PC16IkqDbGRiffzjeyPKIg"
+      "message_id": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+      "mimi_extensions": "oQGiAXgrbWltaTovL2h1Yi5leGFtcGxlL3IvU
+          mwzM0ZXTENZV093eEhyWW5wV0RRZwJ4GG1pbWk6Ly9iLmV4YW1wbG
+          UvdS9hbGljZQ",
       "mimetype": "text/markdown;variant=GFM",
       "encoding": "none"
       "body":
@@ -1574,21 +1677,15 @@ party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
       "start": "2022-02-08T22:13:57.492-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 1,
-      "messageId": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
-      "inReplyTo": [
-        "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
-        1,
-        "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
-      ],
-      "lastSeen": [
-        "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ"
-      ],
+      "originator": 2,
+      "salt": "PVeWNQrjJej4AjhqkGlSkw"
+      "message_id": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
+      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
       "mimetype": "text/markdown;variant=GFM",
       "encoding": "none"
-      "body": "Right on! _Congratulations_ 'all!",
+      "body": "Right on! _Congratulations_ \'all!",
     },
 
     {
@@ -1596,18 +1693,12 @@ party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
       "start": "2022-02-08T22:13:57.728-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 2,
-      "messageId": "2YF0k6blW9ZbJ8sgXJgMCTJOlofazdKwVRvf6ZUORFA",
-      "inReplyTo": [
-        "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
-        1,
-        "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
-      ],
-      "lastSeen": [
-        "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo"
-      ],
+      "originator": 3,
+      "salt": "lV7CoeiFmX4ALPSKOdrR0w"
+      "message_id": "2YF0k6blW9ZbJ8sgXJgMCTJOlofazdKwVRvf6ZUORFA",
+      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
       "disposition": "reaction",
       "mimetype": "text/plain;charset=utf-8",
       "encoding": "none"
@@ -1619,13 +1710,11 @@ party_event_type.event /= "add" / "welcome" / "leave" / "remove" / "ban"
       "start": "2022-02-08T22:14:03.008-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 2,
-      "messageId": "rF4iS5BcJ-aFfisoFDCrnTE9pZZBGCxGCoXGJ9VXnck",
-      "lastSeen": [
-        "2YF0k6blW9ZbJ8sgXJgMCTJOlofazdKwVRvf6ZUORFA"
-      ],
+      "originator": 3,
+      "salt": "pkL5Tr0pLla5EiLUOfVDJw"
+      "message_id": "rF4iS5BcJ-aFfisoFDCrnTE9pZZBGCxGCoXGJ9VXnck",
       "mimetype": "text/markdown;variant=GFM",
       "encoding": "none"
       "body":
@@ -1638,20 +1727,13 @@ making the release happen!",
       "start": "2022-02-08T22:14:08.621-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 1,
-      "messageId": "-GqJXuoaJu1Xosu-N8nt6NWzA2RLmIRY0q9jf_kvWkM",
+      "originator": 2,
+      "salt": "26QI8adeG9TDfPvh-j1Stg"
+      "message_id": "-GqJXuoaJu1Xosu-N8nt6NWzA2RLmIRY0q9jf_kvWkM",
       "replaces": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
-      "inReplyTo": [
-        "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
-        1,
-        "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
-      ],
-      "lastSeen": [
-        "2YF0k6blW9ZbJ8sgXJgMCTJOlofazdKwVRvf6ZUORFA",
-        "rF4iS5BcJ-aFfisoFDCrnTE9pZZBGCxGCoXGJ9VXnck"
-      ],
+      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
       "mimetype": "text/markdown;variant=GFM",
       "encoding": "none"
       "body": "Right on! _Congratulations_ y'all"
@@ -1662,39 +1744,42 @@ making the release happen!",
       "start": "2022-02-08T22:14:08.621-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 1,
-      "messageId": "8cqo1B9IA6nnB63oPEnmWxIqr7uk7WvQTBgVVlD_Q2c",
+      "originator": 2,
+      "salt": "HbkjCnTRrhn84LPT86VvYg"
+      "message_id": "8cqo1B9IA6nnB63oPEnmWxIqr7uk7WvQTBgVVlD_Q2c",
       "replaces": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
-      "inReplyTo": [
-        "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
-        1,
-        "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
-      ],
-      "lastSeen": [
-        "-GqJXuoaJu1Xosu-N8nt6NWzA2RLmIRY0q9jf_kvWkM"
+      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ"
+    },
+    {
+      "party_history": [
+        {
+          "party": 4,
+          "event": "add",
+          "originator": 1,
+          "time": "2022-02-08T22:14:09.277-00:00"
+        },
+        {
+          "party": 5,
+          "event": "add",
+          "originator": 1,
+          "time": "2022-02-08T22:14:09.277-00:00"
+        }
       ]
     },
-
     {
       "type": "text",
       "start": "2022-02-08T22:14:10.389-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 2,
-      "messageId": "bYZ2NHaryq0WS2pq5IE9fMc4zltUyE6WrKJ7bNB5tMc",
+      "originator": 3,
+      "salt": "IrAeojgZcZGiQjjBbmqVhw"
+      "message_id": "bYZ2NHaryq0WS2pq5IE9fMc4zltUyE6WrKJ7bNB5tMc",
       "replaces": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
-      "inReplyTo": [
-        "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
-        1,
-        "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
-      ],
-      "lastSeen": [
-        "8cqo1B9IA6nnB63oPEnmWxIqr7uk7WvQTBgVVlD_Q2c"
-      ],
+      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
       "disposition": "reaction"
     },
 
@@ -1703,14 +1788,15 @@ making the release happen!",
       "start": "2022-02-08T22:49:06.227-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 0,
-      "messageId": "GkblzkXJxyar0lTgkfcMQ0wo8qpbcU0MqtTg-gM1FiY",
-      "expiring": "2022-02-08T22:59:06.227-00:00"
-      "lastSeen": [
-        "bYZ2NHaryq0WS2pq5IE9fMc4zltUyE6WrKJ7bNB5tMc"
-      ],
+      "originator": 1,
+      "salt": "8xnQi9hjVw4N8cRGEm4X1A"
+      "message_id": "GkblzkXJxyar0lTgkfcMQ0wo8qpbcU0MqtTg-gM1FiY",
+      "expiring": {
+        "relative": false,
+        "expires": "2022-02-08T22:59:06.227-00:00"
+      },
       "status": "expired"
     },
 
@@ -1719,13 +1805,11 @@ making the release happen!",
       "start": "2022-02-08T22:53:41.134-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 1,
-      "messageId": "Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4",
-      "lastSeen": [
-        "GkblzkXJxyar0lTgkfcMQ0wo8qpbcU0MqtTg-gM1FiY"
-      ],
+      "originator": 2,
+      "salt": "bqhJBqYaTyDmgTj-QtdZPA"
+      "message_id": "Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4",
       "disposition": "attachment",
       "language": "en",
       "ExternalPart": {
@@ -1734,9 +1818,9 @@ making the release happen!",
         "size": 708234961,
         "description": "2 hours of key signing video",
         "filename": "bigfile.mp4",
-        "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
-
-        "encAlg": 1,
+        "content_hash":
+            "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
+        "enc_alg": 1,
         "key": "aZISOs306M7n_3csR-J1cw",
         "nonce": "5VM0QcZI3PNmnquV6CUgxg",
         "aad": ""
@@ -1748,41 +1832,36 @@ making the release happen!",
       "start": "2022-02-08T22:54:09.972-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 2,
-      "messageId": "KgDTc29ZP4YyYmXtaYyxpZNrnigjvCjrCYuLTz19zWc",
-      "lastSeen": [
-        "Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4"
-      ],
+      "originator": 3,
+      "salt": "dPEJAGOdZGeX6_OCp0RUzA"
+      "message_id": "KgDTc29ZP4YyYmXtaYyxpZNrnigjvCjrCYuLTz19zWc",
       "disposition": "session",
       "ExternalPart": {
         "url": "https://example.com/join/12345",
         "description": "Join the Foo 118 conference"
       }
     },
-
     {
       "type": "text",
       "start": "2022-02-08T22:57:14.084-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 0,
-      "messageId": "sD19bKRmu4mA9SHznfQOLQQzKnx1Q4mEtSNQhvzqCZw",
-      "lastSeen": [
-        "KgDTc29ZP4YyYmXtaYyxpZNrnigjvCjrCYuLTz19zWc"
-      ],
+      "originator": 1,
+      "salt": "YSbs-8jeoXfI6Z4lQRUWQw"
+      "message_id": "sD19bKRmu4mA9SHznfQOLQQzKnx1Q4mEtSNQhvzqCZw",
       "disposition": "render",
-      "partIndex": 0,
+      "part_index": 0,
       "MultiPart": {
-        "partSemantics": "chooseOne",
+        "part_semantics": "chooseOne",
         "parts": [
           "Part": {
             "disposition": "render",
             "language": "en",
-            "partIndex": 1,
+            "part_index": 1,
             "mimetype": "text/markdown;variant=GFM",
             "encoding": "none"
             "body": "Hello!"
@@ -1790,28 +1869,28 @@ making the release happen!",
           "Part": {
             "disposition": "render",
             "language": "fr",
-            "partIndex": 2,
+            "part_index": 2,
             "mimetype": "text/markdown;variant=GFM",
             "encoding": "none"
             "body": "Bonjour!"
           }
         ]
       }
-    }
+    },
   ]
 }
-</pre><a href="#section-5.1-2" class="pilcrow">¶</a>
+</pre><a href="#section-4.1-2" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
 <div id="mimi-vcon-with-an-attachment">
-<section id="section-5.2">
+<section id="section-4.2">
         <h3 id="name-mimi-vcon-with-an-attachmen">
-<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-mimi-vcon-with-an-attachmen" class="section-name selfRef">MIMI VCON with an Attachment</a>
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-mimi-vcon-with-an-attachmen" class="section-name selfRef">MIMI VCON with an Attachment</a>
         </h3>
-<p id="section-5.2-1">This example vcon consists of a single message in a dialog which references
-an attachment.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
-<div class="breakable lang-json sourcecode" id="section-5.2-2">
+<p id="section-4.2-1">This example vcon consists of a single message in a dialog which references
+an attachment.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-4.2-2">
 <pre>
 {
   "vcon": "0.0.1",
@@ -1821,19 +1900,22 @@ an attachment.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
   }
   "parties": [
     {
-      "imUri": "mimi://example.com/u/alice-smith",
+      "imUri": "mimi://example.com/r/engineering_team",
+    },
+    {
+      "im_uri": "mimi://example.com/u/alice-smith",
       "name": "Alice Smith",
       "role": "moderator",
       "thumbprint": "TODOFIXDZXCog_FfQp-xLemZkD5GKB9H7Z-Y41O4jEw"
     },
     {
-      "imUri": "mimi://example.com/u/bob-jones",
+      "im_uri": "mimi://example.com/u/bob-jones",
       "name": "Bob Jones",
       "role": "member",
       "thumbprint": "TODOFIXYUFE7bV9pXAHZHi5bwSWzLJqjncevs9aLKDg"
     },
     {
-      "imUri": "mimi://example.com/u/cathy-washington",
+      "im_uri": "mimi://example.com/u/cathy-washington",
       "name": "Cathy Washington",
       "role": "member",
       "thumbprint": "TODOFIXzH3EeOGbI0-oiDGTXlgKmkMzQyQ2W_Y-TB1U"
@@ -1845,13 +1927,11 @@ an attachment.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
       "start": "2022-02-08T22:53:41.134-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0, 1, 2, 3
       ],
       "originator": 1,
-      "messageId": "Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4",
-      "lastSeen": [
-        "GkblzkXJxyar0lTgkfcMQ0wo8qpbcU0MqtTg-gM1FiY"
-      ],
+      "salt": "jaPfwAWReuvBdfayWkSvtQ"
+      "message_id": "Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4",
       "disposition": "attachment",
       "language": "en",
       "ExternalPart": {
@@ -1860,7 +1940,8 @@ an attachment.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
         "size": 708234961,
         "description": "2 hours of key signing video",
         "filename": "bigfile.mp4",
-        "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
+        "content_hash":
+            "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
         "cached": true
       }
     },
@@ -1869,9 +1950,10 @@ an attachment.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
     {
       "start": "2022-02-08T22:53:41.134-00:00",
       "party": 1,
-      "contentHash": "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
+      "content_hash":
+          "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
       "dialogObjectRef":
-  "mid:Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4:0@anonymous.invalid",
+  "mid:Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4:0@anon.invalid",
       "mimetype": "video/mp4",
       "filename": "bigfile.mp4",
       "encoding": "base64url",
@@ -1879,49 +1961,65 @@ an attachment.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
     }
   ]
 }
-</pre><a href="#section-5.2-2" class="pilcrow">¶</a>
+</pre><a href="#section-4.2-2" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
 </section>
 </div>
 <div id="security-considerations">
-<section id="section-6">
+<section id="section-5">
       <h2 id="name-security-considerations">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-6-1">TODO Security<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">TODO Security<a href="#section-5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
-<section id="section-7">
+<section id="section-6">
       <h2 id="name-iana-considerations">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-7-1">This document has no IANA actions.<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">This document has no IANA actions.<a href="#section-6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-normative-references">
-<section id="section-8">
+<section id="section-7">
       <h2 id="name-normative-references">
-<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
       </h2>
 <dl class="references">
 <dt id="I-D.ietf-mimi-content">[I-D.ietf-mimi-content]</dt>
       <dd>
 <span class="refAuthor">Mahy, R.</span>, <span class="refTitle">"More Instant Messaging Interoperability (MIMI) message content"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-mimi-content-05</span>, <time datetime="2024-12-20" class="refDate">20 December 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-mimi-content-05">https://datatracker.ietf.org/doc/html/draft-ietf-mimi-content-05</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="I-D.ietf-mimi-protocol">[I-D.ietf-mimi-protocol]</dt>
+      <dd>
+<span class="refAuthor">Barnes, R.</span>, <span class="refAuthor">Hodgson, M.</span>, <span class="refAuthor">Kohbrok, K.</span>, <span class="refAuthor">Mahy, R.</span>, <span class="refAuthor">Ralston, T.</span>, and <span class="refAuthor">R. Robert</span>, <span class="refTitle">"More Instant Messaging Interoperability (MIMI) using HTTPS and MLS"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-mimi-protocol-02</span>, <time datetime="2024-10-21" class="refDate">21 October 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-mimi-protocol-02">https://datatracker.ietf.org/doc/html/draft-ietf-mimi-protocol-02</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="I-D.ietf-vcon-vcon-container">[I-D.ietf-vcon-vcon-container]</dt>
       <dd>
 <span class="refAuthor">Petrie, D.</span> and <span class="refAuthor">T. McCarthy-Howe</span>, <span class="refTitle">"The JSON format for vCon - Conversation Data Container"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-vcon-vcon-container-01</span>, <time datetime="2024-10-20" class="refDate">20 October 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-vcon-vcon-container-01">https://datatracker.ietf.org/doc/html/draft-ietf-vcon-vcon-container-01</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.mahy-mimi-app-components">[I-D.mahy-mimi-app-components]</dt>
+      <dd>
+<span class="refAuthor">Mahy, R.</span>, <span class="refTitle">"Application State Components for More Instant Messaging Interoperability (MIMI)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-mahy-mimi-app-components-01</span>, <time datetime="2025-02-11" class="refDate">11 February 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-mahy-mimi-app-components-01">https://datatracker.ietf.org/doc/html/draft-mahy-mimi-app-components-01</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
       <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC5646">[RFC5646]</dt>
+      <dd>
+<span class="refAuthor">Phillips, A., Ed.</span> and <span class="refAuthor">M. Davis, Ed.</span>, <span class="refTitle">"Tags for Identifying Languages"</span>, <span class="seriesInfo">BCP 47</span>, <span class="seriesInfo">RFC 5646</span>, <span class="seriesInfo">DOI 10.17487/RFC5646</span>, <time datetime="2009-09" class="refDate">September 2009</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5646">https://www.rfc-editor.org/rfc/rfc5646</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
-    <dd>
+      <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9420">[RFC9420]</dt>
+    <dd>
+<span class="refAuthor">Barnes, R.</span>, <span class="refAuthor">Beurdouche, B.</span>, <span class="refAuthor">Robert, R.</span>, <span class="refAuthor">Millican, J.</span>, <span class="refAuthor">Omara, E.</span>, and <span class="refAuthor">K. Cohn-Gordon</span>, <span class="refTitle">"The Messaging Layer Security (MLS) Protocol"</span>, <span class="seriesInfo">RFC 9420</span>, <span class="seriesInfo">DOI 10.17487/RFC9420</span>, <time datetime="2023-07" class="refDate">July 2023</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9420">https://www.rfc-editor.org/rfc/rfc9420</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
