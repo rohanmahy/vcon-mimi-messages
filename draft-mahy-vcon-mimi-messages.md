@@ -181,7 +181,7 @@ In addition, the following fields are unique to MIMI VCON.
 
 - `cached` is a boolean. It is mandatory if it is true, which means that a
 copy of the external content is available in a vcon attachment object
-(see {#attachments}). If `cache` is true and no `content_hash` is present, a new content hash is calculated for the attachment and placed the `cache_ref` field (which can only be present in this case).
+(see {{attachments}}). If `cache` is true and no `content_hash` is present, a new content hash is calculated for the attachment and placed the `cache_ref` field (which can only be present in this case).
 
 ExternalPart has several fields for the decryption of the
 referenced content.
