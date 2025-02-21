@@ -87,6 +87,7 @@ known about the room at the start of the VCON period.
 - `subject` is the room subject. It is optional.
 - `mood` is the room mood. It is optional
 - `description` is an array of room_description objects. It is optional. Each object can contain:
+
     * a `type`- a media type or an empty string. It is optional. It's default value is `text/plain;charset=UTF-8`.
     * a `lang` - a `Language-tag` as defined by {{!RFC5646}}. It is optional.
     * a `content` - if the `type` begins with "text" or is empty, the content the is UTF-8 text description of the room. Otherwise it is the base64url encoding of whatever type is described. The `content` field is mandatory in a room_description object.
@@ -128,6 +129,7 @@ The parties array consist of the party indexes of those who were active particip
 - `replaces` is the base64url encoding of the MIMI content message_id of the message this message replaces. It is optional if empty.
 - `topic_id` is the base64url encoding of the MIMI topic_id. It is optional if empty.
 - `expires` is optional if empty in MIMI. It contains null or a map with the following items:
+
     * `relative` is a boolean that is true if the time is expressed relative to the recipient read time, and false if it is expressed as an absolute date/time. It is mandatory when `expires` is present.
     * `relative_time` is an integer number of seconds. If `relative` is true, once the message has been read, the client is expected to delete the message after `relative_time` seconds. It is mandatory if `relative` is true.
     * `absolute_time` is the expiration date/time of the message expressed as a VCON (text) date_type. It is mandatory if `relative` is false and optional otherwise.
@@ -200,6 +202,7 @@ The `party_history` object contains the following fields.
 - `originator` is the party that originated the change. It is optional.
 - `time` is the time that the change was effected
 - `event` is the type of change. It is mandatory and for MIMI VCONs can be one of the following new event types:
+
     * `add`: user added by someone else
     * `self_add`: user added herself directly
     * `leave`: user leaves of their own accord
@@ -269,6 +272,20 @@ This document has no IANA actions.
 # CDDL changes
 
 **TODO**
+
+# Change list
+
+## Changes in draft-mahy-vcon-mimi-messages-02
+
+- adjust to make consisten with new syntax of MIMI content (add salt, removed lastSeen, in_reply_to is just a message id, expires is an object to handle relative expiration, added mimi_extensions).
+- use a different field from content_hash when attaching an ExternalPart that did not have a hash in the MIMI message.
+- allow the parties list of 0 to indicate sending to every active participant in the room.
+- added a description of using party_history to track changes to the participant list.
+- added room metadata, and a way to modify it
+- added support for message "tombstones"
+- use mediatype instead of mimetype throughout
+- make the case of field names more consistent
+
 
 # Acknowledgments
 {:numbered="false"}
