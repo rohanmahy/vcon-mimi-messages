@@ -89,6 +89,8 @@ Table of Contents
    6.  IANA Considerations
    7.  Normative References
    Appendix A.  CDDL changes
+   Appendix B.  Change list
+     B.1.  Changes in draft-mahy-vcon-mimi-messages-02
    Acknowledgments
    Author's Address
 
@@ -360,12 +362,14 @@ Table of Contents
    is the party that originated the change.  It is optional. - time is
    the time that the change was effected - event is the type of change.
    It is mandatory and for MIMI VCONs can be one of the following new
-   event types: * add: user added by someone else * self_add: user added
-   herself directly * leave: user leaves of their own accord * remove:
-   user is removed by another user * ban: user is banned from the group
-   * update: - name is the new name of the user.  It is only permitted
-   for an update event. - role is the new role assigned to the user.  It
-   is only permitted for an update event.
+   event types:
+
+* `add`: user added by someone else
+* `self_add`: user added herself directly
+* `leave`: user leaves of their own accord
+* `remove`: user is removed by another user
+* `ban`: user is banned from the group
+* `update`: - `name` is the new name of the user. It is only permitted for an update event. - `role` is the new role assigned to the user. It is only permitted for an update event.
 
 3.5.  Changes to the room
 
@@ -837,6 +841,32 @@ making the release happen!",
 Appendix A.  CDDL changes
 
    *TODO*
+
+Appendix B.  Change list
+
+B.1.  Changes in draft-mahy-vcon-mimi-messages-02
+
+   *  adjust to make consisten with new syntax of MIMI content (add
+      salt, removed lastSeen, in_reply_to is just a message id, expires
+      is an object to handle relative expiration, added
+      mimi_extensions).
+
+   *  use a different field from content_hash when attaching an
+      ExternalPart that did not have a hash in the MIMI message.
+
+   *  allow the parties list of 0 to indicate sending to every active
+      participant in the room.
+
+   *  added a description of using party_history to track changes to the
+      participant list.
+
+   *  added room metadata, and a way to modify it
+
+   *  added support for message "tombstones"
+
+   *  use mediatype instead of mimetype throughout
+
+   *  make the case of field names more consistent
 
 Acknowledgments
 

@@ -1223,10 +1223,18 @@ Interoperability (MIMI) content format.<a href="#section-abstract-1" class="pilc
             <p id="section-toc.1-1.8.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-cddl-changes" class="internal xref">CDDL changes</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-change-list" class="internal xref">Change list</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.1">
+                <p id="section-toc.1-1.9.2.1.1"><a href="#appendix-B.1" class="auto internal xref">B.1</a>.  <a href="#name-changes-in-draft-mahy-vcon-" class="internal xref">Changes in draft-mahy-vcon-mimi-messages-02</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
+            <p id="section-toc.1-1.11.1"><a href="#appendix-D" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
 </li>
         </ul>
 </nav>
@@ -1518,15 +1526,17 @@ All of these fields are base64url encoded strings.<a href="#section-3.3.5-5" cla
 - <code>party</code> is the party index of the modified party. It is mandatory.
 - <code>originator</code> is the party that originated the change. It is optional.
 - <code>time</code> is the time that the change was effected
-- <code>event</code> is the type of change. It is mandatory and for MIMI VCONs can be one of the following new event types:
-    * <code>add</code>: user added by someone else
-    * <code>self_add</code>: user added herself directly
-    * <code>leave</code>: user leaves of their own accord
-    * <code>remove</code>: user is removed by another user
-    * <code>ban</code>: user is banned from the group
-    * <code>update</code>:
-- <code>name</code> is the new name of the user. It is only permitted for an update event.
-- <code>role</code> is the new role assigned to the user. It is only permitted for an update event.<a href="#section-3.4-2" class="pilcrow">¶</a></p>
+- <code>event</code> is the type of change. It is mandatory and for MIMI VCONs can be one of the following new event types:<a href="#section-3.4-2" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-3.4-3">
+<pre>
+* `add`: user added by someone else
+* `self_add`: user added herself directly
+* `leave`: user leaves of their own accord
+* `remove`: user is removed by another user
+* `ban`: user is banned from the group
+* `update`: - `name` is the new name of the user. It is only permitted for an update event. - `role` is the new role assigned to the user. It is only permitted for an update event.
+</pre><a href="#section-3.4-3" class="pilcrow">¶</a>
+</div>
 </section>
 </div>
 <div id="changes-to-the-room">
@@ -2032,16 +2042,56 @@ an attachment.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
 <p id="appendix-A-1"><strong>TODO</strong><a href="#appendix-A-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="acknowledgments">
+<div id="change-list">
 <section id="appendix-B">
+      <h2 id="name-change-list">
+<a href="#appendix-B" class="section-number selfRef">Appendix B. </a><a href="#name-change-list" class="section-name selfRef">Change list</a>
+      </h2>
+<div id="changes-in-draft-mahy-vcon-mimi-messages-02">
+<section id="appendix-B.1">
+        <h3 id="name-changes-in-draft-mahy-vcon-">
+<a href="#appendix-B.1" class="section-number selfRef">B.1. </a><a href="#name-changes-in-draft-mahy-vcon-" class="section-name selfRef">Changes in draft-mahy-vcon-mimi-messages-02</a>
+        </h3>
+<ul class="normal">
+<li class="normal" id="appendix-B.1-1.1">
+            <p id="appendix-B.1-1.1.1">adjust to make consisten with new syntax of MIMI content (add salt, removed lastSeen, in_reply_to is just a message id, expires is an object to handle relative expiration, added mimi_extensions).<a href="#appendix-B.1-1.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-B.1-1.2">
+            <p id="appendix-B.1-1.2.1">use a different field from content_hash when attaching an ExternalPart that did not have a hash in the MIMI message.<a href="#appendix-B.1-1.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-B.1-1.3">
+            <p id="appendix-B.1-1.3.1">allow the parties list of 0 to indicate sending to every active participant in the room.<a href="#appendix-B.1-1.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-B.1-1.4">
+            <p id="appendix-B.1-1.4.1">added a description of using party_history to track changes to the participant list.<a href="#appendix-B.1-1.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-B.1-1.5">
+            <p id="appendix-B.1-1.5.1">added room metadata, and a way to modify it<a href="#appendix-B.1-1.5.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-B.1-1.6">
+            <p id="appendix-B.1-1.6.1">added support for message "tombstones"<a href="#appendix-B.1-1.6.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-B.1-1.7">
+            <p id="appendix-B.1-1.7.1">use mediatype instead of mimetype throughout<a href="#appendix-B.1-1.7.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-B.1-1.8">
+            <p id="appendix-B.1-1.8.1">make the case of field names more consistent<a href="#appendix-B.1-1.8.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+</section>
+</div>
+</section>
+</div>
+<div id="acknowledgments">
+<section id="appendix-C">
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-B-1">TODO acknowledge.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
+<p id="appendix-C-1">TODO acknowledge.<a href="#appendix-C-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
-<section id="appendix-C">
+<section id="appendix-D">
       <h2 id="name-authors-address">
 <a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
       </h2>
