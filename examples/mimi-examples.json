@@ -3,25 +3,50 @@
   "room": {
     "id": "mimi://example.com/r/engineering_team",
     "name": "Engineering Team",
+    "avatar": "https://example.com/images/tHMqLMAkmCzNmweL",
+    "subject": None,
+    "mood": None,
+    "description": [
+        {"type":"", "lang":"en", "content":"Engineering Team Internal Chat"},
+        {  "type":"",
+          "lang":"fr",
+          "content":"Chat de l'équipe interne des ingénieurs"
+        }
+    ]
   }
   "parties": [
     {
-      "imUri": "mimi://example.com/u/alice-smith",
+      "imUri": "mimi://example.com/r/engineering_team",
+    },
+    {
+      "im_uri": "mimi://example.com/u/alice-smith",
       "name": "Alice Smith",
       "role": "moderator",
       "thumbprint": "TODOFIXDZXCog_FfQp-xLemZkD5GKB9H7Z-Y41O4jEw"
     },
     {
-      "imUri": "mimi://example.com/u/bob-jones",
+      "im_uri": "mimi://example.com/u/bob-jones",
       "name": "Bob Jones",
       "role": "member",
       "thumbprint": "TODOFIXYUFE7bV9pXAHZHi5bwSWzLJqjncevs9aLKDg"
     },
     {
-      "imUri": "mimi://example.com/u/cathy-washington",
+      "im_uri": "mimi://example.com/u/cathy-washington",
       "name": "Cathy Washington",
       "role": "member",
       "thumbprint": "TODOFIXzH3EeOGbI0-oiDGTXlgKmkMzQyQ2W_Y-TB1U"
+    },
+    {
+      "im_uri": "mimi://example.com/u/doug-king",
+      "name": "Doug King",
+      "role": "member",
+      "thumbprint": "TODOFIX3fdpORnHwncbdOS5XieH-z1m5r61u14WyNkj"
+    },
+    {
+      "im_uri": "mimi://example.com/u/liz-roberts",
+      "name": "Elizabeth Roberts",
+      "role": "member",
+      "thumbprint": "TODOFIX7qR7oFriyKfKgIJ43ZdANoObICqH0kN9g82J"
     }
   ],
   "dialog": [
@@ -30,11 +55,16 @@
       "start": "2022-02-08T22:13:45.019-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        1, 2, 3
       ],
-      "originator": 0,
-      "messageId": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
-      "lastSeen": [],
+      "franking_tag": null,
+      "frank": null,
+      "originator": 1,
+      "salt": "PC16IkqDbGRiffzjeyPKIg"
+      "message_id": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+      "mimi_extensions": "oQGiAXgrbWltaTovL2h1Yi5leGFtcGxlL3IvU
+          mwzM0ZXTENZV093eEhyWW5wV0RRZwJ4GG1pbWk6Ly9iLmV4YW1wbG
+          UvdS9hbGljZQ",
       "mimetype": "text/markdown;variant=GFM",
       "encoding": "none"
       "body":
@@ -46,21 +76,15 @@
       "start": "2022-02-08T22:13:57.492-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 1,
-      "messageId": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
-      "inReplyTo": [
-        "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
-        1,
-        "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
-      ],
-      "lastSeen": [
-        "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ"
-      ],
+      "originator": 2,
+      "salt": "PVeWNQrjJej4AjhqkGlSkw"
+      "message_id": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
+      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
       "mimetype": "text/markdown;variant=GFM",
       "encoding": "none"
-      "body": "Right on! _Congratulations_ 'all!",
+      "body": "Right on! _Congratulations_ \'all!",
     },
 
     {
@@ -68,18 +92,12 @@
       "start": "2022-02-08T22:13:57.728-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 2,
-      "messageId": "2YF0k6blW9ZbJ8sgXJgMCTJOlofazdKwVRvf6ZUORFA",
-      "inReplyTo": [
-        "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
-        1,
-        "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
-      ],
-      "lastSeen": [
-        "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo"
-      ],
+      "originator": 3,
+      "salt": "lV7CoeiFmX4ALPSKOdrR0w"
+      "message_id": "2YF0k6blW9ZbJ8sgXJgMCTJOlofazdKwVRvf6ZUORFA",
+      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
       "disposition": "reaction",
       "mimetype": "text/plain;charset=utf-8",
       "encoding": "none"
@@ -91,13 +109,11 @@
       "start": "2022-02-08T22:14:03.008-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 2,
-      "messageId": "rF4iS5BcJ-aFfisoFDCrnTE9pZZBGCxGCoXGJ9VXnck",
-      "lastSeen": [
-        "2YF0k6blW9ZbJ8sgXJgMCTJOlofazdKwVRvf6ZUORFA"
-      ],
+      "originator": 3,
+      "salt": "pkL5Tr0pLla5EiLUOfVDJw"
+      "message_id": "rF4iS5BcJ-aFfisoFDCrnTE9pZZBGCxGCoXGJ9VXnck",
       "mimetype": "text/markdown;variant=GFM",
       "encoding": "none"
       "body":
@@ -110,20 +126,13 @@ making the release happen!",
       "start": "2022-02-08T22:14:08.621-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 1,
-      "messageId": "-GqJXuoaJu1Xosu-N8nt6NWzA2RLmIRY0q9jf_kvWkM",
+      "originator": 2,
+      "salt": "26QI8adeG9TDfPvh-j1Stg"
+      "message_id": "-GqJXuoaJu1Xosu-N8nt6NWzA2RLmIRY0q9jf_kvWkM",
       "replaces": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
-      "inReplyTo": [
-        "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
-        1,
-        "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
-      ],
-      "lastSeen": [
-        "2YF0k6blW9ZbJ8sgXJgMCTJOlofazdKwVRvf6ZUORFA",
-        "rF4iS5BcJ-aFfisoFDCrnTE9pZZBGCxGCoXGJ9VXnck"
-      ],
+      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
       "mimetype": "text/markdown;variant=GFM",
       "encoding": "none"
       "body": "Right on! _Congratulations_ y'all"
@@ -134,39 +143,42 @@ making the release happen!",
       "start": "2022-02-08T22:14:08.621-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 1,
-      "messageId": "8cqo1B9IA6nnB63oPEnmWxIqr7uk7WvQTBgVVlD_Q2c",
+      "originator": 2,
+      "salt": "HbkjCnTRrhn84LPT86VvYg"
+      "message_id": "8cqo1B9IA6nnB63oPEnmWxIqr7uk7WvQTBgVVlD_Q2c",
       "replaces": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
-      "inReplyTo": [
-        "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
-        1,
-        "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
-      ],
-      "lastSeen": [
-        "-GqJXuoaJu1Xosu-N8nt6NWzA2RLmIRY0q9jf_kvWkM"
+      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ"
+    },
+    {
+      "party_history": [
+        {
+          "party": 4,
+          "event": "add",
+          "originator": 1,
+          "time": "2022-02-08T22:14:09.277-00:00"
+        },
+        {
+          "party": 5,
+          "event": "add",
+          "originator": 1,
+          "time": "2022-02-08T22:14:09.277-00:00"
+        }
       ]
     },
-
     {
       "type": "text",
       "start": "2022-02-08T22:14:10.389-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 2,
-      "messageId": "bYZ2NHaryq0WS2pq5IE9fMc4zltUyE6WrKJ7bNB5tMc",
+      "originator": 3,
+      "salt": "IrAeojgZcZGiQjjBbmqVhw"
+      "message_id": "bYZ2NHaryq0WS2pq5IE9fMc4zltUyE6WrKJ7bNB5tMc",
       "replaces": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
-      "inReplyTo": [
-        "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
-        1,
-        "6MaXLsvHITc8xzIQp8BRz_7w_UNQL1n7a6DWysTW5T0"
-      ],
-      "lastSeen": [
-        "8cqo1B9IA6nnB63oPEnmWxIqr7uk7WvQTBgVVlD_Q2c"
-      ],
+      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
       "disposition": "reaction"
     },
 
@@ -175,14 +187,15 @@ making the release happen!",
       "start": "2022-02-08T22:49:06.227-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 0,
-      "messageId": "GkblzkXJxyar0lTgkfcMQ0wo8qpbcU0MqtTg-gM1FiY",
-      "expiring": "2022-02-08T22:59:06.227-00:00"
-      "lastSeen": [
-        "bYZ2NHaryq0WS2pq5IE9fMc4zltUyE6WrKJ7bNB5tMc"
-      ],
+      "originator": 1,
+      "salt": "8xnQi9hjVw4N8cRGEm4X1A"
+      "message_id": "GkblzkXJxyar0lTgkfcMQ0wo8qpbcU0MqtTg-gM1FiY",
+      "expiring": {
+        "relative": false,
+        "expires": "2022-02-08T22:59:06.227-00:00"
+      },
       "status": "expired"
     },
 
@@ -191,13 +204,11 @@ making the release happen!",
       "start": "2022-02-08T22:53:41.134-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 1,
-      "messageId": "Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4",
-      "lastSeen": [
-        "GkblzkXJxyar0lTgkfcMQ0wo8qpbcU0MqtTg-gM1FiY"
-      ],
+      "originator": 2,
+      "salt": "bqhJBqYaTyDmgTj-QtdZPA"
+      "message_id": "Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4",
       "disposition": "attachment",
       "language": "en",
       "ExternalPart": {
@@ -206,9 +217,9 @@ making the release happen!",
         "size": 708234961,
         "description": "2 hours of key signing video",
         "filename": "bigfile.mp4",
-        "contentHash":
+        "content_hash":
             "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
-        "encAlg": 1,
+        "enc_alg": 1,
         "key": "aZISOs306M7n_3csR-J1cw",
         "nonce": "5VM0QcZI3PNmnquV6CUgxg",
         "aad": ""
@@ -220,41 +231,36 @@ making the release happen!",
       "start": "2022-02-08T22:54:09.972-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 2,
-      "messageId": "KgDTc29ZP4YyYmXtaYyxpZNrnigjvCjrCYuLTz19zWc",
-      "lastSeen": [
-        "Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4"
-      ],
+      "originator": 3,
+      "salt": "dPEJAGOdZGeX6_OCp0RUzA"
+      "message_id": "KgDTc29ZP4YyYmXtaYyxpZNrnigjvCjrCYuLTz19zWc",
       "disposition": "session",
       "ExternalPart": {
         "url": "https://example.com/join/12345",
         "description": "Join the Foo 118 conference"
       }
     },
-
     {
       "type": "text",
       "start": "2022-02-08T22:57:14.084-00:00",
       "duration": 0,
       "parties": [
-        0, 1, 2
+        0
       ],
-      "originator": 0,
-      "messageId": "sD19bKRmu4mA9SHznfQOLQQzKnx1Q4mEtSNQhvzqCZw",
-      "lastSeen": [
-        "KgDTc29ZP4YyYmXtaYyxpZNrnigjvCjrCYuLTz19zWc"
-      ],
+      "originator": 1,
+      "salt": "YSbs-8jeoXfI6Z4lQRUWQw"
+      "message_id": "sD19bKRmu4mA9SHznfQOLQQzKnx1Q4mEtSNQhvzqCZw",
       "disposition": "render",
-      "partIndex": 0,
+      "part_index": 0,
       "MultiPart": {
-        "partSemantics": "chooseOne",
+        "part_semantics": "chooseOne",
         "parts": [
           "Part": {
             "disposition": "render",
             "language": "en",
-            "partIndex": 1,
+            "part_index": 1,
             "mimetype": "text/markdown;variant=GFM",
             "encoding": "none"
             "body": "Hello!"
@@ -262,13 +268,13 @@ making the release happen!",
           "Part": {
             "disposition": "render",
             "language": "fr",
-            "partIndex": 2,
+            "part_index": 2,
             "mimetype": "text/markdown;variant=GFM",
             "encoding": "none"
             "body": "Bonjour!"
           }
         ]
       }
-    }
+    },
   ]
 }
