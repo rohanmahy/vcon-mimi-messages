@@ -198,17 +198,17 @@ All of these fields are base64url encoded strings.
 The `party_history` object can be interleaved with text objects in the dialog objects array. It indicates when changes have been made to the participants represented by party index zero, as well as properties of individual parties (such as their role or name).
 
 The `party_history` object contains the following fields.
+
 - `party` is the party index of the modified party. It is mandatory.
 - `originator` is the party that originated the change. It is optional.
 - `time` is the time that the change was effected
 - `event` is the type of change. It is mandatory and for MIMI VCONs can be one of the following new event types:
-
-    * `add`: user added by someone else
-    * `self_add`: user added herself directly
-    * `leave`: user leaves of their own accord
-    * `remove`: user is removed by another user
-    * `ban`: user is banned from the group
-    * `update`:
+   - `add`: user added by someone else
+   - `self_add`: user added herself directly
+   - `leave`: user leaves of their own accord
+   - `remove`: user is removed by another user
+   - `ban`: user is banned from the group
+   - `update`:
 - `name` is the new name of the user. It is only permitted for an update event.
 - `role` is the new role assigned to the user. It is only permitted for an update event.
 
@@ -242,7 +242,7 @@ When a message has been deleted/retracted, or it expires, it can be valuable to 
 
 ## MIMI examples as a VCON
 
-The example vcon consists of the example messages from Section 5 of the MIMI content specification plus a `party_history` object adding tow new participants, and a single multipart message at the end.
+The example vcon consists of the example messages from Section 5 of the MIMI content specification plus a `party_history` object adding two new participants, and a single multipart message at the end.
 
 ~~~
 {::include examples/mimi-examples.json}
@@ -277,7 +277,7 @@ This document has no IANA actions.
 
 ## Changes in draft-mahy-vcon-mimi-messages-02
 
-- adjust to make consisten with new syntax of MIMI content (add salt, removed lastSeen, in_reply_to is just a message id, expires is an object to handle relative expiration, added mimi_extensions).
+- adjust to make consistent with new syntax of MIMI content (add salt, removed lastSeen, in_reply_to is just a message id, expires is an object to handle relative expiration, added mimi_extensions).
 - use a different field from content_hash when attaching an ExternalPart that did not have a hash in the MIMI message.
 - allow the parties list of 0 to indicate sending to every active participant in the room.
 - added a description of using party_history to track changes to the participant list.
