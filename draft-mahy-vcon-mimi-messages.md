@@ -35,21 +35,15 @@ informative:
 
 --- abstract
 
-This document describes extensions to the Virtualized Conversation (VCON)
-syntax for instant messaging systems using the More Instant Messaging
-Interoperability (MIMI) content format.
+This document describes extensions to the Virtualized Conversation (VCON) syntax for instant messaging systems using the More Instant Messaging Interoperability (MIMI) content format.
 
 
 --- middle
 
 # Introduction
 
-VCON {{!I-D.ietf-vcon-vcon-container}} is a format for recording and
-transmitting conversations. MIMI content {{!I-D.ietf-mimi-content}}
-is a format for conveying Instant Messages in an interoperable way
-when end-to-end encrypted. This document describes a way to translate
-a set of MIMI messages in a conversation or part of a conversation into
-a VCON.
+VCON {{!I-D.ietf-vcon-vcon-core}} is a format for recording and transmitting conversations. MIMI content {{!I-D.ietf-mimi-content}} is a format for conveying Instant Messages in an interoperable way when end-to-end encrypted.
+This document extends VCON, describing a way to translate a set of MIMI messages in a conversation or part of a conversation into a VCON.
 
 # Conventions and Definitions
 
@@ -115,6 +109,7 @@ The dialog object consists of an array of instant messages of type "text".
 The start time is set to the hub received timestamp when available.
 The duration is zero.
 The originator is set to the parties index of the sender of the message.
+The message_id is the base64url encoding of the MIMI content message ID. It is mandatory.
 
 The first MIMI message represented in a MIMI VCON should contain the complete list of parties who were participants in the room at that time.
 For subsequent messages, a parties array consisting of index zero, indicates the recipients of the message are the active participants of the room.
@@ -124,7 +119,7 @@ Changes to the roster can be tracked if `party_history` is present for those cha
 
 The parties array consist of the party indexes of those who were active participants when the message was sent.
 
-- `message_id` is the base64url encoding of the MIMI content message ID. It is mandatory.
+-
 - `salt` is the base64url encoding of the MIMI content salt. It is mandatory.
 - `replaces` is the base64url encoding of the MIMI content message_id of the message this message replaces. It is optional if empty.
 - `topic_id` is the base64url encoding of the MIMI topic_id. It is optional if empty.
@@ -139,7 +134,7 @@ The parties array consist of the party indexes of those who were active particip
 - `frank` is a base64url encoding of the MIMI protocol `Frank` TLS struct, or null. It is optional if not present.
 
 VCON typically expresses message content using the `body`, `encoding`, and `mediatype` fields.
-In order to preserve this convention we use these fields directly for a MIMI SinglePart structure, but use new MultiPart and ExternalPart objects for those corresponding MIMI structures.
+In order to preserve this convention we use these fields directly for a MIMI SinglePart structure, but use new multi_part and external_part objects for the MultiPart and ExternalPart MIMI structures, respectively.
 For a SinglePart these two fields with the same semantics as their MIMI content counterparts could be present.
 
 - `disposition` - optional if set to the default value ("render")
@@ -264,16 +259,116 @@ TODO Security
 
 # IANA Considerations
 
-This document has no IANA actions.
+add the following objects to the IANA vCon registries
+
+## Room object and registry
+
+- id
+- name
+- avatar
+- subject
+- mood
+- description
+
+## Room description object and registry
+
+- type
+- lang
+- content
+
+## Party object types
+
+- im_uri
+- role
+- thumbprint
+
+## Dialog object types
+
+- salt
+- replaces
+- relative_time
+- expires
+- in_reply_to
+- mimi_extensions
+- franking_tag
+- frank
+- status
+- disposition
+- language
+
+## dialog_type object types
+
+- tombstone
+
+## multi_part object type
+
+- part_semantics
+- parts
+
+## parts
+
+- part
+
+## part object type
+
+- disposition
+- language
+- part_index
+- cardinality
+- mimetype
+- encoding
+- body
+
+## external_part object type
+
+- mediatype
+- url
+- expires
+- size
+- description
+- filename
+- content_hash
+- cached
+- encAlg
+- key
+- nonce
+- aad
+
+## party_history object type
+
+- originator
+- name
+- role
+
+## party_event object type
+
+- add
+- self_add
+- leave
+- remove
+- ban
+- update
+
+## attachment object type
+
+- dialog_object_ref
 
 
 --- back
 
-# CDDL changes
+# JSON Schema
 
 **TODO**
 
 # Change list
+
+## Changes in draft-ietf-vcon-mimi-messages-00
+
+- adopted as a WG item
+- added IANA registrations under the new framework
+- updated references
+- refactor to use the new message_id field name from core
+- more case adjustments
 
 ## Changes in draft-mahy-vcon-mimi-messages-02
 
