@@ -16,7 +16,7 @@
   }
   "parties": [
     {
-      "imUri": "mimi://example.com/r/engineering_team",
+      "im_uri": "mimi://example.com/r/engineering_team",
     },
     {
       "im_uri": "mimi://example.com/u/alice-smith",
@@ -61,7 +61,7 @@
       "frank": null,
       "originator": 1,
       "salt": "PC16IkqDbGRiffzjeyPKIg"
-      "message_id": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+      "message_id": "AbAIRGcnPMQ9bw6-rBPrhCKcT__o9sNZTJBfR3eeWnk",
       "mimi_extensions": "oQGiAXgrbWltaTovL2h1Yi5leGFtcGxlL3IvU
           mwzM0ZXTENZV093eEhyWW5wV0RRZwJ4GG1pbWk6Ly9iLmV4YW1wbG
           UvdS9hbGljZQ",
@@ -80,8 +80,8 @@
       ],
       "originator": 2,
       "salt": "PVeWNQrjJej4AjhqkGlSkw"
-      "message_id": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
-      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+      "message_id": "AaQZrvThbUPPwGwoI17Pvp-uvHQNAUjnyiCyIVCTCDY",
+      "in_reply_to": "AbAIRGcnPMQ9bw6-rBPrhCKcT__o9sNZTJBfR3eeWnk",
       "mimetype": "text/markdown;variant=GFM",
       "encoding": "none"
       "body": "Right on! _Congratulations_ \'all!",
@@ -96,8 +96,8 @@
       ],
       "originator": 3,
       "salt": "lV7CoeiFmX4ALPSKOdrR0w"
-      "message_id": "2YF0k6blW9ZbJ8sgXJgMCTJOlofazdKwVRvf6ZUORFA",
-      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+      "message_id": "AbGhSoj0SA4TNr6GmHhU-Dij7IKUTUUz2NQIhXhVDtc",
+      "in_reply_to": "AbAIRGcnPMQ9bw6-rBPrhCKcT__o9sNZTJBfR3eeWnk",
       "disposition": "reaction",
       "mimetype": "text/plain;charset=utf-8",
       "encoding": "none"
@@ -131,8 +131,8 @@ making the release happen!",
       "originator": 2,
       "salt": "26QI8adeG9TDfPvh-j1Stg"
       "message_id": "-GqJXuoaJu1Xosu-N8nt6NWzA2RLmIRY0q9jf_kvWkM",
-      "replaces": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
-      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+      "replaces": "AaQZrvThbUPPwGwoI17Pvp-uvHQNAUjnyiCyIVCTCDY",
+      "in_reply_to": "AbAIRGcnPMQ9bw6-rBPrhCKcT__o9sNZTJBfR3eeWnk",
       "mimetype": "text/markdown;variant=GFM",
       "encoding": "none"
       "body": "Right on! _Congratulations_ y'all"
@@ -148,8 +148,8 @@ making the release happen!",
       "originator": 2,
       "salt": "HbkjCnTRrhn84LPT86VvYg"
       "message_id": "8cqo1B9IA6nnB63oPEnmWxIqr7uk7WvQTBgVVlD_Q2c",
-      "replaces": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
-      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ"
+      "replaces": "AaQZrvThbUPPwGwoI17Pvp-uvHQNAUjnyiCyIVCTCDY",
+      "in_reply_to": "AbAIRGcnPMQ9bw6-rBPrhCKcT__o9sNZTJBfR3eeWnk"
     },
     {
       "party_history": [
@@ -177,8 +177,8 @@ making the release happen!",
       "originator": 3,
       "salt": "IrAeojgZcZGiQjjBbmqVhw"
       "message_id": "bYZ2NHaryq0WS2pq5IE9fMc4zltUyE6WrKJ7bNB5tMc",
-      "replaces": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
-      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+      "replaces": "AaQZrvThbUPPwGwoI17Pvp-uvHQNAUjnyiCyIVCTCDY",
+      "in_reply_to": "AbAIRGcnPMQ9bw6-rBPrhCKcT__o9sNZTJBfR3eeWnk",
       "disposition": "reaction"
     },
 
@@ -211,7 +211,7 @@ making the release happen!",
       "message_id": "Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4",
       "disposition": "attachment",
       "language": "en",
-      "ExternalPart": {
+      "external_part": {
         "mimetype": "video/mp4",
         "url": "https://example.com/storage/8ksB4bSrrRE.mp4",
         "size": 708234961,
@@ -237,7 +237,7 @@ making the release happen!",
       "salt": "dPEJAGOdZGeX6_OCp0RUzA"
       "message_id": "KgDTc29ZP4YyYmXtaYyxpZNrnigjvCjrCYuLTz19zWc",
       "disposition": "session",
-      "ExternalPart": {
+      "external_part": {
         "url": "https://example.com/join/12345",
         "description": "Join the Foo 118 conference"
       }
@@ -254,10 +254,10 @@ making the release happen!",
       "message_id": "sD19bKRmu4mA9SHznfQOLQQzKnx1Q4mEtSNQhvzqCZw",
       "disposition": "render",
       "part_index": 0,
-      "MultiPart": {
+      "multi_part": {
         "part_semantics": "chooseOne",
         "parts": [
-          "Part": {
+          {
             "disposition": "render",
             "language": "en",
             "part_index": 1,
@@ -265,7 +265,7 @@ making the release happen!",
             "encoding": "none"
             "body": "Hello!"
           },
-          "Part": {
+          {
             "disposition": "render",
             "language": "fr",
             "part_index": 2,

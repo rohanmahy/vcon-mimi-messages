@@ -40,7 +40,7 @@
       "message_id": "Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4",
       "disposition": "attachment",
       "language": "en",
-      "ExternalPart": {
+      "external_part": {
         "mimetype": "video/mp4",
         "url": "https://example.com/storage/8ksB4bSrrRE.mp4",
         "size": 708234961,
@@ -58,7 +58,7 @@
       "party": 1,
       "content_hash":
           "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
-      "dialogObjectRef":
+      "dialog_object_ref":
   "mid:Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4:0@anon.invalid",
       "mimetype": "video/mp4",
       "filename": "bigfile.mp4",

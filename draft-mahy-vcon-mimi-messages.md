@@ -142,12 +142,12 @@ For a SinglePart these two fields with the same semantics as their MIMI content 
 
 If there is only a single part its `part_index` is 0, and in this case it is optional.
 
-### MultiPart objects
+### multi_part objects
 
-A `MultiPart` object is designed to carry multiple items, as with the MultiPart structure in MIMI content or the top level multipart media types. It contains the following fields.
+A `multi_part` object is designed to carry multiple items, as with the MultiPart structure in MIMI content or the top level multipart media types. It contains the following fields.
 
 - `part_semantics` is one of "chooseOne", "singleUnit", or "processAll". It is mandatory.
-- `parts` is an array of `Part`s. It is mandatory in a `MultiPart` object.
+- `parts` is an array of `Part` objects. It is mandatory in a `multi_part` object.
 
 ### Part objects
 
@@ -160,9 +160,9 @@ The following fields can be in a Part object. They have the same meaning as thei
 
 If cardinality is "single" or "external", then `body`, `encoding`, and `mediatype` fields are included directly in the Part object.
 
-### ExternalPart objects
+### external_part objects
 
-The `ExternalPart` object can contain the following fields with similar meanings to those in MIMI content, with exceptions noted below.
+The `external_part` object can contain the following fields with similar meanings to those in MIMI content, with exceptions noted below.
 
 - `mediatype` is the value of the `contentType` in MIMI. It is mandatory if present in the MIMI message and recommended otherwise.
 - `url` is the URL of the content as a text string. It is mandatory
@@ -178,12 +178,12 @@ In addition, the following fields are unique to MIMI VCON.
 copy of the external content is available in a vcon attachment object
 (see {{attachments}}). If `cache` is true and no `content_hash` is present, a new content hash is calculated for the attachment and placed the `cache_ref` field (which can only be present in this case).
 
-ExternalPart has several fields for the decryption of the
+external_part has several fields for the decryption of the
 referenced content.
 If it is not necessary to reconstruct the original MIMI content (for example to allow later verification of the message ID), these fields can be omitted once the content has been downloaded, decrypted, verified, and included in the VCON attachments array. Otherwise they are mandatory if present in the MIMI content.
 All of these fields are base64url encoded strings.
 
-- `encAlg`
+- `enc_alg`
 - `key`
 - `nonce`
 - `aad`
@@ -329,7 +329,7 @@ add the following objects to the IANA vCon registries
 - filename
 - content_hash
 - cached
-- encAlg
+- enc_alg
 - key
 - nonce
 - aad
