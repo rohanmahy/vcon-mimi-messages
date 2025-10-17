@@ -4,8 +4,8 @@
 
 Virtualized Conversations                                        R. Mahy
 Internet-Draft                            Rohan Mahy Consulting Services
-Intended status: Informational                          24 February 2025
-Expires: 28 August 2025
+Intended status: Informational                           17 October 2025
+Expires: 20 April 2026
 
 
                          VCON for MIMI Messages
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 August 2025.
+   This Internet-Draft will expire on 20 April 2026.
 
 Copyright Notice
 
@@ -75,9 +75,9 @@ Table of Contents
      3.3.  The dialog object (text type)
        3.3.1.  Semantics of the existing fields for text
        3.3.2.  Extensions to the dialog object for text
-       3.3.3.  MultiPart objects
+       3.3.3.  multi_part objects
        3.3.4.  Part objects
-       3.3.5.  ExternalPart objects
+       3.3.5.  external_part objects
      3.4.  Changes to the parties
      3.5.  Changes to the room
      3.6.  Attachments
@@ -87,21 +87,34 @@ Table of Contents
      4.2.  MIMI VCON with an Attachment
    5.  Security Considerations
    6.  IANA Considerations
+     6.1.  Room object and registry
+     6.2.  Room description object and registry
+     6.3.  Party object types
+     6.4.  Dialog object types
+     6.5.  dialog_type object types
+     6.6.  multi_part object type
+     6.7.  parts
+     6.8.  part object type
+     6.9.  external_part object type
+     6.10. party_history object type
+     6.11. party_event object type
+     6.12. attachment object type
    7.  Normative References
-   Appendix A.  CDDL changes
+   Appendix A.  JSON Schema
    Appendix B.  Change list
-     B.1.  Changes in draft-mahy-vcon-mimi-messages-02
+     B.1.  Changes in draft-ietf-vcon-mimi-messages-00
+     B.2.  Changes in draft-mahy-vcon-mimi-messages-02
    Acknowledgments
    Author's Address
 
 1.  Introduction
 
-   VCON [I-D.ietf-vcon-vcon-container] is a format for recording and
+   VCON [I-D.ietf-vcon-vcon-core] is a format for recording and
    transmitting conversations.  MIMI content [I-D.ietf-mimi-content] is
    a format for conveying Instant Messages in an interoperable way when
-   end-to-end encrypted.  This document describes a way to translate a
-   set of MIMI messages in a conversation or part of a conversation into
-   a VCON.
+   end-to-end encrypted.  This document extends VCON, describing a way
+   to translate a set of MIMI messages in a conversation or part of a
+   conversation into a VCON.
 
 2.  Conventions and Definitions
 
@@ -197,7 +210,8 @@ Table of Contents
    The dialog object consists of an array of instant messages of type
    "text".  The start time is set to the hub received timestamp when
    available.  The duration is zero.  The originator is set to the
-   parties index of the sender of the message.
+   parties index of the sender of the message.  The message_id is the
+   base64url encoding of the MIMI content message ID.  It is mandatory.
 
    The first MIMI message represented in a MIMI VCON should contain the
    complete list of parties who were participants in the room at that
@@ -211,55 +225,24 @@ Table of Contents
    The parties array consist of the party indexes of those who were
    active participants when the message was sent.
 
-   *  message_id is the base64url encoding of the MIMI content message
-      ID.  It is mandatory.
+   - - salt is the base64url encoding of the MIMI content salt.  It is
+   mandatory. - replaces is the base64url encoding of the MIMI content
+   message_id of the message this message replaces.  It is optional if
+   empty. - topic_id is the base64url encoding of the MIMI topic_id.  It
+   is optional if empty. - expires is optional if empty in MIMI.  It
+   contains null or a map with the following items:
 
-   *  salt is the base64url encoding of the MIMI content salt.  It is
-      mandatory.
-
-   *  replaces is the base64url encoding of the MIMI content message_id
-      of the message this message replaces.  It is optional if empty.
-
-   *  topic_id is the base64url encoding of the MIMI topic_id.  It is
-      optional if empty.
-
-   *  expires is optional if empty in MIMI.  It contains null or a map
-      with the following items:
-
-      -  relative is a boolean that is true if the time is expressed
-         relative to the recipient read time, and false if it is
-         expressed as an absolute date/time.  It is mandatory when
-         expires is present.
-
-      -  relative_time is an integer number of seconds.  If relative is
-         true, once the message has been read, the client is expected to
-         delete the message after relative_time seconds.  It is
-         mandatory if relative is true.
-
-      -  absolute_time is the expiration date/time of the message
-         expressed as a VCON (text) date_type.  It is mandatory if
-         relative is false and optional otherwise.
-
-   *  in_reply_to is the base64url encoding of the MIMI content
-      message_id of the message to which this message is replying (or
-      reacting).  It is optional if empty.
-
-   *  mimi_extensions is a base64 encoding of the CBOR MIMI content
-      extensions map or null.  It is optional if not present in the MIMI
-      content.
-
-   *  franking_tag is a base64url encoding of the MIMI franking_tag, or
-      null.  It is optional if not present.
-
-   *  frank is a base64url encoding of the MIMI protocol Frank TLS
-      struct, or null.  It is optional if not present.
+* `relative` is a boolean that is true if the time is expressed relative to the recipient read time, and false if it is expressed as an absolute date/time. It is mandatory when `expires` is present.
+* `relative_time` is an integer number of seconds. If `relative` is true, once the message has been read, the client is expected to delete the message after `relative_time` seconds. It is mandatory if `relative` is true.
+* `absolute_time` is the expiration date/time of the message expressed as a VCON (text) date_type. It is mandatory if `relative` is false and optional otherwise. - `in_reply_to` is the base64url encoding of the MIMI content message_id of the message to which this message is replying (or reacting). It is optional if empty. - `mimi_extensions` is a base64 encoding of the CBOR MIMI content extensions map or null. It is optional if not present in the MIMI content. - `franking_tag` is a base64url encoding of the MIMI `franking_tag`, or null.  It is optional if not present. - `frank` is a base64url encoding of the MIMI protocol `Frank` TLS struct, or null. It is optional if not present.
 
    VCON typically expresses message content using the body, encoding,
    and mediatype fields.  In order to preserve this convention we use
    these fields directly for a MIMI SinglePart structure, but use new
-   MultiPart and ExternalPart objects for those corresponding MIMI
-   structures.  For a SinglePart these two fields with the same
-   semantics as their MIMI content counterparts could be present.
+   multi_part and external_part objects for the MultiPart and
+   ExternalPart MIMI structures, respectively.  For a SinglePart these
+   two fields with the same semantics as their MIMI content counterparts
+   could be present.
 
    *  disposition - optional if set to the default value ("render")
 
@@ -268,17 +251,17 @@ Table of Contents
    If there is only a single part its part_index is 0, and in this case
    it is optional.
 
-3.3.3.  MultiPart objects
+3.3.3.  multi_part objects
 
-   A MultiPart object is designed to carry multiple items, as with the
+   A multi_part object is designed to carry multiple items, as with the
    MultiPart structure in MIMI content or the top level multipart media
    types.  It contains the following fields.
 
    *  part_semantics is one of "chooseOne", "singleUnit", or
       "processAll".  It is mandatory.
 
-   *  parts is an array of Parts.  It is mandatory in a MultiPart
-      object.
+   *  parts is an array of Part objects.  It is mandatory in a
+      multi_part object.
 
 3.3.4.  Part objects
 
@@ -298,10 +281,11 @@ Table of Contents
    If cardinality is "single" or "external", then body, encoding, and
    mediatype fields are included directly in the Part object.
 
-3.3.5.  ExternalPart objects
+3.3.5.  external_part objects
 
-   The ExternalPart object can contain the following fields with similar
-   meanings to those in MIMI content, with exceptions noted below.
+   The external_part object can contain the following fields with
+   similar meanings to those in MIMI content, with exceptions noted
+   below.
 
    *  mediatype is the value of the contentType in MIMI.  It is
       mandatory if present in the MIMI message and recommended
@@ -334,7 +318,7 @@ Table of Contents
       attachment and placed the cache_ref field (which can only be
       present in this case).
 
-   ExternalPart has several fields for the decryption of the referenced
+   external_part has several fields for the decryption of the referenced
    content.  If it is not necessary to reconstruct the original MIMI
    content (for example to allow later verification of the message ID),
    these fields can be omitted once the content has been downloaded,
@@ -342,7 +326,7 @@ Table of Contents
    Otherwise they are mandatory if present in the MIMI content.  All of
    these fields are base64url encoded strings.
 
-   *  encAlg
+   *  enc_alg
 
    *  key
 
@@ -459,7 +443,7 @@ Table of Contents
   }
   "parties": [
     {
-      "imUri": "mimi://example.com/r/engineering_team",
+      "im_uri": "mimi://example.com/r/engineering_team",
     },
     {
       "im_uri": "mimi://example.com/u/alice-smith",
@@ -504,7 +488,7 @@ Table of Contents
       "frank": null,
       "originator": 1,
       "salt": "PC16IkqDbGRiffzjeyPKIg"
-      "message_id": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+      "message_id": "AbAIRGcnPMQ9bw6-rBPrhCKcT__o9sNZTJBfR3eeWnk",
       "mimi_extensions": "oQGiAXgrbWltaTovL2h1Yi5leGFtcGxlL3IvU
           mwzM0ZXTENZV093eEhyWW5wV0RRZwJ4GG1pbWk6Ly9iLmV4YW1wbG
           UvdS9hbGljZQ",
@@ -523,8 +507,8 @@ Table of Contents
       ],
       "originator": 2,
       "salt": "PVeWNQrjJej4AjhqkGlSkw"
-      "message_id": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
-      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+      "message_id": "AaQZrvThbUPPwGwoI17Pvp-uvHQNAUjnyiCyIVCTCDY",
+      "in_reply_to": "AbAIRGcnPMQ9bw6-rBPrhCKcT__o9sNZTJBfR3eeWnk",
       "mimetype": "text/markdown;variant=GFM",
       "encoding": "none"
       "body": "Right on! _Congratulations_ \'all!",
@@ -539,8 +523,8 @@ Table of Contents
       ],
       "originator": 3,
       "salt": "lV7CoeiFmX4ALPSKOdrR0w"
-      "message_id": "2YF0k6blW9ZbJ8sgXJgMCTJOlofazdKwVRvf6ZUORFA",
-      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+      "message_id": "AbGhSoj0SA4TNr6GmHhU-Dij7IKUTUUz2NQIhXhVDtc",
+      "in_reply_to": "AbAIRGcnPMQ9bw6-rBPrhCKcT__o9sNZTJBfR3eeWnk",
       "disposition": "reaction",
       "mimetype": "text/plain;charset=utf-8",
       "encoding": "none"
@@ -574,8 +558,8 @@ making the release happen!",
       "originator": 2,
       "salt": "26QI8adeG9TDfPvh-j1Stg"
       "message_id": "-GqJXuoaJu1Xosu-N8nt6NWzA2RLmIRY0q9jf_kvWkM",
-      "replaces": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
-      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+      "replaces": "AaQZrvThbUPPwGwoI17Pvp-uvHQNAUjnyiCyIVCTCDY",
+      "in_reply_to": "AbAIRGcnPMQ9bw6-rBPrhCKcT__o9sNZTJBfR3eeWnk",
       "mimetype": "text/markdown;variant=GFM",
       "encoding": "none"
       "body": "Right on! _Congratulations_ y'all"
@@ -591,8 +575,8 @@ making the release happen!",
       "originator": 2,
       "salt": "HbkjCnTRrhn84LPT86VvYg"
       "message_id": "8cqo1B9IA6nnB63oPEnmWxIqr7uk7WvQTBgVVlD_Q2c",
-      "replaces": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
-      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ"
+      "replaces": "AaQZrvThbUPPwGwoI17Pvp-uvHQNAUjnyiCyIVCTCDY",
+      "in_reply_to": "AbAIRGcnPMQ9bw6-rBPrhCKcT__o9sNZTJBfR3eeWnk"
     },
     {
       "party_history": [
@@ -620,8 +604,8 @@ making the release happen!",
       "originator": 3,
       "salt": "IrAeojgZcZGiQjjBbmqVhw"
       "message_id": "bYZ2NHaryq0WS2pq5IE9fMc4zltUyE6WrKJ7bNB5tMc",
-      "replaces": "Ygye96VUeBhTO6U3D0ZllYsSwSdKB3SiRJgxAb3cdAo",
-      "in_reply_to": "yjetjodyYNLBto8YDnwLkEc89W09rOuEivbnxKGfHLQ",
+      "replaces": "AaQZrvThbUPPwGwoI17Pvp-uvHQNAUjnyiCyIVCTCDY",
+      "in_reply_to": "AbAIRGcnPMQ9bw6-rBPrhCKcT__o9sNZTJBfR3eeWnk",
       "disposition": "reaction"
     },
 
@@ -654,7 +638,7 @@ making the release happen!",
       "message_id": "Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4",
       "disposition": "attachment",
       "language": "en",
-      "ExternalPart": {
+      "external_part": {
         "mimetype": "video/mp4",
         "url": "https://example.com/storage/8ksB4bSrrRE.mp4",
         "size": 708234961,
@@ -680,7 +664,7 @@ making the release happen!",
       "salt": "dPEJAGOdZGeX6_OCp0RUzA"
       "message_id": "KgDTc29ZP4YyYmXtaYyxpZNrnigjvCjrCYuLTz19zWc",
       "disposition": "session",
-      "ExternalPart": {
+      "external_part": {
         "url": "https://example.com/join/12345",
         "description": "Join the Foo 118 conference"
       }
@@ -697,10 +681,10 @@ making the release happen!",
       "message_id": "sD19bKRmu4mA9SHznfQOLQQzKnx1Q4mEtSNQhvzqCZw",
       "disposition": "render",
       "part_index": 0,
-      "MultiPart": {
+      "multi_part": {
         "part_semantics": "chooseOne",
         "parts": [
-          "Part": {
+          {
             "disposition": "render",
             "language": "en",
             "part_index": 1,
@@ -708,7 +692,7 @@ making the release happen!",
             "encoding": "none"
             "body": "Hello!"
           },
-          "Part": {
+          {
             "disposition": "render",
             "language": "fr",
             "part_index": 2,
@@ -769,7 +753,7 @@ making the release happen!",
          "message_id": "Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4",
          "disposition": "attachment",
          "language": "en",
-         "ExternalPart": {
+         "external_part": {
            "mimetype": "video/mp4",
            "url": "https://example.com/storage/8ksB4bSrrRE.mp4",
            "size": 708234961,
@@ -787,7 +771,7 @@ making the release happen!",
          "party": 1,
          "content_hash":
              "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
-         "dialogObjectRef":
+         "dialog_object_ref":
      "mid:Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4:0@anon.invalid",
          "mimetype": "video/mp4",
          "filename": "bigfile.mp4",
@@ -803,31 +787,167 @@ making the release happen!",
 
 6.  IANA Considerations
 
-   This document has no IANA actions.
+   add the following objects to the IANA vCon registries
+
+6.1.  Room object and registry
+
+   *  id
+
+   *  name
+
+   *  avatar
+
+   *  subject
+
+   *  mood
+
+   *  description
+
+6.2.  Room description object and registry
+
+   *  type
+
+   *  lang
+
+   *  content
+
+6.3.  Party object types
+
+   *  im_uri
+
+   *  role
+
+   *  thumbprint
+
+6.4.  Dialog object types
+
+   *  salt
+
+   *  replaces
+
+   *  relative_time
+
+   *  expires
+
+   *  in_reply_to
+
+   *  mimi_extensions
+
+   *  franking_tag
+
+   *  frank
+
+   *  status
+
+   *  disposition
+
+   *  language
+
+6.5.  dialog_type object types
+
+   *  tombstone
+
+6.6.  multi_part object type
+
+   *  part_semantics
+
+   *  parts
+
+6.7.  parts
+
+   *  part
+
+6.8.  part object type
+
+   *  disposition
+
+   *  language
+
+   *  part_index
+
+   *  cardinality
+
+   *  mimetype
+
+   *  encoding
+
+   *  body
+
+6.9.  external_part object type
+
+   *  mediatype
+
+   *  url
+
+   *  expires
+
+   *  size
+
+   *  description
+
+   *  filename
+
+   *  content_hash
+
+   *  cached
+
+   *  enc_alg
+
+   *  key
+
+   *  nonce
+
+   *  aad
+
+6.10.  party_history object type
+
+   *  originator
+
+   *  name
+
+   *  role
+
+6.11.  party_event object type
+
+   *  add
+
+   *  self_add
+
+   *  leave
+
+   *  remove
+
+   *  ban
+
+   *  update
+
+6.12.  attachment object type
+
+   *  dialog_object_ref
 
 7.  Normative References
 
    [I-D.ietf-mimi-content]
               Mahy, R., "More Instant Messaging Interoperability (MIMI)
               message content", Work in Progress, Internet-Draft, draft-
-              ietf-mimi-content-05, 20 December 2024,
+              ietf-mimi-content-07, 7 July 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-mimi-
-              content-05>.
+              content-07>.
 
    [I-D.ietf-mimi-protocol]
               Barnes, R., Hodgson, M., Kohbrok, K., Mahy, R., Ralston,
               T., and R. Robert, "More Instant Messaging
               Interoperability (MIMI) using HTTPS and MLS", Work in
-              Progress, Internet-Draft, draft-ietf-mimi-protocol-02, 21
-              October 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-mimi-protocol-02>.
+              Progress, Internet-Draft, draft-ietf-mimi-protocol-04, 7
+              July 2025, <https://datatracker.ietf.org/doc/html/draft-
+              ietf-mimi-protocol-04>.
 
-   [I-D.ietf-vcon-vcon-container]
-              Petrie, D. and T. McCarthy-Howe, "The JSON format for vCon
-              - Conversation Data Container", Work in Progress,
-              Internet-Draft, draft-ietf-vcon-vcon-container-01, 20
-              October 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-vcon-vcon-container-01>.
+   [I-D.ietf-vcon-vcon-core]
+              Petrie, D., "The JSON format for vCon - Conversation Data
+              Container", Work in Progress, Internet-Draft, draft-ietf-
+              vcon-vcon-core-01, 15 October 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-vcon-
+              vcon-core-01>.
 
    [I-D.mahy-mimi-app-components]
               Mahy, R., "Application State Components for More Instant
@@ -854,13 +974,25 @@ making the release happen!",
               Security (MLS) Protocol", RFC 9420, DOI 10.17487/RFC9420,
               July 2023, <https://www.rfc-editor.org/rfc/rfc9420>.
 
-Appendix A.  CDDL changes
+Appendix A.  JSON Schema
 
    *TODO*
 
 Appendix B.  Change list
 
-B.1.  Changes in draft-mahy-vcon-mimi-messages-02
+B.1.  Changes in draft-ietf-vcon-mimi-messages-00
+
+   *  adopted as a WG item
+
+   *  added IANA registrations under the new framework
+
+   *  updated references
+
+   *  refactor to use the new message_id field name from core
+
+   *  more case adjustments
+
+B.2.  Changes in draft-mahy-vcon-mimi-messages-02
 
    *  adjust to make consistent with new syntax of MIMI content (add
       salt, removed lastSeen, in_reply_to is just a message id, expires
