@@ -4,8 +4,8 @@
 
 Virtualized Conversations                                        R. Mahy
 Internet-Draft                            Rohan Mahy Consulting Services
-Intended status: Informational                           17 October 2025
-Expires: 20 April 2026
+Intended status: Informational                           19 October 2025
+Expires: 22 April 2026
 
 
                          VCON for MIMI Messages
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 April 2026.
+   This Internet-Draft will expire on 22 April 2026.
 
 Copyright Notice
 
@@ -87,13 +87,13 @@ Table of Contents
      4.2.  MIMI VCON with an Attachment
    5.  Security Considerations
    6.  IANA Considerations
-     6.1.  Room object and registry
-     6.2.  Room description object and registry
-     6.3.  Party object types
-     6.4.  Dialog object types
-     6.5.  dialog_type object types
-     6.6.  multi_part object type
-     6.7.  parts
+     6.1.  vCon Object Parameter Names Registry
+     6.2.  Room object registry
+     6.3.  Room description object registry
+     6.4.  Party object
+     6.5.  Dialog object types
+     6.6.  Dialog Type Name Registry
+     6.7.  multi_part object type
      6.8.  part object type
      6.9.  external_part object type
      6.10. party_history object type
@@ -182,7 +182,7 @@ Table of Contents
       -  a lang - a Language-tag as defined by [RFC5646].  It is
          optional.
 
-      -  a content - if the type begins with "text" or is empty, the
+      -  a content - if the type begins with "text/" or is empty, the
          content the is UTF-8 text description of the room.  Otherwise
          it is the base64url encoding of whatever type is described.
          The content field is mandatory in a room_description object.
@@ -230,7 +230,7 @@ Table of Contents
    message_id of the message this message replaces.  It is optional if
    empty. - topic_id is the base64url encoding of the MIMI topic_id.  It
    is optional if empty. - expires is optional if empty in MIMI.  It
-   contains null or a map with the following items:
+   contains null or a non-extensible object with the following items:
 
 * `relative` is a boolean that is true if the time is expressed relative to the recipient read time, and false if it is expressed as an absolute date/time. It is mandatory when `expires` is present.
 * `relative_time` is an integer number of seconds. If `relative` is true, once the message has been read, the client is expected to delete the message after `relative_time` seconds. It is mandatory if `relative` is true.
@@ -363,7 +363,7 @@ Table of Contents
 
       -  ban: user is banned from the group
 
-      -  update:
+      -  update: user or client is updated
 
    *  name is the new name of the user.  It is only permitted for an
       update event.
@@ -688,7 +688,7 @@ making the release happen!",
             "disposition": "render",
             "language": "en",
             "part_index": 1,
-            "mimetype": "text/markdown;variant=GFM",
+            "mediatype": "text/markdown;variant=GFM",
             "encoding": "none"
             "body": "Hello!"
           },
@@ -754,7 +754,7 @@ making the release happen!",
          "disposition": "attachment",
          "language": "en",
          "external_part": {
-           "mimetype": "video/mp4",
+           "mediatype": "video/mp4",
            "url": "https://example.com/storage/8ksB4bSrrRE.mp4",
            "size": 708234961,
            "description": "2 hours of key signing video",
@@ -773,7 +773,7 @@ making the release happen!",
              "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
          "dialog_object_ref":
      "mid:Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4:0@anon.invalid",
-         "mimetype": "video/mp4",
+         "mediatype": "video/mp4",
          "filename": "bigfile.mp4",
          "encoding": "base64url",
          "body": "Ma0hHSr0f_iUk_RSShTgtY...nSQbZEip5danJYQqsvwWQ"
@@ -787,143 +787,330 @@ making the release happen!",
 
 6.  IANA Considerations
 
-   add the following objects to the IANA vCon registries
+   This document requests IANA to add following entries under the
+   relevant registries in the vCon JSON Objects Group.
 
-6.1.  Room object and registry
+   IANA, please replace RFCXXXX with the number of this document.
 
-   *  id
+6.1.  vCon Object Parameter Names Registry
 
-   *  name
+    +======+===========================+================+=============+
+    | Name | Description               | Change Control | Reference   |
+    +======+===========================+================+=============+
+    | room | metadata about an instant | IETF           | Section 3.1 |
+    |      | messaging room or channel |                | of RFCXXXX  |
+    +------+---------------------------+----------------+-------------+
 
-   *  avatar
+                                  Table 1
 
-   *  subject
+6.2.  Room object registry
 
-   *  mood
+   +=============+=====================+================+=============+
+   | Name        | Description         | Change Control | Reference   |
+   +=============+=====================+================+=============+
+   | id          | room ID             | IETF           | Section 3.1 |
+   |             |                     |                | RFCXXXX     |
+   +-------------+---------------------+----------------+-------------+
+   | name        | The human-readable  | IETF           | Section 3.1 |
+   |             | name of the room    |                | RFCXXXX     |
+   +-------------+---------------------+----------------+-------------+
+   | avatar      | An image associated | IETF           | Section 3.1 |
+   |             | with the room       |                | RFCXXXX     |
+   +-------------+---------------------+----------------+-------------+
+   | subject     | The subject of the  | IETF           | Section 3.1 |
+   |             | room                |                | RFCXXXX     |
+   +-------------+---------------------+----------------+-------------+
+   | mood        | The mood of the     | IETF           | Section 3.1 |
+   |             | room                |                | RFCXXXX     |
+   +-------------+---------------------+----------------+-------------+
+   | description | The description of  | IETF           | Section 3.1 |
+   |             | the room            |                | RFCXXXX     |
+   +-------------+---------------------+----------------+-------------+
 
-   *  description
+                                 Table 2
 
-6.2.  Room description object and registry
+6.3.  Room description object registry
 
-   *  type
+   This documents creates a new Room description object registry under
+   the vCon JSON Objects Group.  It has the following values.
 
-   *  lang
+    +=========+========================+================+=============+
+    | Name    | Description            | Change Control | Reference   |
+    +=========+========================+================+=============+
+    | type    | an optional media type | IETF           | Section 3.1 |
+    |         | of the description     |                | RFCXXXX     |
+    +---------+------------------------+----------------+-------------+
+    | lang    | the language of the    | IETF           | Section 3.1 |
+    |         | description            |                | RFCXXXX     |
+    +---------+------------------------+----------------+-------------+
+    | content | the content of the     | IETF           | Section 3.1 |
+    |         | description            |                | RFCXXXX     |
+    +---------+------------------------+----------------+-------------+
 
-   *  content
+                                  Table 3
 
-6.3.  Party object types
+6.4.  Party object
 
-   *  im_uri
+   +============+==============================+=========+=============+
+   | Name       | Description                  | Change  | Reference   |
+   |            |                              | Control |             |
+   +============+==============================+=========+=============+
+   | im_uri     | The URI of an instant        | IETF    | Section 3.2 |
+   |            | messaging users or room      |         | RFCXXXX     |
+   +------------+------------------------------+---------+-------------+
+   | role       | The role of an instant       | IETF    | Section 3.2 |
+   |            | messaging user               |         | RFCXXXX     |
+   +------------+------------------------------+---------+-------------+
+   +------------+------------------------------+---------+-------------+
+   | thumbprint | The public key               | IETF    | Section 3.2 |
+   |            | thumbprint of an instant     |         | RFCXXXX     |
+   |            | messaging client             |         |             |
+   +------------+------------------------------+---------+-------------+
 
-   *  role
+                                  Table 4
 
-   *  thumbprint
+6.5.  Dialog object types
 
-6.4.  Dialog object types
+   +=================+===========================+=========+===========+
+   | Name            | Description               | Change  | Reference |
+   |                 |                           | Control |           |
+   +=================+===========================+=========+===========+
+   | salt            | The message salt          | IETF    | Section   |
+   |                 |                           |         | 3.3.2     |
+   |                 |                           |         | RFCXXXX   |
+   +-----------------+---------------------------+---------+-----------+
+   | replaces        | The message_id of         | IETF    | Section   |
+   |                 | another message this      |         | 3.3.2     |
+   |                 | message replaces          |         | RFCXXXX   |
+   +-----------------+---------------------------+---------+-----------+
+   | expires         | When this message         | IETF    | Section   |
+   |                 | expires                   |         | 3.3.2     |
+   |                 |                           |         | RFCXXXX   |
+   +-----------------+---------------------------+---------+-----------+
+   | in_reply_to     | The message_id of         | IETF    | Section   |
+   |                 | another message to        |         | 3.3.2     |
+   |                 | which this message        |         | RFCXXXX   |
+   |                 | replies or reacts         |         |           |
+   +-----------------+---------------------------+---------+-----------+
+   | mimi_extensions | A map of any              | IETF    | Section   |
+   |                 | mimi_extensions           |         | 3.3.2     |
+   |                 | associated with this      |         | RFCXXXX   |
+   |                 | message                   |         |           |
+   +-----------------+---------------------------+---------+-----------+
+   | franking_tag    | The sender-asserted       | IETF    | Section   |
+   |                 | franking_tag              |         | 3.3.2     |
+   |                 |                           |         | RFCXXXX   |
+   +-----------------+---------------------------+---------+-----------+
+   | frank           | The frank data            | IETF    | Section   |
+   |                 | structure returned        |         | 3.3.2     |
+   |                 | by the MIMI server        |         | RFCXXXX   |
+   |                 | with the message          |         |           |
+   +-----------------+---------------------------+---------+-----------+
+   | disposition     | The disposition of        | IETF    | Section   |
+   |                 | the message content       |         | 3.3.2     |
+   |                 |                           |         | RFCXXXX   |
+   +-----------------+---------------------------+---------+-----------+
+   | language        | The language of the       | IETF    | Section   |
+   |                 | message content           |         | 3.3.2     |
+   |                 | (only if there is         |         | RFCXXXX   |
+   |                 | only one part)            |         |           |
+   +-----------------+---------------------------+---------+-----------+
+   | status          | The status of a           | IETF    | Section   |
+   |                 | former message            |         | 3.7       |
+   |                 |                           |         | RFCXXXX   |
+   +-----------------+---------------------------+---------+-----------+
 
-   *  salt
+                                  Table 5
 
-   *  replaces
+6.6.  Dialog Type Name Registry
 
-   *  relative_time
+    +===========+=====================+================+=============+
+    | Name      | Description         | Change Control | Reference   |
+    +===========+=====================+================+=============+
+    | tombstone | the dialog event    | IETF           | Section 3.7 |
+    |           | type is a tombstone |                | RFCXXXX     |
+    +-----------+---------------------+----------------+-------------+
 
-   *  expires
+                                 Table 6
 
-   *  in_reply_to
+6.7.  multi_part object type
 
-   *  mimi_extensions
+   This documents creates a new Multi_part object registry under the
+   vCon JSON Objects Group.  It has the following values.
 
-   *  franking_tag
+     +================+=======================+=========+===========+
+     | Name           | Description           | Change  | Reference |
+     |                |                       | Control |           |
+     +================+=======================+=========+===========+
+     | part_semantics | How multiple parts in | IETF    | Section   |
+     |                | the same multi_part   |         | 3.3.3     |
+     |                | object are handled    |         | RFCXXXX   |
+     +----------------+-----------------------+---------+-----------+
+     | parts          | An array of part      | IETF    | Section   |
+     |                | objects               |         | 3.3.3     |
+     |                |                       |         | RFCXXXX   |
+     +----------------+-----------------------+---------+-----------+
 
-   *  frank
-
-   *  status
-
-   *  disposition
-
-   *  language
-
-6.5.  dialog_type object types
-
-   *  tombstone
-
-6.6.  multi_part object type
-
-   *  part_semantics
-
-   *  parts
-
-6.7.  parts
-
-   *  part
+                                 Table 7
 
 6.8.  part object type
 
-   *  disposition
+   This documents creates a new Part object registry under the vCon JSON
+   Objects Group.  It has the following values.
 
-   *  language
+   +=============+==============================+=========+===========+
+   | Name        | Description                  | Change  | Reference |
+   |             |                              | Control |           |
+   +=============+==============================+=========+===========+
+   | disposition |                              | IETF    | Section   |
+   |             |                              |         | 3.3.4     |
+   |             |                              |         | RFCXXXX   |
+   +-------------+------------------------------+---------+-----------+
+   | language    | The language of the message  | IETF    | Section   |
+   |             | part                         |         | 3.3.4     |
+   |             |                              |         | RFCXXXX   |
+   +-------------+------------------------------+---------+-----------+
+   | part_index  | The relative index of the    | IETF    | Section   |
+   |             | part within the message      |         | 3.3.4     |
+   |             |                              |         | RFCXXXX   |
+   +-------------+------------------------------+---------+-----------+
+   | cardinality | one of "nullpart", "single", | IETF    | Section   |
+   |             | "external", or "multi"       |         | 3.3.4     |
+   |             |                              |         | RFCXXXX   |
+   +-------------+------------------------------+---------+-----------+
+   | mediatype   | The media type of the part   | IETF    | Section   |
+   |             |                              |         | 3.3.4     |
+   |             |                              |         | RFCXXXX   |
+   +-------------+------------------------------+---------+-----------+
+   | encoding    | The encoding of the message  | IETF    | Section   |
+   |             | part (as in Section 2.3.1 of |         | 3.3.4     |
+   |             | [I-D.ietf-vcon-vcon-core])   |         | RFCXXXX   |
+   +-------------+------------------------------+---------+-----------+
+   | body        | The content of the message   | IETF    | Section   |
+   |             | part                         |         | 3.3.4     |
+   |             |                              |         | RFCXXXX   |
+   +-------------+------------------------------+---------+-----------+
 
-   *  part_index
-
-   *  cardinality
-
-   *  mimetype
-
-   *  encoding
-
-   *  body
+                                 Table 8
 
 6.9.  external_part object type
 
-   *  mediatype
+   This documents creates a new External_part object registry under the
+   vCon JSON Objects Group.  It has the following values.
 
-   *  url
+    +==============+===========================+=========+===========+
+    | Name         | Description               | Change  | Reference |
+    |              |                           | Control |           |
+    +==============+===========================+=========+===========+
+    | mediatype    | the media type of the     | IETF    | Section   |
+    |              | externally referenced     |         | 3.3.5     |
+    |              | content                   |         | RFCXXXX   |
+    +--------------+---------------------------+---------+-----------+
+    | url          | the url of the externally | IETF    | Section   |
+    |              | referenced content        |         | 3.3.5     |
+    |              |                           |         | RFCXXXX   |
+    +--------------+---------------------------+---------+-----------+
+    | size         | the size in bytes of the  | IETF    | Section   |
+    |              | externally referenced     |         | 3.3.5     |
+    |              | content                   |         | RFCXXXX   |
+    +--------------+---------------------------+---------+-----------+
+    | description  | the description of the    | IETF    | Section   |
+    |              | externally referenced     |         | 3.3.5     |
+    |              | content                   |         | RFCXXXX   |
+    +--------------+---------------------------+---------+-----------+
+    | filename     | the filename of the       | IETF    | Section   |
+    |              | externally referenced     |         | 3.3.5     |
+    |              | content                   |         | RFCXXXX   |
+    +--------------+---------------------------+---------+-----------+
+    | content_hash | a representation of the   | IETF    | Section   |
+    |              | MIMI contentHash and      |         | 3.3.5     |
+    |              | hashAlg of the externally |         | RFCXXXX   |
+    |              | referenced content        |         |           |
+    +--------------+---------------------------+---------+-----------+
+    | cached       | whether the referenced    | IETF    | Section   |
+    |              | content is cached         |         | 3.3.5     |
+    |              |                           |         | RFCXXXX   |
+    +--------------+---------------------------+---------+-----------+
+    | enc_alg_     | the encryption algorithm  | IETF    | Section   |
+    |              | used to encrypt the       |         | 3.3.5     |
+    |              | externally referenced     |         | RFCXXXX   |
+    |              | content                   |         |           |
+    +--------------+---------------------------+---------+-----------+
+    | key          | the encryption key of the | IETF    | Section   |
+    |              | externally referenced     |         | 3.3.5     |
+    |              | content                   |         | RFCXXXX   |
+    +--------------+---------------------------+---------+-----------+
+    | nonce        | the encryption nonce of   | IETF    | Section   |
+    |              | the externally referenced |         | 3.3.5     |
+    |              | content                   |         | RFCXXXX   |
+    +--------------+---------------------------+---------+-----------+
+    | aad          | the media type of the     | IETF    | Section   |
+    |              | externally referenced     |         | 3.3.5     |
+    |              | content                   |         | RFCXXXX   |
+    +--------------+---------------------------+---------+-----------+
 
-   *  expires
-
-   *  size
-
-   *  description
-
-   *  filename
-
-   *  content_hash
-
-   *  cached
-
-   *  enc_alg
-
-   *  key
-
-   *  nonce
-
-   *  aad
+                                 Table 9
 
 6.10.  party_history object type
 
-   *  originator
+   +============+=============================+=========+=============+
+   | Name       | Description                 | Change  | Reference   |
+   |            |                             | Control |             |
+   +============+=============================+=========+=============+
+   | originator | which party index initiated | IETF    | Section 3.4 |
+   |            | this party_history event    |         | RFCXXXX     |
+   +------------+-----------------------------+---------+-------------+
+   | name       | the name of the party that  | IETF    | Section 3.4 |
+   |            | initiated this              |         | RFCXXXX     |
+   |            | party_history event         |         |             |
+   +------------+-----------------------------+---------+-------------+
+   | role       | the role of the party that  | IETF    | Section 3.4 |
+   |            | initiated this              |         | RFCXXXX     |
+   |            | party_history event         |         |             |
+   +------------+-----------------------------+---------+-------------+
 
-   *  name
-
-   *  role
+                                 Table 10
 
 6.11.  party_event object type
 
-   *  add
+     +===========+==========================+=========+=============+
+     | Name      | Description              | Change  | Reference   |
+     |           |                          | Control |             |
+     +===========+==========================+=========+=============+
+     | add       | indicates the party was  | IETF    | Section 3.4 |
+     |           | added by someone else    |         | RFCXXXX     |
+     +-----------+--------------------------+---------+-------------+
+     | self_add_ | indicates the party was  | IETF    | Section 3.4 |
+     |           | added by itself          |         | RFCXXXX     |
+     +-----------+--------------------------+---------+-------------+
+     | leave     | indicates the party left | IETF    | Section 3.4 |
+     |           | of their own accord      |         | RFCXXXX     |
+     +-----------+--------------------------+---------+-------------+
+     | remove    | indicates the party was  | IETF    | Section 3.4 |
+     |           | removed by someone else  |         | RFCXXXX     |
+     +-----------+--------------------------+---------+-------------+
+     | ban       | indicates the party was  | IETF    | Section 3.4 |
+     |           | banned                   |         | RFCXXXX     |
+     +-----------+--------------------------+---------+-------------+
+     | update    | indicates the party      | IETF    | Section 3.4 |
+     |           | changed                  |         | RFCXXXX     |
+     +-----------+--------------------------+---------+-------------+
 
-   *  self_add
-
-   *  leave
-
-   *  remove
-
-   *  ban
-
-   *  update
+                                 Table 11
 
 6.12.  attachment object type
 
-   *  dialog_object_ref
+      +===================+===================+=========+===========+
+      | Name              | Description       | Change  | Reference |
+      |                   |                   | Control |           |
+      +===================+===================+=========+===========+
+      | dialog_object_ref | the message_id of | IETF    | Section   |
+      |                   | the dialog object |         | 3.6       |
+      |                   | referencing this  |         | RFCXXXX   |
+      |                   | attachment        |         |           |
+      +-------------------+-------------------+---------+-----------+
+
+                                  Table 12
 
 7.  Normative References
 

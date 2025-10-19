@@ -9,23 +9,22 @@
 <meta content="
        This document describes extensions to the Virtualized Conversation (VCON) syntax for instant messaging systems using the More Instant Messaging Interoperability (MIMI) content format. 
     " name="description">
-<meta content="xml2rfc 3.30.2" name="generator">
+<meta content="xml2rfc 3.31.0" name="generator">
 <meta content="instant messaging" name="keyword">
 <meta content="message history" name="keyword">
 <meta content="draft-mahy-vcon-mimi-messages-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.30.2
-    Python 3.12.11
+  xml2rfc 3.31.0
+    Python 3.12.12
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.6
     lxml 5.3.1
-    platformdirs 4.4.0
+    platformdirs 4.5.0
     pycountry 24.6.1
     PyYAML 6.0.2
     requests 2.32.5
-    setuptools 80.9.0
     wcwidth 0.2.14
 -->
 <link href="draft-mahy-vcon-mimi-messages.xml" rel="alternate" type="application/rfc+xml">
@@ -1049,7 +1048,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mahy</td>
-<td class="center">Expires 20 April 2026</td>
+<td class="center">Expires 22 April 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1062,12 +1061,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-mahy-vcon-mimi-messages-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-10-17" class="published">17 October 2025</time>
+<time datetime="2025-10-19" class="published">19 October 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-04-20">20 April 2026</time></dd>
+<dd class="expires"><time datetime="2026-04-22">22 April 2026</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1117,7 +1116,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 20 April 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 22 April 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1213,25 +1212,25 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
-                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-room-object-and-registry" class="internal xref">Room object and registry</a></p>
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-vcon-object-parameter-names" class="internal xref">vCon Object Parameter Names Registry</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
-                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-room-description-object-and" class="internal xref">Room description object and registry</a></p>
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-room-object-registry" class="internal xref">Room object registry</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3">
-                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-party-object-types" class="internal xref">Party object types</a></p>
+                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-room-description-object-reg" class="internal xref">Room description object registry</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.4">
-                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="auto internal xref">6.4</a>.  <a href="#name-dialog-object-types" class="internal xref">Dialog object types</a></p>
+                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="auto internal xref">6.4</a>.  <a href="#name-party-object" class="internal xref">Party object</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.5">
-                <p id="section-toc.1-1.6.2.5.1"><a href="#section-6.5" class="auto internal xref">6.5</a>.  <a href="#name-dialog_type-object-types" class="internal xref">dialog_type object types</a></p>
+                <p id="section-toc.1-1.6.2.5.1"><a href="#section-6.5" class="auto internal xref">6.5</a>.  <a href="#name-dialog-object-types" class="internal xref">Dialog object types</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.6">
-                <p id="section-toc.1-1.6.2.6.1"><a href="#section-6.6" class="auto internal xref">6.6</a>.  <a href="#name-multi_part-object-type" class="internal xref">multi_part object type</a></p>
+                <p id="section-toc.1-1.6.2.6.1"><a href="#section-6.6" class="auto internal xref">6.6</a>.  <a href="#name-dialog-type-name-registry" class="internal xref">Dialog Type Name Registry</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.7">
-                <p id="section-toc.1-1.6.2.7.1"><a href="#section-6.7" class="auto internal xref">6.7</a>.  <a href="#name-parts" class="internal xref">parts</a></p>
+                <p id="section-toc.1-1.6.2.7.1"><a href="#section-6.7" class="auto internal xref">6.7</a>.  <a href="#name-multi_part-object-type" class="internal xref">multi_part object type</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.8">
                 <p id="section-toc.1-1.6.2.8.1"><a href="#section-6.8" class="auto internal xref">6.8</a>.  <a href="#name-part-object-type" class="internal xref">part object type</a></p>
@@ -1315,7 +1314,7 @@ The MIMI content message ID is constructed by hashing fields from the MIMI conte
 <p id="section-3-1">A MIMI conversation (or portion thereof) is represented in VCON with
 a mandatory list of parties and dialogs, a new top-level room object,
 and optionally attachment objects.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<div id="room-information">
+<div id="room-obj">
 <section id="section-3.1">
         <h3 id="name-room-information">
 <a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-room-information" class="section-name selfRef">Room information</a>
@@ -1348,14 +1347,14 @@ known about the room at the start of the VCON period.<a href="#section-3.1-1" cl
                 <p id="section-3.1-2.6.2.2.1">a <code>lang</code> - a <code>Language-tag</code> as defined by <span>[<a href="#RFC5646" class="cite xref">RFC5646</a>]</span>. It is optional.<a href="#section-3.1-2.6.2.2.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.1-2.6.2.3">
-                <p id="section-3.1-2.6.2.3.1">a <code>content</code> - if the <code>type</code> begins with "text" or is empty, the content the is UTF-8 text description of the room. Otherwise it is the base64url encoding of whatever type is described. The <code>content</code> field is mandatory in a room_description object.<a href="#section-3.1-2.6.2.3.1" class="pilcrow">¶</a></p>
+                <p id="section-3.1-2.6.2.3.1">a <code>content</code> - if the <code>type</code> begins with "text/" or is empty, the content the is UTF-8 text description of the room. Otherwise it is the base64url encoding of whatever type is described. The <code>content</code> field is mandatory in a room_description object.<a href="#section-3.1-2.6.2.3.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
         </ul>
 </section>
 </div>
-<div id="parties">
+<div id="parties-obj">
 <section id="section-3.2">
         <h3 id="name-parties">
 <a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-parties" class="section-name selfRef">Parties</a>
@@ -1377,7 +1376,7 @@ otherwise it is optional.<a href="#section-3.2-2" class="pilcrow">¶</a></p>
 <a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-the-dialog-object-text-type" class="section-name selfRef">The dialog object (text type)</a>
         </h3>
 <p id="section-3.3-1">The following section refers to changes and additions to the dialog object when the <code>type</code> field is "text".<a href="#section-3.3-1" class="pilcrow">¶</a></p>
-<div id="semantics-of-the-existing-fields-for-text">
+<div id="text-type">
 <section id="section-3.3.1">
           <h4 id="name-semantics-of-the-existing-f">
 <a href="#section-3.3.1" class="section-number selfRef">3.3.1. </a><a href="#name-semantics-of-the-existing-f" class="section-name selfRef">Semantics of the existing fields for text</a>
@@ -1392,7 +1391,7 @@ For subsequent messages, a parties array consisting of index zero, indicates the
 Changes to the roster can be tracked if <code>party_history</code> is present for those changes (see <a href="#party-history" class="auto internal xref">Section 3.4</a>).<a href="#section-3.3.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="extensions-to-the-dialog-object-for-text">
+<div id="dialog-fields">
 <section id="section-3.3.2">
           <h4 id="name-extensions-to-the-dialog-ob">
 <a href="#section-3.3.2" class="section-number selfRef">3.3.2. </a><a href="#name-extensions-to-the-dialog-ob" class="section-name selfRef">Extensions to the dialog object for text</a>
@@ -1402,7 +1401,7 @@ Changes to the roster can be tracked if <code>party_history</code> is present fo
 - <code>salt</code> is the base64url encoding of the MIMI content salt. It is mandatory.
 - <code>replaces</code> is the base64url encoding of the MIMI content message_id of the message this message replaces. It is optional if empty.
 - <code>topic_id</code> is the base64url encoding of the MIMI topic_id. It is optional if empty.
-- <code>expires</code> is optional if empty in MIMI. It contains null or a map with the following items:<a href="#section-3.3.2-2" class="pilcrow">¶</a></p>
+- <code>expires</code> is optional if empty in MIMI. It contains null or a non-extensible object with the following items:<a href="#section-3.3.2-2" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-3.3.2-3">
 <pre>
 * `relative` is a boolean that is true if the time is expressed relative to the recipient read time, and false if it is expressed as an absolute date/time. It is mandatory when `expires` is present.
@@ -1424,7 +1423,7 @@ For a SinglePart these two fields with the same semantics as their MIMI content 
 <p id="section-3.3.2-6">If there is only a single part its <code>part_index</code> is 0, and in this case it is optional.<a href="#section-3.3.2-6" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="multipart-objects">
+<div id="multipart-obj">
 <section id="section-3.3.3">
           <h4 id="name-multi_part-objects">
 <a href="#section-3.3.3" class="section-number selfRef">3.3.3. </a><a href="#name-multi_part-objects" class="section-name selfRef">multi_part objects</a>
@@ -1440,7 +1439,7 @@ For a SinglePart these two fields with the same semantics as their MIMI content 
           </ul>
 </section>
 </div>
-<div id="part-objects">
+<div id="part-obj">
 <section id="section-3.3.4">
           <h4 id="name-part-objects">
 <a href="#section-3.3.4" class="section-number selfRef">3.3.4. </a><a href="#name-part-objects" class="section-name selfRef">Part objects</a>
@@ -1463,7 +1462,7 @@ For a SinglePart these two fields with the same semantics as their MIMI content 
 <p id="section-3.3.4-3">If cardinality is "single" or "external", then <code>body</code>, <code>encoding</code>, and <code>mediatype</code> fields are included directly in the Part object.<a href="#section-3.3.4-3" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="externalpart-objects">
+<div id="externalpart-obj">
 <section id="section-3.3.5">
           <h4 id="name-external_part-objects">
 <a href="#section-3.3.5" class="section-number selfRef">3.3.5. </a><a href="#name-external_part-objects" class="section-name selfRef">external_part objects</a>
@@ -1558,7 +1557,7 @@ All of these fields are base64url encoded strings.<a href="#section-3.3.5-5" cla
                 <p id="section-3.4-3.4.2.5.1"><code>ban</code>: user is banned from the group<a href="#section-3.4-3.4.2.5.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.4-3.4.2.6">
-                <p id="section-3.4-3.4.2.6.1"><code>update</code>:<a href="#section-3.4-3.4.2.6.1" class="pilcrow">¶</a></p>
+                <p id="section-3.4-3.4.2.6.1"><code>update</code>: user or client is updated<a href="#section-3.4-3.4.2.6.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
@@ -1604,7 +1603,7 @@ It must contain a <code>time</code> field to convey the time of the change, and 
 <p id="section-3.6-3">The <code>mediatype</code>, <code>filename</code>, <code>encoding</code>, and <code>body</code> fields are as they are defined in VCON and are all mandatory.<a href="#section-3.6-3" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="message-tombstones">
+<div id="tombstone-type">
 <section id="section-3.7">
         <h3 id="name-message-tombstones">
 <a href="#section-3.7" class="section-number selfRef">3.7. </a><a href="#name-message-tombstones" class="section-name selfRef">Message tombstones</a>
@@ -1904,7 +1903,7 @@ making the release happen!",
             "disposition": "render",
             "language": "en",
             "part_index": 1,
-            "mimetype": "text/markdown;variant=GFM",
+            "mediatype": "text/markdown;variant=GFM",
             "encoding": "none"
             "body": "Hello!"
           },
@@ -1977,7 +1976,7 @@ an attachment.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
       "disposition": "attachment",
       "language": "en",
       "external_part": {
-        "mimetype": "video/mp4",
+        "mediatype": "video/mp4",
         "url": "https://example.com/storage/8ksB4bSrrRE.mp4",
         "size": 708234961,
         "description": "2 hours of key signing video",
@@ -1996,7 +1995,7 @@ an attachment.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
           "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
       "dialog_object_ref":
   "mid:Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4:0@anon.invalid",
-      "mimetype": "video/mp4",
+      "mediatype": "video/mp4",
       "filename": "bigfile.mp4",
       "encoding": "base64url",
       "body": "Ma0hHSr0f_iUk_RSShTgtY...nSQbZEip5danJYQqsvwWQ"
@@ -2022,149 +2021,338 @@ an attachment.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
       <h2 id="name-iana-considerations">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-6-1">add the following objects to the IANA vCon registries<a href="#section-6-1" class="pilcrow">¶</a></p>
-<div id="room-object-and-registry">
+<p id="section-6-1">This document requests IANA to add following entries under the relevant registries in the vCon JSON Objects Group.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-2">IANA, please replace RFCXXXX with the number of this document.<a href="#section-6-2" class="pilcrow">¶</a></p>
+<div id="vcon-object-parameter-names-registry">
 <section id="section-6.1">
-        <h3 id="name-room-object-and-registry">
-<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-room-object-and-registry" class="section-name selfRef">Room object and registry</a>
+        <h3 id="name-vcon-object-parameter-names">
+<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-vcon-object-parameter-names" class="section-name selfRef">vCon Object Parameter Names Registry</a>
         </h3>
-<ul class="normal">
-<li class="normal" id="section-6.1-1.1">
-            <p id="section-6.1-1.1.1">id<a href="#section-6.1-1.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.1-1.2">
-            <p id="section-6.1-1.2.1">name<a href="#section-6.1-1.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.1-1.3">
-            <p id="section-6.1-1.3.1">avatar<a href="#section-6.1-1.3.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.1-1.4">
-            <p id="section-6.1-1.4.1">subject<a href="#section-6.1-1.4.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.1-1.5">
-            <p id="section-6.1-1.5.1">mood<a href="#section-6.1-1.5.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.1-1.6">
-            <p id="section-6.1-1.6.1">description<a href="#section-6.1-1.6.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
+<table class="center" id="table-1">
+          <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Name</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+              <th class="text-left" rowspan="1" colspan="1">Change Control</th>
+              <th class="text-left" rowspan="1" colspan="1">Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">room</td>
+              <td class="text-left" rowspan="1" colspan="1">metadata about an instant messaging room or channel</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#room-obj" class="auto internal xref">Section 3.1</a> of RFCXXXX</td>
+            </tr>
+          </tbody>
+        </table>
 </section>
 </div>
-<div id="room-description-object-and-registry">
+<div id="room-object-registry">
 <section id="section-6.2">
-        <h3 id="name-room-description-object-and">
-<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-room-description-object-and" class="section-name selfRef">Room description object and registry</a>
+        <h3 id="name-room-object-registry">
+<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-room-object-registry" class="section-name selfRef">Room object registry</a>
         </h3>
-<ul class="normal">
-<li class="normal" id="section-6.2-1.1">
-            <p id="section-6.2-1.1.1">type<a href="#section-6.2-1.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.2-1.2">
-            <p id="section-6.2-1.2.1">lang<a href="#section-6.2-1.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.2-1.3">
-            <p id="section-6.2-1.3.1">content<a href="#section-6.2-1.3.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
+<table class="center" id="table-2">
+          <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Name</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+              <th class="text-left" rowspan="1" colspan="1">Change Control</th>
+              <th class="text-left" rowspan="1" colspan="1">Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">id</td>
+              <td class="text-left" rowspan="1" colspan="1">room ID</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#room-obj" class="auto internal xref">Section 3.1</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">name</td>
+              <td class="text-left" rowspan="1" colspan="1">The human-readable name of the room</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#room-obj" class="auto internal xref">Section 3.1</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">avatar</td>
+              <td class="text-left" rowspan="1" colspan="1">An image associated with the room</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#room-obj" class="auto internal xref">Section 3.1</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">subject</td>
+              <td class="text-left" rowspan="1" colspan="1">The subject of the room</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#room-obj" class="auto internal xref">Section 3.1</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">mood</td>
+              <td class="text-left" rowspan="1" colspan="1">The mood of the room</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#room-obj" class="auto internal xref">Section 3.1</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">description</td>
+              <td class="text-left" rowspan="1" colspan="1">The description of the room</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#room-obj" class="auto internal xref">Section 3.1</a> RFCXXXX</td>
+            </tr>
+          </tbody>
+        </table>
 </section>
 </div>
-<div id="party-object-types">
+<div id="room-description-object-registry">
 <section id="section-6.3">
-        <h3 id="name-party-object-types">
-<a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-party-object-types" class="section-name selfRef">Party object types</a>
+        <h3 id="name-room-description-object-reg">
+<a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-room-description-object-reg" class="section-name selfRef">Room description object registry</a>
         </h3>
-<ul class="normal">
-<li class="normal" id="section-6.3-1.1">
-            <p id="section-6.3-1.1.1">im_uri<a href="#section-6.3-1.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.3-1.2">
-            <p id="section-6.3-1.2.1">role<a href="#section-6.3-1.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.3-1.3">
-            <p id="section-6.3-1.3.1">thumbprint<a href="#section-6.3-1.3.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
+<p id="section-6.3-1">This documents creates a new Room description object registry under the vCon JSON Objects Group.
+It has the following values.<a href="#section-6.3-1" class="pilcrow">¶</a></p>
+<table class="center" id="table-3">
+          <caption><a href="#table-3" class="selfRef">Table 3</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Name</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+              <th class="text-left" rowspan="1" colspan="1">Change Control</th>
+              <th class="text-left" rowspan="1" colspan="1">Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">type</td>
+              <td class="text-left" rowspan="1" colspan="1">an optional media type of the description</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#room-obj" class="auto internal xref">Section 3.1</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">lang</td>
+              <td class="text-left" rowspan="1" colspan="1">the language of the description</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#room-obj" class="auto internal xref">Section 3.1</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">content</td>
+              <td class="text-left" rowspan="1" colspan="1">the content of the description</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#room-obj" class="auto internal xref">Section 3.1</a> RFCXXXX</td>
+            </tr>
+          </tbody>
+        </table>
+</section>
+</div>
+<div id="party-object">
+<section id="section-6.4">
+        <h3 id="name-party-object">
+<a href="#section-6.4" class="section-number selfRef">6.4. </a><a href="#name-party-object" class="section-name selfRef">Party object</a>
+        </h3>
+<table class="center" id="table-4">
+          <caption><a href="#table-4" class="selfRef">Table 4</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Name</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+              <th class="text-left" rowspan="1" colspan="1">Change Control</th>
+              <th class="text-left" rowspan="1" colspan="1">Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">im_uri</td>
+              <td class="text-left" rowspan="1" colspan="1">The URI of an instant messaging users or room</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#parties-obj" class="auto internal xref">Section 3.2</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">role</td>
+              <td class="text-left" rowspan="1" colspan="1">The role of an instant messaging user</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#parties-obj" class="auto internal xref">Section 3.2</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">thumbprint</td>
+              <td class="text-left" rowspan="1" colspan="1">The public key thumbprint of an instant messaging client</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#parties-obj" class="auto internal xref">Section 3.2</a> RFCXXXX</td>
+            </tr>
+          </tbody>
+        </table>
 </section>
 </div>
 <div id="dialog-object-types">
-<section id="section-6.4">
+<section id="section-6.5">
         <h3 id="name-dialog-object-types">
-<a href="#section-6.4" class="section-number selfRef">6.4. </a><a href="#name-dialog-object-types" class="section-name selfRef">Dialog object types</a>
+<a href="#section-6.5" class="section-number selfRef">6.5. </a><a href="#name-dialog-object-types" class="section-name selfRef">Dialog object types</a>
         </h3>
-<ul class="normal">
-<li class="normal" id="section-6.4-1.1">
-            <p id="section-6.4-1.1.1">salt<a href="#section-6.4-1.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.4-1.2">
-            <p id="section-6.4-1.2.1">replaces<a href="#section-6.4-1.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.4-1.3">
-            <p id="section-6.4-1.3.1">relative_time<a href="#section-6.4-1.3.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.4-1.4">
-            <p id="section-6.4-1.4.1">expires<a href="#section-6.4-1.4.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.4-1.5">
-            <p id="section-6.4-1.5.1">in_reply_to<a href="#section-6.4-1.5.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.4-1.6">
-            <p id="section-6.4-1.6.1">mimi_extensions<a href="#section-6.4-1.6.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.4-1.7">
-            <p id="section-6.4-1.7.1">franking_tag<a href="#section-6.4-1.7.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.4-1.8">
-            <p id="section-6.4-1.8.1">frank<a href="#section-6.4-1.8.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.4-1.9">
-            <p id="section-6.4-1.9.1">status<a href="#section-6.4-1.9.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.4-1.10">
-            <p id="section-6.4-1.10.1">disposition<a href="#section-6.4-1.10.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.4-1.11">
-            <p id="section-6.4-1.11.1">language<a href="#section-6.4-1.11.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
+<table class="center" id="table-5">
+          <caption><a href="#table-5" class="selfRef">Table 5</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Name</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+              <th class="text-left" rowspan="1" colspan="1">Change Control</th>
+              <th class="text-left" rowspan="1" colspan="1">Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">salt</td>
+              <td class="text-left" rowspan="1" colspan="1">The message salt</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#dialog-fields" class="auto internal xref">Section 3.3.2</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">replaces</td>
+              <td class="text-left" rowspan="1" colspan="1">The message_id of another message this message replaces</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#dialog-fields" class="auto internal xref">Section 3.3.2</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">expires</td>
+              <td class="text-left" rowspan="1" colspan="1">When this message expires</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#dialog-fields" class="auto internal xref">Section 3.3.2</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">in_reply_to</td>
+              <td class="text-left" rowspan="1" colspan="1">The message_id of another message to which this message replies or reacts</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#dialog-fields" class="auto internal xref">Section 3.3.2</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">mimi_extensions</td>
+              <td class="text-left" rowspan="1" colspan="1">A map of any mimi_extensions associated with this message</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#dialog-fields" class="auto internal xref">Section 3.3.2</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">franking_tag</td>
+              <td class="text-left" rowspan="1" colspan="1">The sender-asserted franking_tag</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#dialog-fields" class="auto internal xref">Section 3.3.2</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">frank</td>
+              <td class="text-left" rowspan="1" colspan="1">The frank data structure returned by the MIMI server with the message</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#dialog-fields" class="auto internal xref">Section 3.3.2</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">disposition</td>
+              <td class="text-left" rowspan="1" colspan="1">The disposition of the message content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#dialog-fields" class="auto internal xref">Section 3.3.2</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">language</td>
+              <td class="text-left" rowspan="1" colspan="1">The language of the message content (only if there is only one part)</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#dialog-fields" class="auto internal xref">Section 3.3.2</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">status</td>
+              <td class="text-left" rowspan="1" colspan="1">The status of a former message</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#tombstone-type" class="auto internal xref">Section 3.7</a> RFCXXXX</td>
+            </tr>
+          </tbody>
+        </table>
 </section>
 </div>
-<div id="dialogtype-object-types">
-<section id="section-6.5">
-        <h3 id="name-dialog_type-object-types">
-<a href="#section-6.5" class="section-number selfRef">6.5. </a><a href="#name-dialog_type-object-types" class="section-name selfRef">dialog_type object types</a>
+<div id="dialog-type-name-registry">
+<section id="section-6.6">
+        <h3 id="name-dialog-type-name-registry">
+<a href="#section-6.6" class="section-number selfRef">6.6. </a><a href="#name-dialog-type-name-registry" class="section-name selfRef">Dialog Type Name Registry</a>
         </h3>
-<ul class="normal">
-<li class="normal" id="section-6.5-1.1">
-            <p id="section-6.5-1.1.1">tombstone<a href="#section-6.5-1.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
+<table class="center" id="table-6">
+          <caption><a href="#table-6" class="selfRef">Table 6</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Name</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+              <th class="text-left" rowspan="1" colspan="1">Change Control</th>
+              <th class="text-left" rowspan="1" colspan="1">Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">tombstone</td>
+              <td class="text-left" rowspan="1" colspan="1">the dialog event type is a tombstone</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#tombstone-type" class="auto internal xref">Section 3.7</a> RFCXXXX</td>
+            </tr>
+          </tbody>
+        </table>
 </section>
 </div>
 <div id="multipart-object-type">
-<section id="section-6.6">
-        <h3 id="name-multi_part-object-type">
-<a href="#section-6.6" class="section-number selfRef">6.6. </a><a href="#name-multi_part-object-type" class="section-name selfRef">multi_part object type</a>
-        </h3>
-<ul class="normal">
-<li class="normal" id="section-6.6-1.1">
-            <p id="section-6.6-1.1.1">part_semantics<a href="#section-6.6-1.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.6-1.2">
-            <p id="section-6.6-1.2.1">parts<a href="#section-6.6-1.2.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-</section>
-</div>
-<div id="parts">
 <section id="section-6.7">
-        <h3 id="name-parts">
-<a href="#section-6.7" class="section-number selfRef">6.7. </a><a href="#name-parts" class="section-name selfRef">parts</a>
+        <h3 id="name-multi_part-object-type">
+<a href="#section-6.7" class="section-number selfRef">6.7. </a><a href="#name-multi_part-object-type" class="section-name selfRef">multi_part object type</a>
         </h3>
-<ul class="normal">
-<li class="normal" id="section-6.7-1.1">
-            <p id="section-6.7-1.1.1">part<a href="#section-6.7-1.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
+<p id="section-6.7-1">This documents creates a new Multi_part object registry under the vCon JSON Objects Group.
+It has the following values.<a href="#section-6.7-1" class="pilcrow">¶</a></p>
+<table class="center" id="table-7">
+          <caption><a href="#table-7" class="selfRef">Table 7</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Name</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+              <th class="text-left" rowspan="1" colspan="1">Change Control</th>
+              <th class="text-left" rowspan="1" colspan="1">Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">part_semantics</td>
+              <td class="text-left" rowspan="1" colspan="1">How multiple parts in the same multi_part object are handled</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#multipart-obj" class="auto internal xref">Section 3.3.3</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">parts</td>
+              <td class="text-left" rowspan="1" colspan="1">An array of part objects</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#multipart-obj" class="auto internal xref">Section 3.3.3</a> RFCXXXX</td>
+            </tr>
+          </tbody>
+        </table>
 </section>
 </div>
 <div id="part-object-type">
@@ -2172,29 +2360,70 @@ an attachment.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
         <h3 id="name-part-object-type">
 <a href="#section-6.8" class="section-number selfRef">6.8. </a><a href="#name-part-object-type" class="section-name selfRef">part object type</a>
         </h3>
-<ul class="normal">
-<li class="normal" id="section-6.8-1.1">
-            <p id="section-6.8-1.1.1">disposition<a href="#section-6.8-1.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.8-1.2">
-            <p id="section-6.8-1.2.1">language<a href="#section-6.8-1.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.8-1.3">
-            <p id="section-6.8-1.3.1">part_index<a href="#section-6.8-1.3.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.8-1.4">
-            <p id="section-6.8-1.4.1">cardinality<a href="#section-6.8-1.4.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.8-1.5">
-            <p id="section-6.8-1.5.1">mimetype<a href="#section-6.8-1.5.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.8-1.6">
-            <p id="section-6.8-1.6.1">encoding<a href="#section-6.8-1.6.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.8-1.7">
-            <p id="section-6.8-1.7.1">body<a href="#section-6.8-1.7.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
+<p id="section-6.8-1">This documents creates a new Part object registry under the vCon JSON Objects Group.
+It has the following values.<a href="#section-6.8-1" class="pilcrow">¶</a></p>
+<table class="center" id="table-8">
+          <caption><a href="#table-8" class="selfRef">Table 8</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Name</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+              <th class="text-left" rowspan="1" colspan="1">Change Control</th>
+              <th class="text-left" rowspan="1" colspan="1">Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">disposition</td>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#part-obj" class="auto internal xref">Section 3.3.4</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">language</td>
+              <td class="text-left" rowspan="1" colspan="1">The language of the message part</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#part-obj" class="auto internal xref">Section 3.3.4</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">part_index</td>
+              <td class="text-left" rowspan="1" colspan="1">The relative index of the part within the message</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#part-obj" class="auto internal xref">Section 3.3.4</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">cardinality</td>
+              <td class="text-left" rowspan="1" colspan="1">one of "nullpart", "single", "external", or "multi"</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#part-obj" class="auto internal xref">Section 3.3.4</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">mediatype</td>
+              <td class="text-left" rowspan="1" colspan="1">The media type of the part</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#part-obj" class="auto internal xref">Section 3.3.4</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">encoding</td>
+              <td class="text-left" rowspan="1" colspan="1">The encoding of the message part (as in Section 2.3.1 of <span>[<a href="#I-D.ietf-vcon-vcon-core" class="cite xref">I-D.ietf-vcon-vcon-core</a>]</span>)</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#part-obj" class="auto internal xref">Section 3.3.4</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">body</td>
+              <td class="text-left" rowspan="1" colspan="1">The content of the message part</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#part-obj" class="auto internal xref">Section 3.3.4</a> RFCXXXX</td>
+            </tr>
+          </tbody>
+        </table>
 </section>
 </div>
 <div id="externalpart-object-type">
@@ -2202,44 +2431,98 @@ an attachment.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
         <h3 id="name-external_part-object-type">
 <a href="#section-6.9" class="section-number selfRef">6.9. </a><a href="#name-external_part-object-type" class="section-name selfRef">external_part object type</a>
         </h3>
-<ul class="normal">
-<li class="normal" id="section-6.9-1.1">
-            <p id="section-6.9-1.1.1">mediatype<a href="#section-6.9-1.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.9-1.2">
-            <p id="section-6.9-1.2.1">url<a href="#section-6.9-1.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.9-1.3">
-            <p id="section-6.9-1.3.1">expires<a href="#section-6.9-1.3.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.9-1.4">
-            <p id="section-6.9-1.4.1">size<a href="#section-6.9-1.4.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.9-1.5">
-            <p id="section-6.9-1.5.1">description<a href="#section-6.9-1.5.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.9-1.6">
-            <p id="section-6.9-1.6.1">filename<a href="#section-6.9-1.6.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.9-1.7">
-            <p id="section-6.9-1.7.1">content_hash<a href="#section-6.9-1.7.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.9-1.8">
-            <p id="section-6.9-1.8.1">cached<a href="#section-6.9-1.8.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.9-1.9">
-            <p id="section-6.9-1.9.1">enc_alg<a href="#section-6.9-1.9.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.9-1.10">
-            <p id="section-6.9-1.10.1">key<a href="#section-6.9-1.10.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.9-1.11">
-            <p id="section-6.9-1.11.1">nonce<a href="#section-6.9-1.11.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.9-1.12">
-            <p id="section-6.9-1.12.1">aad<a href="#section-6.9-1.12.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
+<p id="section-6.9-1">This documents creates a new External_part object registry under the vCon JSON Objects Group.
+It has the following values.<a href="#section-6.9-1" class="pilcrow">¶</a></p>
+<table class="center" id="table-9">
+          <caption><a href="#table-9" class="selfRef">Table 9</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Name</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+              <th class="text-left" rowspan="1" colspan="1">Change Control</th>
+              <th class="text-left" rowspan="1" colspan="1">Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">mediatype</td>
+              <td class="text-left" rowspan="1" colspan="1">the media type of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">url</td>
+              <td class="text-left" rowspan="1" colspan="1">the url of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">size</td>
+              <td class="text-left" rowspan="1" colspan="1">the size in bytes of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">description</td>
+              <td class="text-left" rowspan="1" colspan="1">the description of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">filename</td>
+              <td class="text-left" rowspan="1" colspan="1">the filename of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">content_hash</td>
+              <td class="text-left" rowspan="1" colspan="1">a representation of the MIMI contentHash and hashAlg of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">cached</td>
+              <td class="text-left" rowspan="1" colspan="1">whether the referenced content is cached</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">enc_alg_</td>
+              <td class="text-left" rowspan="1" colspan="1">the encryption algorithm used to encrypt the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">key</td>
+              <td class="text-left" rowspan="1" colspan="1">the encryption key of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">nonce</td>
+              <td class="text-left" rowspan="1" colspan="1">the encryption nonce of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">aad</td>
+              <td class="text-left" rowspan="1" colspan="1">the media type of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+            </tr>
+          </tbody>
+        </table>
 </section>
 </div>
 <div id="partyhistory-object-type">
@@ -2247,17 +2530,40 @@ an attachment.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
         <h3 id="name-party_history-object-type">
 <a href="#section-6.10" class="section-number selfRef">6.10. </a><a href="#name-party_history-object-type" class="section-name selfRef">party_history object type</a>
         </h3>
-<ul class="normal">
-<li class="normal" id="section-6.10-1.1">
-            <p id="section-6.10-1.1.1">originator<a href="#section-6.10-1.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.10-1.2">
-            <p id="section-6.10-1.2.1">name<a href="#section-6.10-1.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.10-1.3">
-            <p id="section-6.10-1.3.1">role<a href="#section-6.10-1.3.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
+<table class="center" id="table-10">
+          <caption><a href="#table-10" class="selfRef">Table 10</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Name</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+              <th class="text-left" rowspan="1" colspan="1">Change Control</th>
+              <th class="text-left" rowspan="1" colspan="1">Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">originator</td>
+              <td class="text-left" rowspan="1" colspan="1">which party index initiated this party_history event</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#party-history" class="auto internal xref">Section 3.4</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">name</td>
+              <td class="text-left" rowspan="1" colspan="1">the name of the party that initiated this party_history event</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#party-history" class="auto internal xref">Section 3.4</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">role</td>
+              <td class="text-left" rowspan="1" colspan="1">the role of the party that initiated this party_history event</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#party-history" class="auto internal xref">Section 3.4</a> RFCXXXX</td>
+            </tr>
+          </tbody>
+        </table>
 </section>
 </div>
 <div id="partyevent-object-type">
@@ -2265,26 +2571,61 @@ an attachment.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
         <h3 id="name-party_event-object-type">
 <a href="#section-6.11" class="section-number selfRef">6.11. </a><a href="#name-party_event-object-type" class="section-name selfRef">party_event object type</a>
         </h3>
-<ul class="normal">
-<li class="normal" id="section-6.11-1.1">
-            <p id="section-6.11-1.1.1">add<a href="#section-6.11-1.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.11-1.2">
-            <p id="section-6.11-1.2.1">self_add<a href="#section-6.11-1.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.11-1.3">
-            <p id="section-6.11-1.3.1">leave<a href="#section-6.11-1.3.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.11-1.4">
-            <p id="section-6.11-1.4.1">remove<a href="#section-6.11-1.4.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.11-1.5">
-            <p id="section-6.11-1.5.1">ban<a href="#section-6.11-1.5.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.11-1.6">
-            <p id="section-6.11-1.6.1">update<a href="#section-6.11-1.6.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
+<table class="center" id="table-11">
+          <caption><a href="#table-11" class="selfRef">Table 11</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Name</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+              <th class="text-left" rowspan="1" colspan="1">Change Control</th>
+              <th class="text-left" rowspan="1" colspan="1">Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">add</td>
+              <td class="text-left" rowspan="1" colspan="1">indicates the party was added by someone else</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#party-history" class="auto internal xref">Section 3.4</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">self_add_</td>
+              <td class="text-left" rowspan="1" colspan="1">indicates the party was added by itself</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#party-history" class="auto internal xref">Section 3.4</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">leave</td>
+              <td class="text-left" rowspan="1" colspan="1">indicates the party left of their own accord</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#party-history" class="auto internal xref">Section 3.4</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">remove</td>
+              <td class="text-left" rowspan="1" colspan="1">indicates the party was removed by someone else</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#party-history" class="auto internal xref">Section 3.4</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ban</td>
+              <td class="text-left" rowspan="1" colspan="1">indicates the party was banned</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#party-history" class="auto internal xref">Section 3.4</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">update</td>
+              <td class="text-left" rowspan="1" colspan="1">indicates the party changed</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#party-history" class="auto internal xref">Section 3.4</a> RFCXXXX</td>
+            </tr>
+          </tbody>
+        </table>
 </section>
 </div>
 <div id="attachment-object-type">
@@ -2292,11 +2633,26 @@ an attachment.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
         <h3 id="name-attachment-object-type">
 <a href="#section-6.12" class="section-number selfRef">6.12. </a><a href="#name-attachment-object-type" class="section-name selfRef">attachment object type</a>
         </h3>
-<ul class="normal">
-<li class="normal" id="section-6.12-1.1">
-            <p id="section-6.12-1.1.1">dialog_object_ref<a href="#section-6.12-1.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
+<table class="center" id="table-12">
+          <caption><a href="#table-12" class="selfRef">Table 12</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Name</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+              <th class="text-left" rowspan="1" colspan="1">Change Control</th>
+              <th class="text-left" rowspan="1" colspan="1">Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">dialog_object_ref</td>
+              <td class="text-left" rowspan="1" colspan="1">the message_id of the dialog object referencing this attachment</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#attachments" class="auto internal xref">Section 3.6</a> RFCXXXX</td>
+            </tr>
+          </tbody>
+        </table>
 </section>
 </div>
 </section>
