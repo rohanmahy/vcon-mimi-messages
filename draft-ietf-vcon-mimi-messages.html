@@ -12,7 +12,7 @@
 <meta content="xml2rfc 3.31.0" name="generator">
 <meta content="instant messaging" name="keyword">
 <meta content="message history" name="keyword">
-<meta content="draft-mahy-vcon-mimi-messages-latest" name="ietf.draft">
+<meta content="draft-ietf-vcon-mimi-messages-latest" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.31.0
     Python 3.12.12
@@ -27,7 +27,7 @@
     requests 2.32.5
     wcwidth 0.2.14
 -->
-<link href="draft-mahy-vcon-mimi-messages.xml" rel="alternate" type="application/rfc+xml">
+<link href="draft-ietf-vcon-mimi-messages.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">@font-face {
   font-family: 'Lora';
@@ -1058,7 +1058,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">Virtualized Conversations</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-mahy-vcon-mimi-messages-latest</dd>
+<dd class="internet-draft">draft-ietf-vcon-mimi-messages-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
 <time datetime="2025-10-19" class="published">19 October 2025</time>
@@ -1087,8 +1087,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
       </h2>
 <p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
 <p id="section-note.1-2">
-        The latest revision of this draft can be found at <span><a href="https://rohanmahy.github.io/vcon-mimi-messages/draft-mahy-vcon-mimi-messages.html">https://rohanmahy.github.io/vcon-mimi-messages/draft-mahy-vcon-mimi-messages.html</a></span>.
-        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-mahy-vcon-mimi-messages/">https://datatracker.ietf.org/doc/draft-mahy-vcon-mimi-messages/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+        The latest revision of this draft can be found at <span><a href="https://rohanmahy.github.io/vcon-mimi-messages/draft-ietf-vcon-mimi-messages.html">https://rohanmahy.github.io/vcon-mimi-messages/draft-ietf-vcon-mimi-messages.html</a></span>.
+        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-ietf-vcon-mimi-messages/">https://datatracker.ietf.org/doc/draft-ietf-vcon-mimi-messages/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">
         Discussion of this document takes place on the
         Virtualized Conversations Working Group mailing list (<span><a href="mailto:vcon@ietf.org">mailto:vcon@ietf.org</a></span>),
@@ -1170,13 +1170,13 @@ svg :is([fill="white"], [fill^="#fff"]) {
                     <p id="section-toc.1-1.3.2.3.2.2.1"><a href="#section-3.3.2" class="auto internal xref">3.3.2</a>.  <a href="#name-extensions-to-the-dialog-ob" class="internal xref">Extensions to the dialog object for text</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.3">
-                    <p id="section-toc.1-1.3.2.3.2.3.1"><a href="#section-3.3.3" class="auto internal xref">3.3.3</a>.  <a href="#name-multi_part-objects" class="internal xref">multi_part objects</a></p>
+                    <p id="section-toc.1-1.3.2.3.2.3.1"><a href="#section-3.3.3" class="auto internal xref">3.3.3</a>.  <a href="#name-external_part-objects" class="internal xref">external_part objects</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.4">
-                    <p id="section-toc.1-1.3.2.3.2.4.1"><a href="#section-3.3.4" class="auto internal xref">3.3.4</a>.  <a href="#name-part-objects" class="internal xref">Part objects</a></p>
+                    <p id="section-toc.1-1.3.2.3.2.4.1"><a href="#section-3.3.4" class="auto internal xref">3.3.4</a>.  <a href="#name-multi_part-objects" class="internal xref">multi_part objects</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.5">
-                    <p id="section-toc.1-1.3.2.3.2.5.1"><a href="#section-3.3.5" class="auto internal xref">3.3.5</a>.  <a href="#name-external_part-objects" class="internal xref">external_part objects</a></p>
+                    <p id="section-toc.1-1.3.2.3.2.5.1"><a href="#section-3.3.5" class="auto internal xref">3.3.5</a>.  <a href="#name-part-objects" class="internal xref">Part objects</a></p>
 </li>
                 </ul>
 </li>
@@ -1184,13 +1184,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-changes-to-the-parties" class="internal xref">Changes to the parties</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5">
-                <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="auto internal xref">3.5</a>.  <a href="#name-changes-to-the-room" class="internal xref">Changes to the room</a></p>
+                <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="auto internal xref">3.5</a>.  <a href="#name-attachments" class="internal xref">Attachments</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.6">
-                <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="auto internal xref">3.6</a>.  <a href="#name-attachments" class="internal xref">Attachments</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.7">
-                <p id="section-toc.1-1.3.2.7.1"><a href="#section-3.7" class="auto internal xref">3.7</a>.  <a href="#name-message-tombstones" class="internal xref">Message tombstones</a></p>
+                <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="auto internal xref">3.6</a>.  <a href="#name-message-tombstones" class="internal xref">Message tombstones</a></p>
 </li>
             </ul>
 </li>
@@ -1224,19 +1221,19 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="auto internal xref">6.4</a>.  <a href="#name-party-object" class="internal xref">Party object</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.5">
-                <p id="section-toc.1-1.6.2.5.1"><a href="#section-6.5" class="auto internal xref">6.5</a>.  <a href="#name-dialog-object-types" class="internal xref">Dialog object types</a></p>
+                <p id="section-toc.1-1.6.2.5.1"><a href="#section-6.5" class="auto internal xref">6.5</a>.  <a href="#name-dialog-type-name-registry" class="internal xref">Dialog Type Name Registry</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.6">
-                <p id="section-toc.1-1.6.2.6.1"><a href="#section-6.6" class="auto internal xref">6.6</a>.  <a href="#name-dialog-type-name-registry" class="internal xref">Dialog Type Name Registry</a></p>
+                <p id="section-toc.1-1.6.2.6.1"><a href="#section-6.6" class="auto internal xref">6.6</a>.  <a href="#name-dialog-object-types" class="internal xref">Dialog object types</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.7">
-                <p id="section-toc.1-1.6.2.7.1"><a href="#section-6.7" class="auto internal xref">6.7</a>.  <a href="#name-multi_part-object-type" class="internal xref">multi_part object type</a></p>
+                <p id="section-toc.1-1.6.2.7.1"><a href="#section-6.7" class="auto internal xref">6.7</a>.  <a href="#name-external_part-object-type" class="internal xref">external_part object type</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.8">
-                <p id="section-toc.1-1.6.2.8.1"><a href="#section-6.8" class="auto internal xref">6.8</a>.  <a href="#name-part-object-type" class="internal xref">part object type</a></p>
+                <p id="section-toc.1-1.6.2.8.1"><a href="#section-6.8" class="auto internal xref">6.8</a>.  <a href="#name-multi_part-object-type" class="internal xref">multi_part object type</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.9">
-                <p id="section-toc.1-1.6.2.9.1"><a href="#section-6.9" class="auto internal xref">6.9</a>.  <a href="#name-external_part-object-type" class="internal xref">external_part object type</a></p>
+                <p id="section-toc.1-1.6.2.9.1"><a href="#section-6.9" class="auto internal xref">6.9</a>.  <a href="#name-part-object-type" class="internal xref">part object type</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.10">
                 <p id="section-toc.1-1.6.2.10.1"><a href="#section-6.10" class="auto internal xref">6.10</a>. <a href="#name-party_history-object-type" class="internal xref">party_history object type</a></p>
@@ -1302,8 +1299,8 @@ The participants in the group are calculated from the MLS group state and MIMI p
 The sender is conveyed in MLS.
 The MIMI "Hub" received timestamp is conveyed in the MIMI protocol.
 The MIMI content message ID is constructed by hashing fields from the MIMI content, and the sender and room URIs (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-mimi-content-07#section-3.3" class="relref">Section 3.3</a> of [<a href="#I-D.ietf-mimi-content" class="cite xref">I-D.ietf-mimi-content</a>]</span>).<a href="#section-2-4" class="pilcrow">¶</a></p>
-<p id="section-2-5">When message franking is enabled, as defined in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-mimi-protocol-04#section-5.4.1" class="relref">Section 5.4.1</a> of [<a href="#I-D.ietf-mimi-protocol" class="cite xref">I-D.ietf-mimi-protocol</a>]</span>, the <code>franking_tag</code> is conveyed in the MLS message's Additional Authenticated Data (AAD) field, while the MIMI protocol conveys the <code>Frank</code> structure generated by the MIMI Hub.<a href="#section-2-5" class="pilcrow">¶</a></p>
-<p id="section-2-6">The room metadata described in this document comes from <span><a href="https://datatracker.ietf.org/doc/html/draft-mahy-mimi-app-components-01#section-3" class="relref">Section 3</a> of [<a href="#I-D.mahy-mimi-app-components" class="cite xref">I-D.mahy-mimi-app-components</a>]</span>, while the names of the parties comes from the participant list defined in Section 4 of the same document.<a href="#section-2-6" class="pilcrow">¶</a></p>
+<p id="section-2-5">The names of the parties comes from the participant list defined in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-mimi-protocol-04#section-7.5" class="relref">Section 7.5</a> of [<a href="#I-D.ietf-mimi-protocol" class="cite xref">I-D.ietf-mimi-protocol</a>]</span>, while the room metadata described in this document comes from {Section 7.6 of !I-D.ietf-mimi-protocol}}.<a href="#section-2-5" class="pilcrow">¶</a></p>
+<p id="section-2-6">When message franking is enabled, as defined in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-mimi-protocol-04#section-5.4.1" class="relref">Section 5.4.1</a> of [<a href="#I-D.ietf-mimi-protocol" class="cite xref">I-D.ietf-mimi-protocol</a>]</span>, the <code>franking_tag</code> is conveyed in the MLS message's Additional Authenticated Data (AAD) field, while the MIMI protocol conveys the <code>Frank</code> structure generated by the MIMI Hub.<a href="#section-2-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="syntax">
@@ -1359,9 +1356,10 @@ known about the room at the start of the VCON period.<a href="#section-3.1-1" cl
         <h3 id="name-parties">
 <a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-parties" class="section-name selfRef">Parties</a>
         </h3>
-<p id="section-3.2-1">The <code>parties</code> array <span class="bcp14">MUST</span> contain all the
-participants who were in the conversation at any point in time during the
-period represented by the VCON. The first party in the array is the MIMI room URI.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-1">The <code>parties</code> array <span class="bcp14">MUST</span> contain all the participants that initiated any event in the dialog events array.
+It <span class="bcp14">SHOULD</span> contain all the participants that were in the participant list at any point in time during the period represented by the VCON.
+For example, in very large groups, it may not be necessary to include every participant that took no action.
+The first party in the array is the MIMI room URI.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 <p id="section-3.2-2">This document adds a new party_object_type: <code>im_uri</code>. It is mandatory.
 The <code>name</code> field is optional. The <code>role</code> indicates the MIMI role and is
 optional. The document also adds a <code>thumbprint</code> party_object_type, which is
@@ -1396,127 +1394,154 @@ Changes to the roster can be tracked if <code>party_history</code> is present fo
           <h4 id="name-extensions-to-the-dialog-ob">
 <a href="#section-3.3.2" class="section-number selfRef">3.3.2. </a><a href="#name-extensions-to-the-dialog-ob" class="section-name selfRef">Extensions to the dialog object for text</a>
           </h4>
-<p id="section-3.3.2-1">The parties array consist of the party indexes of those who were active participants when the message was sent.<a href="#section-3.3.2-1" class="pilcrow">¶</a></p>
-<p id="section-3.3.2-2">-
-- <code>salt</code> is the base64url encoding of the MIMI content salt. It is mandatory.
-- <code>replaces</code> is the base64url encoding of the MIMI content message_id of the message this message replaces. It is optional if empty.
-- <code>topic_id</code> is the base64url encoding of the MIMI topic_id. It is optional if empty.
-- <code>expires</code> is optional if empty in MIMI. It contains null or a non-extensible object with the following items:<a href="#section-3.3.2-2" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-3.3.2-3">
-<pre>
-* `relative` is a boolean that is true if the time is expressed relative to the recipient read time, and false if it is expressed as an absolute date/time. It is mandatory when `expires` is present.
-* `relative_time` is an integer number of seconds. If `relative` is true, once the message has been read, the client is expected to delete the message after `relative_time` seconds. It is mandatory if `relative` is true.
-* `absolute_time` is the expiration date/time of the message expressed as a VCON (text) date_type. It is mandatory if `relative` is false and optional otherwise. - `in_reply_to` is the base64url encoding of the MIMI content message_id of the message to which this message is replying (or reacting). It is optional if empty. - `mimi_extensions` is a base64 encoding of the CBOR MIMI content extensions map or null. It is optional if not present in the MIMI content. - `franking_tag` is a base64url encoding of the MIMI `franking_tag`, or null.  It is optional if not present. - `frank` is a base64url encoding of the MIMI protocol `Frank` TLS struct, or null. It is optional if not present.
-</pre><a href="#section-3.3.2-3" class="pilcrow">¶</a>
-</div>
-<p id="section-3.3.2-4">VCON typically expresses message content using the <code>body</code>, <code>encoding</code>, and <code>mediatype</code> fields.
-In order to preserve this convention we use these fields directly for a MIMI SinglePart structure, but use new multi_part and external_part objects for the MultiPart and ExternalPart MIMI structures, respectively.
-For a SinglePart these two fields with the same semantics as their MIMI content counterparts could be present.<a href="#section-3.3.2-4" class="pilcrow">¶</a></p>
+<p id="section-3.3.2-1">The parties array consists of the party indexes of those who were active participants when the message was sent, or zero to indicate the current membership of the room.<a href="#section-3.3.2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.3.2-5.1">
-              <p id="section-3.3.2-5.1.1"><code>disposition</code> - optional if set to the default value ("render")<a href="#section-3.3.2-5.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.3.2-2.1">
+              <p id="section-3.3.2-2.1.1"><code>salt</code> is the base64url encoding of the MIMI content salt. It is mandatory.<a href="#section-3.3.2-2.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-3.3.2-5.2">
-              <p id="section-3.3.2-5.2.1"><code>language</code> - optional if absent<a href="#section-3.3.2-5.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.3.2-2.2">
+              <p id="section-3.3.2-2.2.1"><code>replaces</code> is the base64url encoding of the MIMI content message_id of the message this message replaces. It is optional if empty.<a href="#section-3.3.2-2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.2-2.3">
+              <p id="section-3.3.2-2.3.1"><code>topic_id</code> is the base64url encoding of the MIMI topic_id. It is optional if empty.<a href="#section-3.3.2-2.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.2-2.4">
+              <p id="section-3.3.2-2.4.1"><code>expires</code> is present if not null in MIMI. It contains a non-extensible object with the following items:<a href="#section-3.3.2-2.4.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.3.2-2.4.2.1">
+                  <p id="section-3.3.2-2.4.2.1.1"><code>relative</code> is a boolean that is true if the time is expressed relative to the recipient read time, and false if it is expressed as an absolute date/time. It is mandatory when <code>expires</code> is present.<a href="#section-3.3.2-2.4.2.1.1" class="pilcrow">¶</a></p>
+</li>
+                <li class="normal" id="section-3.3.2-2.4.2.2">
+                  <p id="section-3.3.2-2.4.2.2.1"><code>relative_time</code> is an integer number of seconds. If <code>relative</code> is true, once the message has been read, the client is expected to delete the message after <code>relative_time</code> seconds. It is mandatory if <code>relative</code> is true and forbidden otherwise.<a href="#section-3.3.2-2.4.2.2.1" class="pilcrow">¶</a></p>
+</li>
+                <li class="normal" id="section-3.3.2-2.4.2.3">
+                  <p id="section-3.3.2-2.4.2.3.1"><code>absolute_time</code> is the expiration date/time of the message expressed as a VCON (text) date_type. It is mandatory if <code>relative</code> is false and forbidden otherwise.<a href="#section-3.3.2-2.4.2.3.1" class="pilcrow">¶</a></p>
+</li>
+              </ul>
+</li>
+            <li class="normal" id="section-3.3.2-2.5">
+              <p id="section-3.3.2-2.5.1"><code>in_reply_to</code> is the base64url encoding of the MIMI content message_id of the message to which this message is replying (or reacting). It is optional if empty.<a href="#section-3.3.2-2.5.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.2-2.6">
+              <p id="section-3.3.2-2.6.1"><code>mimi_extensions</code> is a base64 encoding of the CBOR MIMI content extensions map or null. It is optional if not present in the MIMI content.<a href="#section-3.3.2-2.6.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.2-2.7">
+              <p id="section-3.3.2-2.7.1"><code>franking_tag</code> is a base64url encoding of the MIMI <code>franking_tag</code>, or null.  It is optional if not present.<a href="#section-3.3.2-2.7.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.2-2.8">
+              <p id="section-3.3.2-2.8.1"><code>frank</code> is a base64url encoding of the MIMI protocol <code>Frank</code> TLS struct, or null. It is optional if not present.<a href="#section-3.3.2-2.8.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.2-2.9">
+              <p id="section-3.3.2-2.9.1"><code>disposition</code> - optional if set to the default value ("render"). Refers to the overall disposition of the entire message.<a href="#section-3.3.2-2.9.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.2-2.10">
+              <p id="section-3.3.2-2.10.1"><code>language</code> - optional if absent. Refers to the language of the entire message.<a href="#section-3.3.2-2.10.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-3.3.2-6">If there is only a single part its <code>part_index</code> is 0, and in this case it is optional.<a href="#section-3.3.2-6" class="pilcrow">¶</a></p>
+<p id="section-3.3.2-3">VCON typically expresses message content using the <code>body</code>, <code>encoding</code>, and <code>mediatype</code> fields.
+In order to preserve this convention we use these fields directly for a MIMI SinglePart structure, but use new <code>multi_part</code> and <code>external_part</code> objects for the MultiPart and ExternalPart MIMI structures, respectively.<a href="#section-3.3.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.3.2-4">If the message contains a single MIMI ExternalPart, the dialog object contains an <code>external_part</code> object.
+If the message contains multiple parts (a MIMI MultiPart), the dialog object contains a <code>multi_part</code> object.<a href="#section-3.3.2-4" class="pilcrow">¶</a></p>
+<p id="section-3.3.2-5">If there is only a single part in the message, there is no Part object.
+The part has a virtual <code>part_index</code> of 0, which is not transmitted.<a href="#section-3.3.2-5" class="pilcrow">¶</a></p>
+<p id="section-3.3.2-6">A MIMI message with a NullPart has no <code>body</code>, <code>encoding</code>, or <code>mediatype</code> fields.<a href="#section-3.3.2-6" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="externalpart-obj">
+<section id="section-3.3.3">
+          <h4 id="name-external_part-objects">
+<a href="#section-3.3.3" class="section-number selfRef">3.3.3. </a><a href="#name-external_part-objects" class="section-name selfRef">external_part objects</a>
+          </h4>
+<p id="section-3.3.3-1">The <code>external_part</code> object can contain the following fields with similar meanings to those in MIMI content, with exceptions noted below.<a href="#section-3.3.3-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.3.3-2.1">
+              <p id="section-3.3.3-2.1.1"><code>mediatype</code> is the value of the <code>contentType</code> in MIMI. It is mandatory if present in the MIMI message and recommended otherwise. No <code>mediatype</code> is present in the dialog object.<a href="#section-3.3.3-2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.3-2.2">
+              <p id="section-3.3.3-2.2.1"><code>url</code> is the URL of the content as a text string. It is mandatory<a href="#section-3.3.3-2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.3-2.3">
+              <p id="section-3.3.3-2.3.1"><code>expires</code> is a date_type (text) date. It is optional if not present.<a href="#section-3.3.3-2.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.3-2.4">
+              <p id="section-3.3.3-2.4.1"><code>size</code> is an integer number of octets. It is optional if not present.<a href="#section-3.3.3-2.4.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.3-2.5">
+              <p id="section-3.3.3-2.5.1"><code>description</code> is a text string. It is optional if not present.<a href="#section-3.3.3-2.5.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.3-2.6">
+              <p id="section-3.3.3-2.6.1"><code>filename</code> is a text string. It is optional if not present.<a href="#section-3.3.3-2.6.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.3-2.7">
+              <p id="section-3.3.3-2.7.1"><code>content_hash</code> is the base64url encoded string of the MIMI <code>contentHash</code> of the ExternalPart, prefixed with the name of the hash algorithm corresponding to <code>hashAlg</code> and a colon (for example "sha256:"). <code>content_hash</code> is  mandatory if it was included in the MIMI content ExternalPart, and omitted otherwise.<a href="#section-3.3.3-2.7.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-3.3.3-3">In addition, the following fields are unique to MIMI VCON.<a href="#section-3.3.3-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.3.3-4.1">
+              <p id="section-3.3.3-4.1.1"><code>cached</code> is a boolean. It is mandatory if it is true, which means that a
+copy of the external content is available in a vcon attachment object
+(see <a href="#attachments" class="auto internal xref">Section 3.5</a>). If <code>cache</code> is true and no <code>content_hash</code> is present, a new content hash is calculated for the attachment and placed the <code>cache_ref</code> field (which can only be present in this case).<a href="#section-3.3.3-4.1.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-3.3.3-5">external_part has several fields for the decryption of the
+referenced content.
+If it is not necessary to reconstruct the original MIMI content (for example to allow later verification of the message ID), these fields can be omitted once the content has been downloaded, decrypted, verified, and included in the VCON attachments array. Otherwise they are mandatory if present in the MIMI content.
+All of these fields are base64url encoded strings.<a href="#section-3.3.3-5" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.3.3-6.1">
+              <p id="section-3.3.3-6.1.1"><code>enc_alg</code><a href="#section-3.3.3-6.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.3-6.2">
+              <p id="section-3.3.3-6.2.1"><code>key</code><a href="#section-3.3.3-6.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.3-6.3">
+              <p id="section-3.3.3-6.3.1"><code>nonce</code><a href="#section-3.3.3-6.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.3.3-6.4">
+              <p id="section-3.3.3-6.4.1"><code>aad</code><a href="#section-3.3.3-6.4.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
 </section>
 </div>
 <div id="multipart-obj">
-<section id="section-3.3.3">
+<section id="section-3.3.4">
           <h4 id="name-multi_part-objects">
-<a href="#section-3.3.3" class="section-number selfRef">3.3.3. </a><a href="#name-multi_part-objects" class="section-name selfRef">multi_part objects</a>
+<a href="#section-3.3.4" class="section-number selfRef">3.3.4. </a><a href="#name-multi_part-objects" class="section-name selfRef">multi_part objects</a>
           </h4>
-<p id="section-3.3.3-1">A <code>multi_part</code> object is designed to carry multiple items, as with the MultiPart structure in MIMI content or the top level multipart media types. It contains the following fields.<a href="#section-3.3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.4-1">A <code>multi_part</code> object is designed to carry multiple items, as with the MultiPart structure in MIMI content or the top level multipart media types. It contains the following fields.<a href="#section-3.3.4-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.3.3-2.1">
-              <p id="section-3.3.3-2.1.1"><code>part_semantics</code> is one of "chooseOne", "singleUnit", or "processAll". It is mandatory.<a href="#section-3.3.3-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.3.4-2.1">
+              <p id="section-3.3.4-2.1.1"><code>part_semantics</code> is one of "chooseOne", "singleUnit", or "processAll". It is mandatory.<a href="#section-3.3.4-2.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-3.3.3-2.2">
-              <p id="section-3.3.3-2.2.1"><code>parts</code> is an array of <code>Part</code> objects. It is mandatory in a <code>multi_part</code> object.<a href="#section-3.3.3-2.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.3.4-2.2">
+              <p id="section-3.3.4-2.2.1"><code>parts</code> is an array of <code>Part</code> objects. It is mandatory in a <code>multi_part</code> object.<a href="#section-3.3.4-2.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
 </div>
 <div id="part-obj">
-<section id="section-3.3.4">
-          <h4 id="name-part-objects">
-<a href="#section-3.3.4" class="section-number selfRef">3.3.4. </a><a href="#name-part-objects" class="section-name selfRef">Part objects</a>
-          </h4>
-<p id="section-3.3.4-1">The following fields can be in a Part object. They have the same meaning as their MIMI content counterparts.<a href="#section-3.3.4-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-3.3.4-2.1">
-              <p id="section-3.3.4-2.1.1"><code>disposition</code> optional if set to the default value ("render")<a href="#section-3.3.4-2.1.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-3.3.4-2.2">
-              <p id="section-3.3.4-2.2.1"><code>language</code> - optional if absent<a href="#section-3.3.4-2.2.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-3.3.4-2.3">
-              <p id="section-3.3.4-2.3.1"><code>part_index</code> is an unsigned integer. It is mandatory in a <code>Part</code> object.<a href="#section-3.3.4-2.3.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-3.3.4-2.4">
-              <p id="section-3.3.4-2.4.1"><code>cardinality</code> is one of "nullpart", "single", "external", or "multi". mandatory.<a href="#section-3.3.4-2.4.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
-<p id="section-3.3.4-3">If cardinality is "single" or "external", then <code>body</code>, <code>encoding</code>, and <code>mediatype</code> fields are included directly in the Part object.<a href="#section-3.3.4-3" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="externalpart-obj">
 <section id="section-3.3.5">
-          <h4 id="name-external_part-objects">
-<a href="#section-3.3.5" class="section-number selfRef">3.3.5. </a><a href="#name-external_part-objects" class="section-name selfRef">external_part objects</a>
+          <h4 id="name-part-objects">
+<a href="#section-3.3.5" class="section-number selfRef">3.3.5. </a><a href="#name-part-objects" class="section-name selfRef">Part objects</a>
           </h4>
-<p id="section-3.3.5-1">The <code>external_part</code> object can contain the following fields with similar meanings to those in MIMI content, with exceptions noted below.<a href="#section-3.3.5-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.5-1">The following fields can be in a Part object. They have the same meaning as their MIMI content counterparts.<a href="#section-3.3.5-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3.5-2.1">
-              <p id="section-3.3.5-2.1.1"><code>mediatype</code> is the value of the <code>contentType</code> in MIMI. It is mandatory if present in the MIMI message and recommended otherwise.<a href="#section-3.3.5-2.1.1" class="pilcrow">¶</a></p>
+              <p id="section-3.3.5-2.1.1"><code>disposition</code> optional if set to the default value ("render"). It refers to a specific part.<a href="#section-3.3.5-2.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.3.5-2.2">
-              <p id="section-3.3.5-2.2.1"><code>url</code> is the URL of the content as a text string. It is mandatory<a href="#section-3.3.5-2.2.1" class="pilcrow">¶</a></p>
+              <p id="section-3.3.5-2.2.1"><code>language</code> - optional if absent. It refers to a specific part.<a href="#section-3.3.5-2.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.3.5-2.3">
-              <p id="section-3.3.5-2.3.1"><code>expires</code> is a date_type (text) date. It is optional if not present.<a href="#section-3.3.5-2.3.1" class="pilcrow">¶</a></p>
+              <p id="section-3.3.5-2.3.1"><code>part_index</code> is an unsigned integer. It is mandatory.<a href="#section-3.3.5-2.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.3.5-2.4">
-              <p id="section-3.3.5-2.4.1"><code>size</code> is an integer number of octets. It is optional if not present.<a href="#section-3.3.5-2.4.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-3.3.5-2.5">
-              <p id="section-3.3.5-2.5.1"><code>description</code> is a text string. It is optional if not present.<a href="#section-3.3.5-2.5.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-3.3.5-2.6">
-              <p id="section-3.3.5-2.6.1"><code>filename</code> is a text string. It is optional if not present.<a href="#section-3.3.5-2.6.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-3.3.5-2.7">
-              <p id="section-3.3.5-2.7.1"><code>content_hash</code> is the base64url encoded string of the MIMI <code>contentHash</code> of the ExternalPart, prefixed with the name of the hash algorithm corresponding to <code>hashAlg</code> and a colon (for example "sha256:"). <code>content_hash</code> is  mandatory if it was included in the MIMI content ExternalPart, and omitted otherwise.<a href="#section-3.3.5-2.7.1" class="pilcrow">¶</a></p>
+              <p id="section-3.3.5-2.4.1"><code>cardinality</code> is one of "nullpart", "single", "external", or "multi". mandatory.<a href="#section-3.3.5-2.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-3.3.5-3">In addition, the following fields are unique to MIMI VCON.<a href="#section-3.3.5-3" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-3.3.5-4.1">
-              <p id="section-3.3.5-4.1.1"><code>cached</code> is a boolean. It is mandatory if it is true, which means that a
-copy of the external content is available in a vcon attachment object
-(see <a href="#attachments" class="auto internal xref">Section 3.6</a>). If <code>cache</code> is true and no <code>content_hash</code> is present, a new content hash is calculated for the attachment and placed the <code>cache_ref</code> field (which can only be present in this case).<a href="#section-3.3.5-4.1.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
-<p id="section-3.3.5-5">external_part has several fields for the decryption of the
-referenced content.
-If it is not necessary to reconstruct the original MIMI content (for example to allow later verification of the message ID), these fields can be omitted once the content has been downloaded, decrypted, verified, and included in the VCON attachments array. Otherwise they are mandatory if present in the MIMI content.
-All of these fields are base64url encoded strings.<a href="#section-3.3.5-5" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-3.3.5-6.1">
-              <p id="section-3.3.5-6.1.1"><code>enc_alg</code><a href="#section-3.3.5-6.1.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-3.3.5-6.2">
-              <p id="section-3.3.5-6.2.1"><code>key</code><a href="#section-3.3.5-6.2.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-3.3.5-6.3">
-              <p id="section-3.3.5-6.3.1"><code>nonce</code><a href="#section-3.3.5-6.3.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-3.3.5-6.4">
-              <p id="section-3.3.5-6.4.1"><code>aad</code><a href="#section-3.3.5-6.4.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
+<p id="section-3.3.5-3">If cardinality is "single", then <code>body</code>, <code>encoding</code>, and <code>mediatype</code> fields are included directly in the Part object.
+If cardinality is  "external" or "multi", an <code>external_part</code> or <code>multi_part</code> object is included, respectively.<a href="#section-3.3.5-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1559,6 +1584,9 @@ All of these fields are base64url encoded strings.<a href="#section-3.3.5-5" cla
               <li class="normal" id="section-3.4-3.4.2.6">
                 <p id="section-3.4-3.4.2.6.1"><code>update</code>: user or client is updated<a href="#section-3.4-3.4.2.6.1" class="pilcrow">¶</a></p>
 </li>
+              <li class="normal" id="section-3.4-3.4.2.7">
+                <p id="section-3.4-3.4.2.7.1"><code>room</code>: room metadata was updated<a href="#section-3.4-3.4.2.7.1" class="pilcrow">¶</a></p>
+</li>
             </ul>
 </li>
           <li class="normal" id="section-3.4-3.5">
@@ -1567,60 +1595,55 @@ All of these fields are base64url encoded strings.<a href="#section-3.3.5-5" cla
           <li class="normal" id="section-3.4-3.6">
             <p id="section-3.4-3.6.1"><code>role</code> is the new role assigned to the user. It is only permitted for an update event.<a href="#section-3.4-3.6.1" class="pilcrow">¶</a></p>
 </li>
+          <li class="normal" id="section-3.4-3.7">
+            <p id="section-3.4-3.7.1"><code>room</code> is a new room object containing the new room metadata. It is only permitted for an event of type <code>room</code>.<a href="#section-3.4-3.7.1" class="pilcrow">¶</a></p>
+</li>
         </ul>
-</section>
-</div>
-<div id="changes-to-the-room">
-<section id="section-3.5">
-        <h3 id="name-changes-to-the-room">
-<a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-changes-to-the-room" class="section-name selfRef">Changes to the room</a>
-        </h3>
-<p id="section-3.5-1">Changes to the room metadata should be accompanied by a new <code>room</code> dialog type.
-The <code>room</code> dialog type can contain anything in the top-level <code>room</code> object except for the <code>id</code> (which cannot change).
-It must contain a <code>time</code> field to convey the time of the change, and may contain an <code>originator</code> field to convey who made that change.<a href="#section-3.5-1" class="pilcrow">¶</a></p>
+<p id="section-3.4-4">The updated room object can contain anything in the top-level <code>room</code> object except for the <code>id</code> field (which <span class="bcp14">MUST NOT</span> be present).
+When the room metadata is changed, the <code>party</code> field is set to 0.<a href="#section-3.4-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="attachments">
-<section id="section-3.6">
+<section id="section-3.5">
         <h3 id="name-attachments">
-<a href="#section-3.6" class="section-number selfRef">3.6. </a><a href="#name-attachments" class="section-name selfRef">Attachments</a>
+<a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-attachments" class="section-name selfRef">Attachments</a>
         </h3>
-<p id="section-3.6-1">An attachment consists of the following fields:<a href="#section-3.6-1" class="pilcrow">¶</a></p>
+<p id="section-3.5-1">An attachment consists of the following fields:<a href="#section-3.5-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.6-2.1">
-            <p id="section-3.6-2.1.1"><code>start</code>: is the time when the attachment was downloaded. It is mandatory.<a href="#section-3.6-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.5-2.1">
+            <p id="section-3.5-2.1.1"><code>start</code>: is the time when the attachment was downloaded. It is mandatory.<a href="#section-3.5-2.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-2.2">
-            <p id="section-3.6-2.2.1"><code>party</code>: is the party that downloaded the attachment. It is mandatory.<a href="#section-3.6-2.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.5-2.2">
+            <p id="section-3.5-2.2.1"><code>party</code>: is the party that downloaded the attachment. It is mandatory.<a href="#section-3.5-2.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-2.3">
-            <p id="section-3.6-2.3.1"><code>content_hash</code>: is the base64url encoded hash using the hash name prefixed with a colon before the hash (ex: "sha256:"). It is mandatory.<a href="#section-3.6-2.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.5-2.3">
+            <p id="section-3.5-2.3.1"><code>content_hash</code>: is the base64url encoded hash using the hash name prefixed with a colon before the hash (ex: "sha256:"). It is mandatory.<a href="#section-3.5-2.3.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-2.4">
-            <p id="section-3.6-2.4.1"><code>dialog_object_ref</code> is a string consisting of: "mid:" (representing the message ID URI), the message_id of the message in the dialog object, a colon, the part_index of the Part (or "0" if the ExternalPart is at the top level), and the string "@anon.invalid"<a href="#section-3.6-2.4.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.5-2.4">
+            <p id="section-3.5-2.4.1"><code>dialog_object_ref</code> is a string consisting of: "mid:" (representing the message ID URI), the message_id of the message in the dialog object, a colon, the part_index of the Part (or "0" if the ExternalPart is at the top level), and the string "@anon.invalid"<a href="#section-3.5-2.4.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-3.6-3">The <code>mediatype</code>, <code>filename</code>, <code>encoding</code>, and <code>body</code> fields are as they are defined in VCON and are all mandatory.<a href="#section-3.6-3" class="pilcrow">¶</a></p>
+<p id="section-3.5-3">The <code>mediatype</code>, <code>filename</code>, <code>encoding</code>, and <code>body</code> fields are as they are defined in VCON and are all mandatory.<a href="#section-3.5-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="tombstone-type">
-<section id="section-3.7">
+<section id="section-3.6">
         <h3 id="name-message-tombstones">
-<a href="#section-3.7" class="section-number selfRef">3.7. </a><a href="#name-message-tombstones" class="section-name selfRef">Message tombstones</a>
+<a href="#section-3.6" class="section-number selfRef">3.6. </a><a href="#name-message-tombstones" class="section-name selfRef">Message tombstones</a>
         </h3>
-<p id="section-3.7-1">When a message has been deleted/retracted, or it expires, it can be valuable to present a record that such a message was previously present, by generating a dialog object with the following fields (which are all mandatory):<a href="#section-3.7-1" class="pilcrow">¶</a></p>
+<p id="section-3.6-1">When a message has been deleted/retracted, or it expires, it can be valuable to present a record that such a message was previously present, by generating a dialog object with the following fields (which are all mandatory):<a href="#section-3.6-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.7-2.1">
-            <p id="section-3.7-2.1.1"><code>type</code> is "tombstone"<a href="#section-3.7-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.6-2.1">
+            <p id="section-3.6-2.1.1"><code>type</code> is "tombstone"<a href="#section-3.6-2.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.7-2.2">
-            <p id="section-3.7-2.2.1"><code>start</code> is the time the tombstone was generated<a href="#section-3.7-2.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.6-2.2">
+            <p id="section-3.6-2.2.1"><code>start</code> is the time the tombstone was generated<a href="#section-3.6-2.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.7-2.3">
-            <p id="section-3.7-2.3.1"><code>message_id</code> is the message ID of the message.<a href="#section-3.7-2.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.6-2.3">
+            <p id="section-3.6-2.3.1"><code>message_id</code> is the message ID of the message.<a href="#section-3.6-2.3.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.7-2.4">
-            <p id="section-3.7-2.4.1"><code>status</code> is the status of the former message, either "retracted" or "expired".<a href="#section-3.7-2.4.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.6-2.4">
+            <p id="section-3.6-2.4.1"><code>status</code> is the status of the former message, either "retracted" or "expired".<a href="#section-3.6-2.4.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
@@ -2202,13 +2225,40 @@ It has the following values.<a href="#section-6.3-1" class="pilcrow">¶</a></p>
         </table>
 </section>
 </div>
-<div id="dialog-object-types">
+<div id="dialog-type-name-registry">
 <section id="section-6.5">
-        <h3 id="name-dialog-object-types">
-<a href="#section-6.5" class="section-number selfRef">6.5. </a><a href="#name-dialog-object-types" class="section-name selfRef">Dialog object types</a>
+        <h3 id="name-dialog-type-name-registry">
+<a href="#section-6.5" class="section-number selfRef">6.5. </a><a href="#name-dialog-type-name-registry" class="section-name selfRef">Dialog Type Name Registry</a>
         </h3>
 <table class="center" id="table-5">
           <caption><a href="#table-5" class="selfRef">Table 5</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Name</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+              <th class="text-left" rowspan="1" colspan="1">Change Control</th>
+              <th class="text-left" rowspan="1" colspan="1">Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">tombstone</td>
+              <td class="text-left" rowspan="1" colspan="1">a placeholder for an no longer available message (ex: deleted, expired)</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#tombstone-type" class="auto internal xref">Section 3.6</a> RFCXXXX</td>
+            </tr>
+          </tbody>
+        </table>
+</section>
+</div>
+<div id="dialog-object-types">
+<section id="section-6.6">
+        <h3 id="name-dialog-object-types">
+<a href="#section-6.6" class="section-number selfRef">6.6. </a><a href="#name-dialog-object-types" class="section-name selfRef">Dialog object types</a>
+        </h3>
+<table class="center" id="table-6">
+          <caption><a href="#table-6" class="selfRef">Table 6</a></caption>
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Name</th>
@@ -2276,7 +2326,7 @@ It has the following values.<a href="#section-6.3-1" class="pilcrow">¶</a></p>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">language</td>
-              <td class="text-left" rowspan="1" colspan="1">The language of the message content (only if there is only one part)</td>
+              <td class="text-left" rowspan="1" colspan="1">The language of the message content</td>
               <td class="text-left" rowspan="1" colspan="1">IETF</td>
               <td class="text-left" rowspan="1" colspan="1">
                 <a href="#dialog-fields" class="auto internal xref">Section 3.3.2</a> RFCXXXX</td>
@@ -2286,19 +2336,35 @@ It has the following values.<a href="#section-6.3-1" class="pilcrow">¶</a></p>
               <td class="text-left" rowspan="1" colspan="1">The status of a former message</td>
               <td class="text-left" rowspan="1" colspan="1">IETF</td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#tombstone-type" class="auto internal xref">Section 3.7</a> RFCXXXX</td>
+                <a href="#tombstone-type" class="auto internal xref">Section 3.6</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">multi_part</td>
+              <td class="text-left" rowspan="1" colspan="1">A multi_part object containing the content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#multipart-obj" class="auto internal xref">Section 3.3.4</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">external_part</td>
+              <td class="text-left" rowspan="1" colspan="1">An external_part object referencing out-of-band content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.3</a> RFCXXXX</td>
             </tr>
           </tbody>
         </table>
 </section>
 </div>
-<div id="dialog-type-name-registry">
-<section id="section-6.6">
-        <h3 id="name-dialog-type-name-registry">
-<a href="#section-6.6" class="section-number selfRef">6.6. </a><a href="#name-dialog-type-name-registry" class="section-name selfRef">Dialog Type Name Registry</a>
+<div id="externalpart-object-type">
+<section id="section-6.7">
+        <h3 id="name-external_part-object-type">
+<a href="#section-6.7" class="section-number selfRef">6.7. </a><a href="#name-external_part-object-type" class="section-name selfRef">external_part object type</a>
         </h3>
-<table class="center" id="table-6">
-          <caption><a href="#table-6" class="selfRef">Table 6</a></caption>
+<p id="section-6.7-1">This documents creates a new External_part object registry under the vCon JSON Objects Group.
+It has the following values.<a href="#section-6.7-1" class="pilcrow">¶</a></p>
+<table class="center" id="table-7">
+          <caption><a href="#table-7" class="selfRef">Table 7</a></caption>
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Name</th>
@@ -2309,25 +2375,95 @@ It has the following values.<a href="#section-6.3-1" class="pilcrow">¶</a></p>
           </thead>
           <tbody>
             <tr>
-              <td class="text-left" rowspan="1" colspan="1">tombstone</td>
-              <td class="text-left" rowspan="1" colspan="1">the dialog event type is a tombstone</td>
+              <td class="text-left" rowspan="1" colspan="1">mediatype</td>
+              <td class="text-left" rowspan="1" colspan="1">the media type of the externally referenced content</td>
               <td class="text-left" rowspan="1" colspan="1">IETF</td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#tombstone-type" class="auto internal xref">Section 3.7</a> RFCXXXX</td>
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.3</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">url</td>
+              <td class="text-left" rowspan="1" colspan="1">the url of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.3</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">size</td>
+              <td class="text-left" rowspan="1" colspan="1">the size in bytes of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.3</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">description</td>
+              <td class="text-left" rowspan="1" colspan="1">the description of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.3</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">filename</td>
+              <td class="text-left" rowspan="1" colspan="1">the filename of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.3</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">content_hash</td>
+              <td class="text-left" rowspan="1" colspan="1">a representation of the MIMI contentHash and hashAlg of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.3</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">cached</td>
+              <td class="text-left" rowspan="1" colspan="1">whether the referenced content is cached</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.3</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">enc_alg_</td>
+              <td class="text-left" rowspan="1" colspan="1">the encryption algorithm used to encrypt the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.3</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">key</td>
+              <td class="text-left" rowspan="1" colspan="1">the encryption key of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.3</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">nonce</td>
+              <td class="text-left" rowspan="1" colspan="1">the encryption nonce of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.3</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">aad</td>
+              <td class="text-left" rowspan="1" colspan="1">the media type of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.3</a> RFCXXXX</td>
             </tr>
           </tbody>
         </table>
 </section>
 </div>
 <div id="multipart-object-type">
-<section id="section-6.7">
+<section id="section-6.8">
         <h3 id="name-multi_part-object-type">
-<a href="#section-6.7" class="section-number selfRef">6.7. </a><a href="#name-multi_part-object-type" class="section-name selfRef">multi_part object type</a>
+<a href="#section-6.8" class="section-number selfRef">6.8. </a><a href="#name-multi_part-object-type" class="section-name selfRef">multi_part object type</a>
         </h3>
-<p id="section-6.7-1">This documents creates a new Multi_part object registry under the vCon JSON Objects Group.
-It has the following values.<a href="#section-6.7-1" class="pilcrow">¶</a></p>
-<table class="center" id="table-7">
-          <caption><a href="#table-7" class="selfRef">Table 7</a></caption>
+<p id="section-6.8-1">This documents creates a new Multi_part object registry under the vCon JSON Objects Group.
+It has the following values.<a href="#section-6.8-1" class="pilcrow">¶</a></p>
+<table class="center" id="table-8">
+          <caption><a href="#table-8" class="selfRef">Table 8</a></caption>
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Name</th>
@@ -2342,96 +2478,25 @@ It has the following values.<a href="#section-6.7-1" class="pilcrow">¶</a></p>
               <td class="text-left" rowspan="1" colspan="1">How multiple parts in the same multi_part object are handled</td>
               <td class="text-left" rowspan="1" colspan="1">IETF</td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#multipart-obj" class="auto internal xref">Section 3.3.3</a> RFCXXXX</td>
+                <a href="#multipart-obj" class="auto internal xref">Section 3.3.4</a> RFCXXXX</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">parts</td>
               <td class="text-left" rowspan="1" colspan="1">An array of part objects</td>
               <td class="text-left" rowspan="1" colspan="1">IETF</td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#multipart-obj" class="auto internal xref">Section 3.3.3</a> RFCXXXX</td>
+                <a href="#multipart-obj" class="auto internal xref">Section 3.3.4</a> RFCXXXX</td>
             </tr>
           </tbody>
         </table>
 </section>
 </div>
 <div id="part-object-type">
-<section id="section-6.8">
-        <h3 id="name-part-object-type">
-<a href="#section-6.8" class="section-number selfRef">6.8. </a><a href="#name-part-object-type" class="section-name selfRef">part object type</a>
-        </h3>
-<p id="section-6.8-1">This documents creates a new Part object registry under the vCon JSON Objects Group.
-It has the following values.<a href="#section-6.8-1" class="pilcrow">¶</a></p>
-<table class="center" id="table-8">
-          <caption><a href="#table-8" class="selfRef">Table 8</a></caption>
-<thead>
-            <tr>
-              <th class="text-left" rowspan="1" colspan="1">Name</th>
-              <th class="text-left" rowspan="1" colspan="1">Description</th>
-              <th class="text-left" rowspan="1" colspan="1">Change Control</th>
-              <th class="text-left" rowspan="1" colspan="1">Reference</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">disposition</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">IETF</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <a href="#part-obj" class="auto internal xref">Section 3.3.4</a> RFCXXXX</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">language</td>
-              <td class="text-left" rowspan="1" colspan="1">The language of the message part</td>
-              <td class="text-left" rowspan="1" colspan="1">IETF</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <a href="#part-obj" class="auto internal xref">Section 3.3.4</a> RFCXXXX</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">part_index</td>
-              <td class="text-left" rowspan="1" colspan="1">The relative index of the part within the message</td>
-              <td class="text-left" rowspan="1" colspan="1">IETF</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <a href="#part-obj" class="auto internal xref">Section 3.3.4</a> RFCXXXX</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">cardinality</td>
-              <td class="text-left" rowspan="1" colspan="1">one of "nullpart", "single", "external", or "multi"</td>
-              <td class="text-left" rowspan="1" colspan="1">IETF</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <a href="#part-obj" class="auto internal xref">Section 3.3.4</a> RFCXXXX</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">mediatype</td>
-              <td class="text-left" rowspan="1" colspan="1">The media type of the part</td>
-              <td class="text-left" rowspan="1" colspan="1">IETF</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <a href="#part-obj" class="auto internal xref">Section 3.3.4</a> RFCXXXX</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">encoding</td>
-              <td class="text-left" rowspan="1" colspan="1">The encoding of the message part (as in Section 2.3.1 of <span>[<a href="#I-D.ietf-vcon-vcon-core" class="cite xref">I-D.ietf-vcon-vcon-core</a>]</span>)</td>
-              <td class="text-left" rowspan="1" colspan="1">IETF</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <a href="#part-obj" class="auto internal xref">Section 3.3.4</a> RFCXXXX</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">body</td>
-              <td class="text-left" rowspan="1" colspan="1">The content of the message part</td>
-              <td class="text-left" rowspan="1" colspan="1">IETF</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <a href="#part-obj" class="auto internal xref">Section 3.3.4</a> RFCXXXX</td>
-            </tr>
-          </tbody>
-        </table>
-</section>
-</div>
-<div id="externalpart-object-type">
 <section id="section-6.9">
-        <h3 id="name-external_part-object-type">
-<a href="#section-6.9" class="section-number selfRef">6.9. </a><a href="#name-external_part-object-type" class="section-name selfRef">external_part object type</a>
+        <h3 id="name-part-object-type">
+<a href="#section-6.9" class="section-number selfRef">6.9. </a><a href="#name-part-object-type" class="section-name selfRef">part object type</a>
         </h3>
-<p id="section-6.9-1">This documents creates a new External_part object registry under the vCon JSON Objects Group.
+<p id="section-6.9-1">This documents creates a new Part object registry under the vCon JSON Objects Group.
 It has the following values.<a href="#section-6.9-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-9">
           <caption><a href="#table-9" class="selfRef">Table 9</a></caption>
@@ -2445,81 +2510,67 @@ It has the following values.<a href="#section-6.9-1" class="pilcrow">¶</a></p>
           </thead>
           <tbody>
             <tr>
+              <td class="text-left" rowspan="1" colspan="1">disposition</td>
+              <td class="text-left" rowspan="1" colspan="1">The disposition of the message part</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#part-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">language</td>
+              <td class="text-left" rowspan="1" colspan="1">The language of the message part</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#part-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">part_index</td>
+              <td class="text-left" rowspan="1" colspan="1">The relative index of the part within the message</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#part-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">cardinality</td>
+              <td class="text-left" rowspan="1" colspan="1">one of "nullpart", "single", "external", or "multi"</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#part-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+            </tr>
+            <tr>
               <td class="text-left" rowspan="1" colspan="1">mediatype</td>
-              <td class="text-left" rowspan="1" colspan="1">the media type of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">The media type of the part</td>
               <td class="text-left" rowspan="1" colspan="1">IETF</td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+                <a href="#part-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
             </tr>
             <tr>
-              <td class="text-left" rowspan="1" colspan="1">url</td>
-              <td class="text-left" rowspan="1" colspan="1">the url of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">encoding</td>
+              <td class="text-left" rowspan="1" colspan="1">The encoding of the message part (as in Section 2.3.1 of <span>[<a href="#I-D.ietf-vcon-vcon-core" class="cite xref">I-D.ietf-vcon-vcon-core</a>]</span>)</td>
               <td class="text-left" rowspan="1" colspan="1">IETF</td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+                <a href="#part-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
             </tr>
             <tr>
-              <td class="text-left" rowspan="1" colspan="1">size</td>
-              <td class="text-left" rowspan="1" colspan="1">the size in bytes of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">body</td>
+              <td class="text-left" rowspan="1" colspan="1">The content of the message part</td>
               <td class="text-left" rowspan="1" colspan="1">IETF</td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+                <a href="#part-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
             </tr>
             <tr>
-              <td class="text-left" rowspan="1" colspan="1">description</td>
-              <td class="text-left" rowspan="1" colspan="1">the description of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">multi_part</td>
+              <td class="text-left" rowspan="1" colspan="1">A multi_part object containing more parts of the content</td>
               <td class="text-left" rowspan="1" colspan="1">IETF</td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+                <a href="#multipart-obj" class="auto internal xref">Section 3.3.4</a> RFCXXXX</td>
             </tr>
             <tr>
-              <td class="text-left" rowspan="1" colspan="1">filename</td>
-              <td class="text-left" rowspan="1" colspan="1">the filename of the externally referenced content</td>
+              <td class="text-left" rowspan="1" colspan="1">external_part</td>
+              <td class="text-left" rowspan="1" colspan="1">An external_part object referencing out-of-band content</td>
               <td class="text-left" rowspan="1" colspan="1">IETF</td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">content_hash</td>
-              <td class="text-left" rowspan="1" colspan="1">a representation of the MIMI contentHash and hashAlg of the externally referenced content</td>
-              <td class="text-left" rowspan="1" colspan="1">IETF</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">cached</td>
-              <td class="text-left" rowspan="1" colspan="1">whether the referenced content is cached</td>
-              <td class="text-left" rowspan="1" colspan="1">IETF</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">enc_alg_</td>
-              <td class="text-left" rowspan="1" colspan="1">the encryption algorithm used to encrypt the externally referenced content</td>
-              <td class="text-left" rowspan="1" colspan="1">IETF</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">key</td>
-              <td class="text-left" rowspan="1" colspan="1">the encryption key of the externally referenced content</td>
-              <td class="text-left" rowspan="1" colspan="1">IETF</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">nonce</td>
-              <td class="text-left" rowspan="1" colspan="1">the encryption nonce of the externally referenced content</td>
-              <td class="text-left" rowspan="1" colspan="1">IETF</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">aad</td>
-              <td class="text-left" rowspan="1" colspan="1">the media type of the externally referenced content</td>
-              <td class="text-left" rowspan="1" colspan="1">IETF</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.5</a> RFCXXXX</td>
+                <a href="#externalpart-obj" class="auto internal xref">Section 3.3.3</a> RFCXXXX</td>
             </tr>
           </tbody>
         </table>
@@ -2558,6 +2609,13 @@ It has the following values.<a href="#section-6.9-1" class="pilcrow">¶</a></p>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">role</td>
               <td class="text-left" rowspan="1" colspan="1">the role of the party that initiated this party_history event</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#party-history" class="auto internal xref">Section 3.4</a> RFCXXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">room</td>
+              <td class="text-left" rowspan="1" colspan="1">a room object containing updated room metadata</td>
               <td class="text-left" rowspan="1" colspan="1">IETF</td>
               <td class="text-left" rowspan="1" colspan="1">
                 <a href="#party-history" class="auto internal xref">Section 3.4</a> RFCXXXX</td>
@@ -2624,6 +2682,13 @@ It has the following values.<a href="#section-6.9-1" class="pilcrow">¶</a></p>
               <td class="text-left" rowspan="1" colspan="1">
                 <a href="#party-history" class="auto internal xref">Section 3.4</a> RFCXXXX</td>
             </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">room</td>
+              <td class="text-left" rowspan="1" colspan="1">indicates room metadata changed</td>
+              <td class="text-left" rowspan="1" colspan="1">IETF</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <a href="#party-history" class="auto internal xref">Section 3.4</a> RFCXXXX</td>
+            </tr>
           </tbody>
         </table>
 </section>
@@ -2649,7 +2714,7 @@ It has the following values.<a href="#section-6.9-1" class="pilcrow">¶</a></p>
               <td class="text-left" rowspan="1" colspan="1">the message_id of the dialog object referencing this attachment</td>
               <td class="text-left" rowspan="1" colspan="1">IETF</td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#attachments" class="auto internal xref">Section 3.6</a> RFCXXXX</td>
+                <a href="#attachments" class="auto internal xref">Section 3.5</a> RFCXXXX</td>
             </tr>
           </tbody>
         </table>
@@ -2674,10 +2739,6 @@ It has the following values.<a href="#section-6.9-1" class="pilcrow">¶</a></p>
 <dt id="I-D.ietf-vcon-vcon-core">[I-D.ietf-vcon-vcon-core]</dt>
       <dd>
 <span class="refAuthor">Petrie, D.</span>, <span class="refTitle">"The JSON format for vCon - Conversation Data Container"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-vcon-vcon-core-01</span>, <time datetime="2025-10-15" class="refDate">15 October 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-vcon-vcon-core-01">https://datatracker.ietf.org/doc/html/draft-ietf-vcon-vcon-core-01</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="I-D.mahy-mimi-app-components">[I-D.mahy-mimi-app-components]</dt>
-      <dd>
-<span class="refAuthor">Mahy, R.</span>, <span class="refTitle">"Application State Components for More Instant Messaging Interoperability (MIMI)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-mahy-mimi-app-components-01</span>, <time datetime="2025-02-11" class="refDate">11 February 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-mahy-mimi-app-components-01">https://datatracker.ietf.org/doc/html/draft-mahy-mimi-app-components-01</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
       <dd>
@@ -2724,13 +2785,25 @@ It has the following values.<a href="#section-6.9-1" class="pilcrow">¶</a></p>
             <p id="appendix-B.1-1.2.1">added IANA registrations under the new framework<a href="#appendix-B.1-1.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-B.1-1.3">
-            <p id="appendix-B.1-1.3.1">updated references<a href="#appendix-B.1-1.3.1" class="pilcrow">¶</a></p>
+            <p id="appendix-B.1-1.3.1">fixed an inconsistency with disposition and language tags not consistent with MIMI content<a href="#appendix-B.1-1.3.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-B.1-1.4">
-            <p id="appendix-B.1-1.4.1">refactor to use the new message_id field name from core<a href="#appendix-B.1-1.4.1" class="pilcrow">¶</a></p>
+            <p id="appendix-B.1-1.4.1">including all parties in the participant list is now a <span class="bcp14">SHOULD</span><a href="#appendix-B.1-1.4.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-B.1-1.5">
-            <p id="appendix-B.1-1.5.1">more case adjustments<a href="#appendix-B.1-1.5.1" class="pilcrow">¶</a></p>
+            <p id="appendix-B.1-1.5.1">room metadata changes are now expressed as a party_history event<a href="#appendix-B.1-1.5.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-B.1-1.6">
+            <p id="appendix-B.1-1.6.1">expires is not not present unless it was present in MIMI. Only either <code>absolute_time</code> or <code>relative_time</code> is allowed.<a href="#appendix-B.1-1.6.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-B.1-1.7">
+            <p id="appendix-B.1-1.7.1">updated references<a href="#appendix-B.1-1.7.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-B.1-1.8">
+            <p id="appendix-B.1-1.8.1">refactor to use the new message_id field name from core<a href="#appendix-B.1-1.8.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-B.1-1.9">
+            <p id="appendix-B.1-1.9.1">more case adjustments<a href="#appendix-B.1-1.9.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
