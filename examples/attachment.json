@@ -41,7 +41,7 @@
       "disposition": "attachment",
       "language": "en",
       "external_part": {
-        "mimetype": "video/mp4",
+        "mediatype": "video/mp4",
         "url": "https://example.com/storage/8ksB4bSrrRE.mp4",
         "size": 708234961,
         "description": "2 hours of key signing video",
@@ -60,7 +60,7 @@
           "sha256:OczZYpW_L0B1DsMSLJqL2jTRJKoj7fTUJ2jhnX70-00",
       "dialog_object_ref":
   "mid:Tdt8UCUl1ugSLRmuObvib_4bvu_Hz3NSwaYuy-TtET4:0@anon.invalid",
-      "mimetype": "video/mp4",
+      "mediatype": "video/mp4",
       "filename": "bigfile.mp4",
       "encoding": "base64url",
       "body": "Ma0hHSr0f_iUk_RSShTgtY...nSQbZEip5danJYQqsvwWQ"

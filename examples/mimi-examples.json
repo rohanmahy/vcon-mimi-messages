@@ -261,7 +261,7 @@ making the release happen!",
             "disposition": "render",
             "language": "en",
             "part_index": 1,
-            "mimetype": "text/markdown;variant=GFM",
+            "mediatype": "text/markdown;variant=GFM",
             "encoding": "none"
             "body": "Hello!"
           },
