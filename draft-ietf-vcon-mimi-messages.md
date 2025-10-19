@@ -3,7 +3,7 @@ title: "VCON for MIMI Messages"
 abbrev: "VCON for MIMI"
 category: info
 
-docname: draft-mahy-vcon-mimi-messages-latest
+docname: draft-ietf-vcon-mimi-messages-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
@@ -20,7 +20,7 @@ venue:
   mail: "vcon@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/vcon/"
   github: "rohanmahy/vcon-mimi-messages"
-  latest: "https://rohanmahy.github.io/vcon-mimi-messages/draft-mahy-vcon-mimi-messages.html"
+  latest: "https://rohanmahy.github.io/vcon-mimi-messages/draft-ietf-vcon-mimi-messages.html"
 
 author:
  -
