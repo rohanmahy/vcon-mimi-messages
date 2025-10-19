@@ -70,7 +70,7 @@ A MIMI conversation (or portion thereof) is represented in VCON with
 a mandatory list of parties and dialogs, a new top-level room object,
 and optionally attachment objects.
 
-## Room information
+## Room information {#room-obj}
 
 This document adds a mandatory, top-level `room` object. It contains metadata
 known about the room at the start of the VCON period.
@@ -84,9 +84,9 @@ known about the room at the start of the VCON period.
 
     * a `type`- a media type or an empty string. It is optional. It's default value is `text/plain;charset=UTF-8`.
     * a `lang` - a `Language-tag` as defined by {{!RFC5646}}. It is optional.
-    * a `content` - if the `type` begins with "text" or is empty, the content the is UTF-8 text description of the room. Otherwise it is the base64url encoding of whatever type is described. The `content` field is mandatory in a room_description object.
+    * a `content` - if the `type` begins with "text/" or is empty, the content the is UTF-8 text description of the room. Otherwise it is the base64url encoding of whatever type is described. The `content` field is mandatory in a room_description object.
 
-## Parties
+## Parties {#parties-obj}
 
 The `parties` array MUST contain all the
 participants who were in the conversation at any point in time during the
@@ -103,7 +103,7 @@ otherwise it is optional.
 
 The following section refers to changes and additions to the dialog object when the `type` field is "text".
 
-### Semantics of the existing fields for text
+### Semantics of the existing fields for text {#text-type}
 
 The dialog object consists of an array of instant messages of type "text".
 The start time is set to the hub received timestamp when available.
@@ -115,7 +115,7 @@ The first MIMI message represented in a MIMI VCON should contain the complete li
 For subsequent messages, a parties array consisting of index zero, indicates the recipients of the message are the active participants of the room.
 Changes to the roster can be tracked if `party_history` is present for those changes (see {{party-history}}).
 
-### Extensions to the dialog object for text
+### Extensions to the dialog object for text {#dialog-fields}
 
 The parties array consist of the party indexes of those who were active participants when the message was sent.
 
@@ -123,7 +123,7 @@ The parties array consist of the party indexes of those who were active particip
 - `salt` is the base64url encoding of the MIMI content salt. It is mandatory.
 - `replaces` is the base64url encoding of the MIMI content message_id of the message this message replaces. It is optional if empty.
 - `topic_id` is the base64url encoding of the MIMI topic_id. It is optional if empty.
-- `expires` is optional if empty in MIMI. It contains null or a map with the following items:
+- `expires` is optional if empty in MIMI. It contains null or a non-extensible object with the following items:
 
     * `relative` is a boolean that is true if the time is expressed relative to the recipient read time, and false if it is expressed as an absolute date/time. It is mandatory when `expires` is present.
     * `relative_time` is an integer number of seconds. If `relative` is true, once the message has been read, the client is expected to delete the message after `relative_time` seconds. It is mandatory if `relative` is true.
@@ -142,14 +142,14 @@ For a SinglePart these two fields with the same semantics as their MIMI content 
 
 If there is only a single part its `part_index` is 0, and in this case it is optional.
 
-### multi_part objects
+### multi_part objects {#multipart-obj}
 
 A `multi_part` object is designed to carry multiple items, as with the MultiPart structure in MIMI content or the top level multipart media types. It contains the following fields.
 
 - `part_semantics` is one of "chooseOne", "singleUnit", or "processAll". It is mandatory.
 - `parts` is an array of `Part` objects. It is mandatory in a `multi_part` object.
 
-### Part objects
+### Part objects {#part-obj}
 
 The following fields can be in a Part object. They have the same meaning as their MIMI content counterparts.
 
@@ -160,7 +160,7 @@ The following fields can be in a Part object. They have the same meaning as thei
 
 If cardinality is "single" or "external", then `body`, `encoding`, and `mediatype` fields are included directly in the Part object.
 
-### external_part objects
+### external_part objects {#externalpart-obj}
 
 The `external_part` object can contain the following fields with similar meanings to those in MIMI content, with exceptions noted below.
 
@@ -203,7 +203,7 @@ The `party_history` object contains the following fields.
    - `leave`: user leaves of their own accord
    - `remove`: user is removed by another user
    - `ban`: user is banned from the group
-   - `update`:
+   - `update`: user or client is updated
 - `name` is the new name of the user. It is only permitted for an update event.
 - `role` is the new role assigned to the user. It is only permitted for an update event.
 
@@ -213,7 +213,7 @@ Changes to the room metadata should be accompanied by a new `room` dialog type.
 The `room` dialog type can contain anything in the top-level `room` object except for the `id` (which cannot change).
 It must contain a `time` field to convey the time of the change, and may contain an `originator` field to convey who made that change.
 
-## Attachments
+## Attachments {#attachments}
 
 An attachment consists of the following fields:
 
@@ -224,7 +224,7 @@ An attachment consists of the following fields:
 
 The `mediatype`, `filename`, `encoding`, and `body` fields are as they are defined in VCON and are all mandatory.
 
-## Message tombstones
+## Message tombstones {#tombstone-type}
 
 When a message has been deleted/retracted, or it expires, it can be valuable to present a record that such a message was previously present, by generating a dialog object with the following fields (which are all mandatory):
 
@@ -259,99 +259,140 @@ TODO Security
 
 # IANA Considerations
 
-add the following objects to the IANA vCon registries
+This document requests IANA to add following entries under the relevant registries in the vCon JSON Objects Group.
 
-## Room object and registry
+IANA, please replace RFCXXXX with the number of this document.
 
-- id
-- name
-- avatar
-- subject
-- mood
-- description
+## vCon Object Parameter Names Registry
 
-## Room description object and registry
+| Name | Description | Change Control | Reference |
+|------+-------------+----------------+-----------|
+| room | metadata about an instant messaging room or channel | IETF | {{room-obj}} of RFCXXXX |
 
-- type
-- lang
-- content
+## Room object registry
 
-## Party object types
+| Name | Description | Change Control | Reference |
+|------+-------------+----------------+-----------|
+| id   | room ID     | IETF | {{room-obj}} RFCXXXX |
+| name | The human-readable name of the room | IETF | {{room-obj}} RFCXXXX |
+| avatar | An image associated with the room | IETF | {{room-obj}} RFCXXXX |
+| subject | The subject of the room | IETF | {{room-obj}} RFCXXXX |
+| mood | The mood of the room | IETF | {{room-obj}} RFCXXXX |
+| description | The description of the room | IETF | {{room-obj}} RFCXXXX |
 
-- im_uri
-- role
-- thumbprint
+## Room description object registry
+
+This documents creates a new Room description object registry under the vCon JSON Objects Group.
+It has the following values.
+
+| Name | Description | Change Control | Reference |
+|------+-------------+----------------+-----------|
+| type | an optional media type of the description | IETF | {{room-obj}} RFCXXXX |
+| lang | the language of the description | IETF | {{room-obj}} RFCXXXX |
+| content | the content of the description | IETF | {{room-obj}} RFCXXXX |
+
+## Party object
+
+| Name | Description | Change Control | Reference |
+|------+-------------+----------------+-----------|
+| im_uri | The URI of an instant messaging users or room | IETF | {{parties-obj}} RFCXXXX |
+| role | The role of an instant messaging user | IETF | {{parties-obj}} RFCXXXX
+|
+| thumbprint | The public key thumbprint of an instant messaging client | IETF | {{parties-obj}} RFCXXXX |
 
 ## Dialog object types
 
-- salt
-- replaces
-- relative_time
-- expires
-- in_reply_to
-- mimi_extensions
-- franking_tag
-- frank
-- status
-- disposition
-- language
+| Name | Description | Change Control | Reference |
+|------+-------------+----------------+-----------|
+| salt | The message salt | IETF | {{dialog-fields}} RFCXXXX |
+| replaces | The message_id of another message this message replaces | IETF | {{dialog-fields}} RFCXXXX |
+| expires | When this message expires | IETF | {{dialog-fields}} RFCXXXX |
+| in_reply_to | The message_id of another message to which this message replies or reacts | IETF | {{dialog-fields}} RFCXXXX |
+| mimi_extensions | A map of any mimi_extensions associated with this message | IETF | {{dialog-fields}} RFCXXXX |
+| franking_tag | The sender-asserted franking_tag | IETF | {{dialog-fields}} RFCXXXX |
+| frank | The frank data structure returned by the MIMI server with the message | IETF | {{dialog-fields}} RFCXXXX |
+| disposition | The disposition of the message content | IETF | {{dialog-fields}} RFCXXXX |
+| language | The language of the message content (only if there is only one part) | IETF | {{dialog-fields}} RFCXXXX |
+| status | The status of a former message | IETF | {{tombstone-type}} RFCXXXX |
 
-## dialog_type object types
 
-- tombstone
+## Dialog Type Name Registry
+
+| Name | Description | Change Control | Reference |
+|------+-------------+----------------+-----------|
+| tombstone | the dialog event type is a tombstone | IETF | {{tombstone-type}} RFCXXXX |
 
 ## multi_part object type
 
-- part_semantics
-- parts
+This documents creates a new Multi_part object registry under the vCon JSON Objects Group.
+It has the following values.
 
-## parts
+| Name | Description | Change Control | Reference |
+|------+-------------+----------------+-----------|
+| part_semantics | How multiple parts in the same multi_part object are handled | IETF | {{multipart-obj}} RFCXXXX |
+| parts | An array of part objects | IETF | {{multipart-obj}} RFCXXXX |
 
-- part
 
 ## part object type
 
-- disposition
-- language
-- part_index
-- cardinality
-- mimetype
-- encoding
-- body
+This documents creates a new Part object registry under the vCon JSON Objects Group.
+It has the following values.
+
+| Name | Description | Change Control | Reference |
+|------+-------------+----------------+-----------|
+| disposition |  | IETF | {{part-obj}} RFCXXXX |
+| language | The language of the message part | IETF | {{part-obj}} RFCXXXX |
+| part_index | The relative index of the part within the message | IETF | {{part-obj}} RFCXXXX |
+| cardinality | one of "nullpart", "single", "external", or "multi" | IETF | {{part-obj}} RFCXXXX |
+| mediatype | The media type of the part | IETF | {{part-obj}} RFCXXXX |
+| encoding | The encoding of the message part (as in Section 2.3.1 of {{!I-D.ietf-vcon-vcon-core}}) | IETF | {{part-obj}} RFCXXXX |
+| body | The content of the message part | IETF | {{part-obj}} RFCXXXX |
+
 
 ## external_part object type
 
-- mediatype
-- url
-- expires
-- size
-- description
-- filename
-- content_hash
-- cached
-- enc_alg
-- key
-- nonce
-- aad
+This documents creates a new External_part object registry under the vCon JSON Objects Group.
+It has the following values.
+
+| Name | Description | Change Control | Reference |
+|------+-------------+----------------+-----------|
+| mediatype | the media type of the externally referenced content | IETF | {{externalpart-obj}} RFCXXXX |
+| url | the url of the externally referenced content | IETF | {{externalpart-obj}} RFCXXXX |
+| size | the size in bytes of the externally referenced content | IETF | {{externalpart-obj}} RFCXXXX |
+| description | the description of the externally referenced content | IETF | {{externalpart-obj}} RFCXXXX |
+| filename | the filename of the externally referenced content | IETF | {{externalpart-obj}} RFCXXXX |
+| content_hash | a representation of the MIMI contentHash and hashAlg of the externally referenced content | IETF | {{externalpart-obj}} RFCXXXX |
+| cached | whether the referenced content is cached | IETF | {{externalpart-obj}} RFCXXXX |
+| enc_alg_ | the encryption algorithm used to encrypt the externally referenced content | IETF | {{externalpart-obj}} RFCXXXX |
+| key | the encryption key of the externally referenced content | IETF | {{externalpart-obj}} RFCXXXX |
+| nonce | the encryption nonce of the externally referenced content | IETF | {{externalpart-obj}} RFCXXXX |
+| aad | the media type of the externally referenced content | IETF | {{externalpart-obj}} RFCXXXX |
 
 ## party_history object type
 
-- originator
-- name
-- role
+| Name | Description | Change Control | Reference |
+|------+-------------+----------------+-----------|
+| originator | which party index initiated this party_history event | IETF | {{party-history}} RFCXXXX |
+| name | the name of the party that initiated this party_history event | IETF | {{party-history}} RFCXXXX |
+| role | the role of the party that initiated this party_history event | IETF | {{party-history}} RFCXXXX |
 
 ## party_event object type
 
-- add
-- self_add
-- leave
-- remove
-- ban
-- update
+| Name | Description | Change Control | Reference |
+|------+-------------+----------------+-----------|
+| add | indicates the party was added by someone else | IETF | {{party-history}} RFCXXXX |
+| self_add_ | indicates the party was added by itself | IETF | {{party-history}} RFCXXXX |
+| leave | indicates the party left of their own accord | IETF | {{party-history}} RFCXXXX |
+| remove | indicates the party was removed by someone else | IETF | {{party-history}} RFCXXXX |
+| ban | indicates the party was banned | IETF | {{party-history}} RFCXXXX |
+| update | indicates the party changed | IETF | {{party-history}} RFCXXXX |
+
 
 ## attachment object type
 
-- dialog_object_ref
+| Name | Description | Change Control | Reference |
+|------+-------------+----------------+-----------|
+| dialog_object_ref | the message_id of the dialog object referencing this attachment | IETF | {{attachments}} RFCXXXX |
 
 
 --- back
